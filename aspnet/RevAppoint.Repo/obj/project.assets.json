@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/home/isaiah/.nuget/packages/": {}
+    "/home/elmer/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Repo/RevAppoint.Repo.csproj",
+      "projectUniqueName": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Repo/RevAppoint.Repo.csproj",
       "projectName": "RevAppoint.Repo",
-      "projectPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Repo/RevAppoint.Repo.csproj",
-      "packagesPath": "/home/isaiah/.nuget/packages/",
-      "outputPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Repo/obj/",
+      "projectPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Repo/RevAppoint.Repo.csproj",
+      "packagesPath": "/home/elmer/.nuget/packages/",
+      "outputPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Repo/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/isaiah/.nuget/NuGet/NuGet.Config"
+        "/home/elmer/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

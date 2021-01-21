@@ -5622,19 +5622,19 @@
     ]
   },
   "packageFolders": {
-    "/home/isaiah/.nuget/packages/": {}
+    "/home/elmer/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Testing/RevAppoint.Testing.csproj",
+      "projectUniqueName": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Testing/RevAppoint.Testing.csproj",
       "projectName": "RevAppoint.Testing",
-      "projectPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Testing/RevAppoint.Testing.csproj",
-      "packagesPath": "/home/isaiah/.nuget/packages/",
-      "outputPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Testing/obj/",
+      "projectPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Testing/RevAppoint.Testing.csproj",
+      "packagesPath": "/home/elmer/.nuget/packages/",
+      "outputPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Testing/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/isaiah/.nuget/NuGet/NuGet.Config"
+        "/home/elmer/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
