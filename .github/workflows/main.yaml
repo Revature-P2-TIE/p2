@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
       - run: docker image build -f ../Dockerfile -t thougtlesslion ..
-      - run: docker image tag thougtlesslion revature-p2/thougtlesslion
+      - run: docker image tag thougtlesslion elmertsai/revature-p2/thougtlesslion
       - run: docker image push elmertsai/revature-p2/thougtlesslion
       - run: docker logout
 
