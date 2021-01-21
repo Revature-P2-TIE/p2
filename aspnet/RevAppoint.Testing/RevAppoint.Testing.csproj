@@ -19,4 +19,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RevAppoint.Domain\RevAppoint.Domain.csproj" />
+    <ProjectReference Include="..\RevAppoint.Repo\RevAppoint.Repo.csproj" />
+    <ProjectReference Include="..\RevAppoint.Client\RevAppoint.Client.csproj" />
+  </ItemGroup>
+
 </Project>
