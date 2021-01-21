@@ -5772,7 +5772,7 @@
     "net5.0": [
       "Microsoft.EntityFrameworkCore >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.2",
-      "Microsoft.EntityFrameworkCore.sqlserver >= 5.0.2",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
       "RevAppoint.Domain >= 1.0.0"
     ]
   },
@@ -5827,7 +5827,7 @@
             "target": "Package",
             "version": "[5.0.2, )"
           },
-          "Microsoft.EntityFrameworkCore.sqlserver": {
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.2, )"
           }
