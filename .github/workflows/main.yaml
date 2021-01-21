@@ -36,7 +36,7 @@ jobs:
     needs:
       - build
       - test
-      - analyze
+      # - analyze
     runs-on: ubuntu-20.04
     env:
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
