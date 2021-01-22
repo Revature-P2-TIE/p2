@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/home/isaiah/.nuget/packages/": {}
+    "/home/taylor/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj",
+      "projectUniqueName": "/home/taylor/revature/projects/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj",
       "projectName": "RevAppoint.Domain",
-      "projectPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj",
-      "packagesPath": "/home/isaiah/.nuget/packages/",
-      "outputPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Domain/obj/",
+      "projectPath": "/home/taylor/revature/projects/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj",
+      "packagesPath": "/home/taylor/.nuget/packages/",
+      "outputPath": "/home/taylor/revature/projects/p2/p2/aspnet/RevAppoint.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/isaiah/.nuget/NuGet/NuGet.Config"
+        "/home/taylor/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }
