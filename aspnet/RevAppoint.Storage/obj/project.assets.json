@@ -1511,6 +1511,9 @@
       "RevAppoint.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.2"
+        },
         "compile": {
           "bin/placeholder/RevAppoint.Domain.dll": {}
         },
@@ -5771,25 +5774,26 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.EntityFrameworkCore >= 5.0.2",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
       "RevAppoint.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "/home/isaiah/.nuget/packages/": {}
+    "/home/elmer/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Storage/RevAppoint.Storage.csproj",
+      "projectUniqueName": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Storage/RevAppoint.Storage.csproj",
       "projectName": "RevAppoint.Storage",
-      "projectPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Storage/RevAppoint.Storage.csproj",
-      "packagesPath": "/home/isaiah/.nuget/packages/",
-      "outputPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Storage/obj/",
+      "projectPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Storage/RevAppoint.Storage.csproj",
+      "packagesPath": "/home/elmer/.nuget/packages/",
+      "outputPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Storage/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/isaiah/.nuget/NuGet/NuGet.Config"
+        "/home/elmer/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5801,8 +5805,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj": {
-              "projectPath": "/home/isaiah/revature/p2/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj"
+            "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj": {
+              "projectPath": "/home/elmer/revature/projects/p2/aspnet/RevAppoint.Domain/RevAppoint.Domain.csproj"
             }
           }
         }
@@ -5818,6 +5822,10 @@
         "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
             "target": "Package",
             "version": "[5.0.2, )"
           },
@@ -5847,7 +5855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }
