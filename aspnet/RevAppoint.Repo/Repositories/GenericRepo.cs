@@ -8,7 +8,9 @@ namespace RevAppoint.Repo.Repositories
     public class GenericRepo<T> where T : class
     {
         private RevAppointContext _context;
+        
         private DbSet<T> table;
+
         public GenericRepo()
         {
             this._context = new RevAppointContext();
