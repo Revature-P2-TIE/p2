@@ -1,0 +1,4 @@
+namespace RevAppoint.Client.Models
+{
+
+}
