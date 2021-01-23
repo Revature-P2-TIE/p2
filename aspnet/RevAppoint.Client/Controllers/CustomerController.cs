@@ -9,12 +9,12 @@ namespace RevAppoint.Client.Controllers
     public class CustomerController : Controller
     {
         private UnitOfWork Repo;
-        public CustomerController(UnitOfWork _repo)
+        public CustomerController(UnitOfWork repo)
         {
-            Repo = _repo;
+            Repo = repo;
         }
 
-        [HttpGet("/Client")]
+        [HttpGet("/Customer")]
         public IActionResult GetUser()
         {
             return View("Login", new CustomerViewModel(Repo));
@@ -22,19 +22,19 @@ namespace RevAppoint.Client.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SelectUser(CustomerViewModel _customer)
+        public IActionResult SelectUser(CustomerViewModel customer)
         {
-        if(ModelState.IsValid)
-        {
-            _customer.Customer = Repo.CustomerRepo.GetCustomer(_customer.Username);
-            // Client.OrderHistory = Repo.OrderRepo.GetOrderByUser(Client.User);
-            return View("Login",_customer);
-        }
-        else
-        {
-            _customer.Customers = Repo.GetAll<Customer>();
-            return View("Customer",_customer);
-        }
+            if(ModelState.IsValid)
+            {
+                customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
+                // Client.OrderHistory = Repo.OrderRepo.GetOrderByUser(Client.User);
+                return View("UserHome", customer);
+            }
+            else
+            {
+                customer.Customers = Repo.GetAll<Customer>();
+                return View("Login", customer);
+            }
         }
     }
 }

@@ -1,0 +1,13 @@
+@model RevAppoint.Client.Models.CustomerViewModel;
+
+Hello, @Model.Customer.FirstName
+
+@using (@Html.BeginForm("DisplayStores", "Customer",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input type="submit" value="Book Appointment"/>
+}
+
+@using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input type="submit" value="View History"/>
+}
