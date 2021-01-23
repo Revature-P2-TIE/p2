@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
 using RevAppoint.Domain.POCOs;
@@ -50,6 +51,22 @@ namespace RevAppoint.Client.Controllers
             {
                 return RedirectToAction("GetUser");
             }
+        }
+        [HttpGet("/AppointmentHistory")]
+        public IActionResult AppointmentHistory(string customerUsername)
+        {
+            if(customerUsername != null)
+            {
+                AppointmentViewModel appointment = new AppointmentViewModel();
+                appointment.Appointments = Repo.CustomerRepo.GetAppointments(customerUsername).ToList();
+                return View("UserHistory",appointment);
+
+            }
+            else
+            {
+                return RedirectToAction("GetUser");
+            }
+
         }
 
     }
