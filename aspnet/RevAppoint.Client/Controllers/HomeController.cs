@@ -24,7 +24,6 @@ namespace RevAppoint.Client.Controllers
 
         public IActionResult Index()
         {
-            _repo.GetAll<User>();
             return View();
         }
 

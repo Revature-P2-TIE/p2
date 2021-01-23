@@ -8,21 +8,21 @@ namespace RevAppoint.Repo.Repositories
     public class UnitOfWork
     {
         protected readonly RevAppointContext _db;
-        private UserRepo _UserRepo;
+        private CustomerRepo _CustomerRepo;
         
         public UnitOfWork(RevAppointContext _context)
         {
             _db = _context;
         }
-        public UserRepo UserRepo
+        public CustomerRepo CustomerRepo
         {
           get
           {
-              if(_UserRepo == null)
+              if(_CustomerRepo == null)
               {
-                _UserRepo = new UserRepo(_db);
+                _CustomerRepo = new CustomerRepo(_db);
               }
-              return _UserRepo;
+              return _CustomerRepo;
           }
         }
          public IList<T> GetAll<T>() where T : class
