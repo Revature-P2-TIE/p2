@@ -25,12 +25,14 @@ namespace RevAppoint.Client.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
+ 
             if(ModelState.IsValid)
             {
                 customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
                 // customer.AppointmentHistory = Repo.AppointmentRepo.GetAppointmentByUser(customer.User);
                 return View("UserHome", customer);
             }
+            //TODO ADD LOGIC TO CHECH IF THEY ARE A PROFESSIONAL
             else
             {
                 customer.Customers = Repo.GetAll<Customer>();
@@ -38,21 +40,20 @@ namespace RevAppoint.Client.Controllers
             }
         }
 
-        [HttpGet("/Professionals/{id}")]
-        public IActionResult DisplayProfessionals(string id)
+        [HttpPost("/Display")]
+        public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
-            if(id != null)
-            {
-                var professional = new ProfessionalViewModel(Repo);
-                professional.Username = RouteData.Values["id"].ToString();
-                return View("DisplayProfessionals", professional);
-            }
-            else
-            {
-                return RedirectToAction("GetUser");
-            }
+            return View("DisplayProfessionals", model);
         }
-        [HttpGet("/AppointmentHistory")]
+        [HttpGet("/SearchForProfessionals/{id}")]
+        public IActionResult SearchForProfessionals(string id)
+        {
+           CustomerViewModel customer = new CustomerViewModel();
+           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+           customer.Username = customer.Customer.Username;
+           return View("SearchForProfessional", customer);
+        }
+        [HttpGet("/AppointmentHistory/{id}")]
         public IActionResult AppointmentHistory(string customerUsername)
         {
             if(customerUsername != null)
@@ -67,6 +68,14 @@ namespace RevAppoint.Client.Controllers
                 return RedirectToAction("GetUser");
             }
 
+        }
+        [HttpGet("/CurrentAppointments/{id}")]
+        public IActionResult CurrentAppointments(string id)
+        {
+           CustomerViewModel customer = new CustomerViewModel();
+           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+            customer.Username = customer.Customer.Username;
+            return View("CurrentAppointment", customer);
         }
 
     }

@@ -2,7 +2,7 @@
 
 Hello, @Model.Customer.FirstName
 
-@using (@Html.BeginForm("DisplayProfessionals", "Customer",new {id = @Model.Username}, FormMethod.Get))
+@using (@Html.BeginForm("SearchForProfessionals", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {
   <input type="submit" value="Find A Professional"/>
 }
@@ -10,4 +10,9 @@ Hello, @Model.Customer.FirstName
 @using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {
   <input type="submit" value="View History"/>
+}
+
+@using (@Html.BeginForm("CurrentAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input type="submit" value="View Current Appointments"/>
 }

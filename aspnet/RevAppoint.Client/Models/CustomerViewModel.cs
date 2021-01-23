@@ -13,6 +13,7 @@ namespace RevAppoint.Client.Models
         public Customer Customer { get; set; }
         public IEnumerable<Appointment> AppointmentHistory {get;set;}
         public Appointment Appointment {get;set;}
+        public string SearchParam {get;set;}
         public CustomerViewModel(){}
         public CustomerViewModel(UnitOfWork Repo)
         {

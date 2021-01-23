@@ -12,5 +12,12 @@ namespace RevAppoint.Domain.POCOs
             this.FirstName = firstName;
             this.LastName = lastName;
         }
+
+      //  public void CreateAppointment(Time start, Time Finish, Professional professional)
+     //   {
+
+     //   }
+
+      //  public void CheckIfTimeIsBetween(Time availablility, Time startTime)
     }
 }

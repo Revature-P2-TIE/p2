@@ -1,30 +1,6 @@
-@model RevAppoint.Client.Models.ProfessionalViewModel;
+@model RevAppoint.Client.Models.CustomerViewModel;
 
 Choose a Professional
 
-@Html.ValidationMessageFor(m => m.Professional,"", new { @class = "text-danger" })
-<br>
-<table style="width:100%">
-  <tr>
-    <td><u>Title</u></td>
-    <td><u>First Name</u></td>
-    <td><u>Last Name</u></td>
-    <td><u>Location</u></td>
-    <td><u></u></td>
-  </tr>
-  @foreach (var item in Model.Professionals)
-  {
-    <tr>
-      <td>@item.Title</td>
-      @* <td>@Html.DisplayFor(m=>item.OrderTime)</td> *@
-      <td>@item.FirstName</td>
-      <td>@item.LastName</td>
-      <td>@item.Location</td>
-        @using (@Html.BeginForm("SelectTime", "Customer", FormMethod.Post))
-        {
-            <td><input type="submit" value="Select Professional"/></td>
-        }
-    </tr>
-    
-}
-</table>
+<p>Username = @Model.Username</p>
+<p>SearchParam = @Model.SearchParam</p>
