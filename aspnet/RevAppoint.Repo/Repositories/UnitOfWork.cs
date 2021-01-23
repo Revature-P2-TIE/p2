@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using RevAppoint.Storage;
 
 namespace RevAppoint.Repo.Repositories
@@ -21,6 +24,32 @@ namespace RevAppoint.Repo.Repositories
               }
               return _UserRepo;
           }
+        }
+         public IList<T> GetAll<T>() where T : class
+        {
+            return _db.Set<T>().ToList();
+        }
+        public T GetById<T>(object id) where T : class
+        {
+            return _db.Set<T>().Find(id);
+        }
+        public void Insert<T>(T obj) where T : class
+        {
+            _db.Set<T>().Add(obj);
+        }
+        public void Update<T>(T obj) where T : class
+        {
+            _db.Set<T>().Attach(obj);
+            _db.Entry(obj).State = EntityState.Modified;
+        }
+        public void Delete<T>(object id) where T : class
+        {
+            T existing = _db.Set<T>().Find(id);
+            _db.Set<T>().Remove(existing);
+        }
+        public void Save()
+        {
+            _db.SaveChanges();
         }
 
     }
