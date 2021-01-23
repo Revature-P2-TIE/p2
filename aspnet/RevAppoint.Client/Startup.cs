@@ -28,20 +28,15 @@ namespace RevAppoint.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           // services.AddControllersWithViews();
+            services.AddControllersWithViews();
             services.AddDbContext<RevAppointContext>(options =>
             {
-            options.UseSqlServer(Configuration.GetConnectionString("sqlserver"), opts =>
-            {
-            opts.EnableRetryOnFailure(2);
-        });
-      });
-        
-      services.AddScoped<GenericRepo<User>>();
-      services.AddScoped<GenericRepo<Appointment>>();
-      services.AddScoped<GenericRepo<Professional>>();
-      services.AddScoped<GenericRepo<Time>>();
-
+                options.UseSqlServer(Configuration.GetConnectionString("sqlserver"), opts =>
+                {
+                    opts.EnableRetryOnFailure(2);
+                });
+            });
+            services.AddScoped<UnitOfWork>();
         }
         
 
