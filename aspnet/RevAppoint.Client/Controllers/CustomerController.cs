@@ -51,5 +51,6 @@ namespace RevAppoint.Client.Controllers
                 return RedirectToAction("GetUser");
             }
         }
+
     }
 }
