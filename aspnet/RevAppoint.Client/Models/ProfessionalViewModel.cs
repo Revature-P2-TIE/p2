@@ -2,7 +2,8 @@
 
 namespace RevAppoint.Client.Models
 {
-    public class UserViewModel
+    public class ProfessionalViewModel
     {
+
     }
 }
