@@ -10,8 +10,8 @@ using RevAppoint.Storage;
 namespace RevAppoint.Storage.Migrations
 {
     [DbContext(typeof(RevAppointContext))]
-    [Migration("20210124030613_AddedAppointmentLength")]
-    partial class AddedAppointmentLength
+    [Migration("20210124082900_AddedIsAccepted")]
+    partial class AddedIsAccepted
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace RevAppoint.Storage.Migrations
 
                     b.Property<long?>("ClientEntityID")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsFufilled")
                         .HasColumnType("bit");
@@ -96,7 +99,7 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637470363726317199L,
+                            EntityID = 637470557392729784L,
                             FirstName = "Melvin",
                             LastName = "Mac",
                             Password = "Password",
@@ -104,7 +107,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351446L,
+                            EntityID = 637470557392765176L,
                             FirstName = "Barbara",
                             LastName = "Gross",
                             Password = "Password",
@@ -112,7 +115,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351477L,
+                            EntityID = 637470557392765257L,
                             FirstName = "Faiza",
                             LastName = "Bowman",
                             Password = "Password",
@@ -120,7 +123,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351483L,
+                            EntityID = 637470557392765264L,
                             FirstName = "Nathalie",
                             LastName = "Fellows",
                             Password = "Password",
@@ -128,7 +131,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351487L,
+                            EntityID = 637470557392765268L,
                             FirstName = "Barney",
                             LastName = "Simons",
                             Password = "Password",
@@ -136,7 +139,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351496L,
+                            EntityID = 637470557392765284L,
                             FirstName = "Adrianna",
                             LastName = "Prentice",
                             Password = "Password",
@@ -144,7 +147,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726351500L,
+                            EntityID = 637470557392765289L,
                             FirstName = "Maxim",
                             LastName = "Fowler",
                             Password = "Password",
@@ -175,7 +178,7 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637470363726367021L,
+                            EntityID = 637470557392789599L,
                             FirstName = "Shelley",
                             LastName = "Stacey",
                             Password = "BadPassword",
@@ -186,7 +189,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368472L,
+                            EntityID = 637470557392792364L,
                             FirstName = "Salgado",
                             LastName = "Arnie",
                             Password = "BadPassword",
@@ -197,7 +200,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368485L,
+                            EntityID = 637470557392792407L,
                             FirstName = "Chanel",
                             LastName = "Tamera",
                             Password = "BadPassword",
@@ -208,7 +211,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368490L,
+                            EntityID = 637470557392792414L,
                             FirstName = "Lawrence",
                             LastName = "Gregg",
                             Password = "BadPassword",
@@ -219,7 +222,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368494L,
+                            EntityID = 637470557392792419L,
                             FirstName = "Ibrahim",
                             LastName = "Elis",
                             Password = "BadPassword",
@@ -230,7 +233,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368504L,
+                            EntityID = 637470557392792442L,
                             FirstName = "Page",
                             LastName = "Branch",
                             Password = "BadPassword",
@@ -241,7 +244,7 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637470363726368508L,
+                            EntityID = 637470557392792450L,
                             FirstName = "Chante",
                             LastName = "Jacob",
                             Password = "BadPassword",

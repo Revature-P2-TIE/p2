@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RevAppoint.Storage.Migrations
 {
-    public partial class AddedAppointmentLength : Migration
+    public partial class AddedIsAccepted : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -87,6 +87,7 @@ namespace RevAppoint.Storage.Migrations
                     TimeEntityID = table.Column<long>(type: "bigint", nullable: true),
                     ProfessionalEntityID = table.Column<long>(type: "bigint", nullable: true),
                     ClientEntityID = table.Column<long>(type: "bigint", nullable: true),
+                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
                     IsFufilled = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -117,20 +118,20 @@ namespace RevAppoint.Storage.Migrations
                 columns: new[] { "EntityID", "FirstName", "LastName", "Password", "Username" },
                 values: new object[,]
                 {
-                    { 637470363726317199L, "Melvin", "Mac", "Password", "Username1" },
-                    { 637470363726351446L, "Barbara", "Gross", "Password", "trombone" },
-                    { 637470363726351477L, "Faiza", "Bowman", "Password", "chicken" },
-                    { 637470363726351483L, "Nathalie", "Fellows", "Password", "foxtrail" },
-                    { 637470363726351487L, "Barney", "Simons", "Password", "perseus" },
-                    { 637470363726351496L, "Adrianna", "Prentice", "Password", "applepie" },
-                    { 637470363726351500L, "Maxim", "Fowler", "Password", "candyfog" },
-                    { 637470363726367021L, "Shelley", "Stacey", "BadPassword", "banjojudo" },
-                    { 637470363726368472L, "Salgado", "Arnie", "BadPassword", "hotdogpeas" },
-                    { 637470363726368485L, "Chanel", "Tamera", "BadPassword", "psychobatman" },
-                    { 637470363726368490L, "Lawrence", "Gregg", "BadPassword", "brownbread" },
-                    { 637470363726368494L, "Ibrahim", "Elis", "BadPassword", "oystersnatch" },
-                    { 637470363726368504L, "Page", "Branch", "BadPassword", "islandhorse" },
-                    { 637470363726368508L, "Chante", "Jacob", "BadPassword", "cocktailwave" }
+                    { 637470557392729784L, "Melvin", "Mac", "Password", "Username1" },
+                    { 637470557392765176L, "Barbara", "Gross", "Password", "trombone" },
+                    { 637470557392765257L, "Faiza", "Bowman", "Password", "chicken" },
+                    { 637470557392765264L, "Nathalie", "Fellows", "Password", "foxtrail" },
+                    { 637470557392765268L, "Barney", "Simons", "Password", "perseus" },
+                    { 637470557392765284L, "Adrianna", "Prentice", "Password", "applepie" },
+                    { 637470557392765289L, "Maxim", "Fowler", "Password", "candyfog" },
+                    { 637470557392789599L, "Shelley", "Stacey", "BadPassword", "banjojudo" },
+                    { 637470557392792364L, "Salgado", "Arnie", "BadPassword", "hotdogpeas" },
+                    { 637470557392792407L, "Chanel", "Tamera", "BadPassword", "psychobatman" },
+                    { 637470557392792414L, "Lawrence", "Gregg", "BadPassword", "brownbread" },
+                    { 637470557392792419L, "Ibrahim", "Elis", "BadPassword", "oystersnatch" },
+                    { 637470557392792442L, "Page", "Branch", "BadPassword", "islandhorse" },
+                    { 637470557392792450L, "Chante", "Jacob", "BadPassword", "cocktailwave" }
                 });
 
             migrationBuilder.InsertData(
@@ -138,13 +139,13 @@ namespace RevAppoint.Storage.Migrations
                 column: "EntityID",
                 values: new object[]
                 {
-                    637470363726317199L,
-                    637470363726351446L,
-                    637470363726351477L,
-                    637470363726351483L,
-                    637470363726351487L,
-                    637470363726351496L,
-                    637470363726351500L
+                    637470557392729784L,
+                    637470557392765176L,
+                    637470557392765257L,
+                    637470557392765264L,
+                    637470557392765268L,
+                    637470557392765284L,
+                    637470557392765289L
                 });
 
             migrationBuilder.InsertData(
@@ -152,13 +153,13 @@ namespace RevAppoint.Storage.Migrations
                 columns: new[] { "EntityID", "AppointmentLengthInHours", "AvailableTimeEntityID", "Location", "Title" },
                 values: new object[,]
                 {
-                    { 637470363726367021L, 1, null, "Chicago", "Blacksmith" },
-                    { 637470363726368472L, 2, null, "Las Vegas", "Web Developer" },
-                    { 637470363726368485L, 3, null, "Las Vegas", "Driver" },
-                    { 637470363726368490L, 1, null, "New York", "Nurse" },
-                    { 637470363726368494L, 2, null, "New York", "Barber" },
-                    { 637470363726368504L, 4, null, "Chicago", "Barber" },
-                    { 637470363726368508L, 12, null, "Chicago", "Web Developer" }
+                    { 637470557392789599L, 1, null, "Chicago", "Blacksmith" },
+                    { 637470557392792364L, 2, null, "Las Vegas", "Web Developer" },
+                    { 637470557392792407L, 3, null, "Las Vegas", "Driver" },
+                    { 637470557392792414L, 1, null, "New York", "Nurse" },
+                    { 637470557392792419L, 2, null, "New York", "Barber" },
+                    { 637470557392792442L, 4, null, "Chicago", "Barber" },
+                    { 637470557392792450L, 12, null, "Chicago", "Web Developer" }
                 });
 
             migrationBuilder.CreateIndex(
