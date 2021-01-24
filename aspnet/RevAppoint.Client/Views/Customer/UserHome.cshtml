@@ -7,9 +7,8 @@ Hello, @Model.Customer.FirstName
   <input type="submit" value="Find A Professional"/>
 }
 
-@using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = Model.Username}, FormMethod.Get))
+@using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {
-  @Html.HiddenFor(m => m.Username)
   <input type="submit" value="View History"/>
   
 }

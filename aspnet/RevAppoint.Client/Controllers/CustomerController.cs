@@ -25,14 +25,13 @@ namespace RevAppoint.Client.Controllers
             return View("Login", new CustomerViewModel(Repo));
         }
 
-        [HttpPost]
+        [HttpPost("/Home")]
         [ValidateAntiForgeryToken]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
             if(ModelState.IsValid)
             {
                 customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
-                // customer.AppointmentHistory = Repo.AppointmentRepo.GetAppointmentByUser(customer.User);
                 return View("UserHome", customer);
             }
             else
@@ -42,13 +41,22 @@ namespace RevAppoint.Client.Controllers
             }
         }
 
+        [HttpGet("/Home/{username}")]
+        public IActionResult Home(string username)
+        {
+            var CustomerViewModel = new CustomerViewModel();
+            CustomerViewModel.Username = username;
+            CustomerViewModel.Customer = Repo.CustomerRepo.GetCustomer(username);
+            return View("UserHome", CustomerViewModel);    
+        }
+
         [HttpGet("/Professionals/{id}")]
         public IActionResult DisplayProfessionals(string id)
         {
             if(id != null)
             {
                 var professional = new ProfessionalViewModel(Repo);
-                professional.Username = RouteData.Values["id"].ToString();
+                ViewBag.Customer = id;
                 return View("DisplayProfessionals", professional);
             }
             else
@@ -56,57 +64,56 @@ namespace RevAppoint.Client.Controllers
                 return RedirectToAction("GetUser");
             }
         }
-        [Route("AppointmentHistory")]
-        [HttpGet("/AppointmentHistory")]
-        public IActionResult AppointmentHistory(AppointmentViewModel model, string id)
-        {
-            if(model != null)
-            {
-                AppointmentViewModel appointment = new AppointmentViewModel();
-                appointment.Appointments = Repo.CustomerRepo.GetAppointments(id).ToList();
-                return View("UserHistory",appointment);
 
-            }
-            else
-            {
-                return RedirectToAction("GetUser");
-            }
-
-        }
-        [HttpPost("/Customer/SelectTime")]
-        public IActionResult SelectTime(string id)
+        [HttpGet("/History/{id}")]
+        public IActionResult AppointmentHistory(string id)
         {
             AppointmentViewModel appointment = new AppointmentViewModel();
-            return View("SelectTime");
-
+            var Customer = Repo.CustomerRepo.GetCustomer(id);
+            appointment.Appointments = Repo.CustomerRepo.GetAppointments(Customer.EntityID).ToList();
+            return View("UserHistory",appointment);
         }
-        [HttpPost("/Customer/PostAppointment")]
-        public IActionResult PostAppointment(AppointmentViewModel model)
+
+        [HttpPost("/SelectTime")]
+        public IActionResult SelectTime(string id,string profid)
         {
-            System.Console.WriteLine(model.StartTime.Trim());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+            appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
+
+            return View("SelectTime", appointment);
+        }
+
+        [HttpPost("/SetAppointment")]
+        public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
+        {
             string format = "MM/dd/yyyy h:mm tt";
             CultureInfo provider = CultureInfo.InvariantCulture;
+
             Appointment appointment = new Appointment();
-            try {
+            appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
+            var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+
+            try 
+            {
                 DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
                 appointment.Time = new Time();
                 appointment.Time.Start = startTime;
-                appointment.Time.End = startTime.AddHours(2);
+                appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
                 // Console.WriteLine("{0} converts to {1}.", model.StartTime.Trim(), startTime.ToString());
-
             }
-            catch (FormatException) {
+            catch (FormatException) 
+            {
                 // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
             }
 
-            appointment.Client = Repo.GetAll<Customer>().Last();
-            appointment.Professional = Repo.GetAll<Professional>().Last();
             appointment.IsFufilled = false;
             Repo.Insert<Appointment>(appointment);
             Repo.Save();
-            return View("SelectTime");
+            CustomerViewModel customer = new CustomerViewModel();
+            customer.Username = appointment.Client.Username;
+            return RedirectToAction("Home",customer);
 
         }
-
     }
 }

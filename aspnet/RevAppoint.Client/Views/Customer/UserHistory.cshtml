@@ -1,40 +1,24 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
-Choose a Professional
+Appointment History
 
-@Html.ValidationMessageFor(m => m.Appointments,"", new { @class = "text-danger" })
 <br>
 <table style="width:100%">
   <tr>
     <td><u>Appointment ID</u></td>
     <td><u>Professional Name</u></td> @*Override toString method here?*@
-    <td><u>Client Name</u></td> 
     <td><u>Is Fufilled</u></td>
     <td><u>Start Time</u></td>
     <td><u>End Time</u></td>
-    <td><u></u></td>
   </tr>
   @foreach (var item in Model.Appointments)
   {
     <tr>
     <td>@item.EntityID</td>
-      @* <td>@Html.DisplayFor(m=>item.OrderTime)</td> *@
-      <td>@item.Professional</td>
-      <td>@item.Client</td>
-      @if (@item.IsFufilled)
-      {
-        <td>Yes</td>
-      }
-      else
-      {
-        <td>No</td>  
-      }
-      <td>@item.Time.Start</td>
-      <td>@item.Time.End</td>
-        @using (@Html.BeginForm("SelectTime", "Customer", FormMethod.Post))
-        {
-            <td><input type="submit" value="Select Professional"/></td>
-        }
+    <td>@item.Professional.FirstName</td>
+    <td>@item.IsFufilled</td>
+    <td>@item.Time.Start.ToString("MM/dd/yyyy hh:mm tt")</td>
+    <td>@item.Time.End.ToString("MM/dd/yyyy hh:mm tt")</td>
     </tr>
     
 }

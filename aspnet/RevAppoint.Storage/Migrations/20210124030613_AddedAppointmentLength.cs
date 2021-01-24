@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RevAppoint.Storage.Migrations
 {
-    public partial class seeddatabase : Migration
+    public partial class AddedAppointmentLength : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,7 +59,8 @@ namespace RevAppoint.Storage.Migrations
                     EntityID = table.Column<long>(type: "bigint", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AvailableTimeEntityID = table.Column<long>(type: "bigint", nullable: true)
+                    AvailableTimeEntityID = table.Column<long>(type: "bigint", nullable: true),
+                    AppointmentLengthInHours = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,22 +115,51 @@ namespace RevAppoint.Storage.Migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "EntityID", "FirstName", "LastName", "Password", "Username" },
-                values: new object[] { 637469593152501870L, "Isaiah", "Smith", "BadPassWord21", "Username1" });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "EntityID", "FirstName", "LastName", "Password", "Username" },
-                values: new object[] { 637469593152589270L, "John", "Jacob", "BadPassWord24", "Speedy12" });
+                values: new object[,]
+                {
+                    { 637470363726317199L, "Melvin", "Mac", "Password", "Username1" },
+                    { 637470363726351446L, "Barbara", "Gross", "Password", "trombone" },
+                    { 637470363726351477L, "Faiza", "Bowman", "Password", "chicken" },
+                    { 637470363726351483L, "Nathalie", "Fellows", "Password", "foxtrail" },
+                    { 637470363726351487L, "Barney", "Simons", "Password", "perseus" },
+                    { 637470363726351496L, "Adrianna", "Prentice", "Password", "applepie" },
+                    { 637470363726351500L, "Maxim", "Fowler", "Password", "candyfog" },
+                    { 637470363726367021L, "Shelley", "Stacey", "BadPassword", "banjojudo" },
+                    { 637470363726368472L, "Salgado", "Arnie", "BadPassword", "hotdogpeas" },
+                    { 637470363726368485L, "Chanel", "Tamera", "BadPassword", "psychobatman" },
+                    { 637470363726368490L, "Lawrence", "Gregg", "BadPassword", "brownbread" },
+                    { 637470363726368494L, "Ibrahim", "Elis", "BadPassword", "oystersnatch" },
+                    { 637470363726368504L, "Page", "Branch", "BadPassword", "islandhorse" },
+                    { 637470363726368508L, "Chante", "Jacob", "BadPassword", "cocktailwave" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Customer",
                 column: "EntityID",
-                value: 637469593152501870L);
+                values: new object[]
+                {
+                    637470363726317199L,
+                    637470363726351446L,
+                    637470363726351477L,
+                    637470363726351483L,
+                    637470363726351487L,
+                    637470363726351496L,
+                    637470363726351500L
+                });
 
             migrationBuilder.InsertData(
                 table: "Professional",
-                columns: new[] { "EntityID", "AvailableTimeEntityID", "Location", "Title" },
-                values: new object[] { 637469593152589270L, null, "Chicago", "Blacksmith" });
+                columns: new[] { "EntityID", "AppointmentLengthInHours", "AvailableTimeEntityID", "Location", "Title" },
+                values: new object[,]
+                {
+                    { 637470363726367021L, 1, null, "Chicago", "Blacksmith" },
+                    { 637470363726368472L, 2, null, "Las Vegas", "Web Developer" },
+                    { 637470363726368485L, 3, null, "Las Vegas", "Driver" },
+                    { 637470363726368490L, 1, null, "New York", "Nurse" },
+                    { 637470363726368494L, 2, null, "New York", "Barber" },
+                    { 637470363726368504L, 4, null, "Chicago", "Barber" },
+                    { 637470363726368508L, 12, null, "Chicago", "Web Developer" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_ClientEntityID",

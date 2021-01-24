@@ -9,6 +9,7 @@ namespace RevAppoint.Repo.Repositories
     {
         protected readonly RevAppointContext _db;
         private CustomerRepo _CustomerRepo;
+        private ProfessionalRepo _ProfessionalRepo;
         
         public UnitOfWork(RevAppointContext _context)
         {
@@ -23,6 +24,17 @@ namespace RevAppoint.Repo.Repositories
                 _CustomerRepo = new CustomerRepo(_db);
               }
               return _CustomerRepo;
+          }
+        }
+        public ProfessionalRepo ProfessionalRepo
+        {
+          get
+          {
+              if(_ProfessionalRepo == null)
+              {
+                _ProfessionalRepo = new ProfessionalRepo(_db);
+              }
+              return _ProfessionalRepo;
           }
         }
          public IList<T> GetAll<T>() where T : class

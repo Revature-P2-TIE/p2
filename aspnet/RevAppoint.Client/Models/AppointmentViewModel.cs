@@ -9,7 +9,10 @@ namespace RevAppoint.Client.Models
         public List<Appointment> Appointments { get; set; }
         public string StartTime { get; set; }
         public Professional Professional { get; set;}
+        public string ProfessionalUsername{get;set;}
         public Customer Customer { get; set;}  
-        public DateTime Time { get; set; }        
+        public string CustomerUsername {get;set;}
+        public DateTime Time { get; set; }    
+
     }
 }

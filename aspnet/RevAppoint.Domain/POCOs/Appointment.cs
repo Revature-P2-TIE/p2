@@ -15,5 +15,6 @@ namespace RevAppoint.Domain.POCOs
             this.Client = client;
             this.IsFufilled = false;
         }
+
     }
 }
