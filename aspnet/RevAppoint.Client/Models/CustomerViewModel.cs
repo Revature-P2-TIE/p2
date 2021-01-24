@@ -10,6 +10,7 @@ namespace RevAppoint.Client.Models
         [Required(AllowEmptyStrings=false)]
         public string Username{get;set;}
         public IEnumerable<Customer> Customers { get; set; }
+        public IEnumerable<Professional> Professionals { get; set; }
         public Customer Customer { get; set; }
         public IEnumerable<Appointment> AppointmentHistory {get;set;}
         public Appointment Appointment {get;set;}
