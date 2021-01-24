@@ -10,8 +10,8 @@ using RevAppoint.Storage;
 namespace RevAppoint.Storage.Migrations
 {
     [DbContext(typeof(RevAppointContext))]
-    [Migration("20210123054155_seeddatabase")]
-    partial class seeddatabase
+    [Migration("20210124082900_AddedIsAccepted")]
+    partial class AddedIsAccepted
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace RevAppoint.Storage.Migrations
 
                     b.Property<long?>("ClientEntityID")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsFufilled")
                         .HasColumnType("bit");
@@ -96,17 +99,68 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637469593152501870L,
-                            FirstName = "Isaiah",
-                            LastName = "Smith",
-                            Password = "BadPassWord21",
+                            EntityID = 637470557392729784L,
+                            FirstName = "Melvin",
+                            LastName = "Mac",
+                            Password = "Password",
                             Username = "Username1"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765176L,
+                            FirstName = "Barbara",
+                            LastName = "Gross",
+                            Password = "Password",
+                            Username = "trombone"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765257L,
+                            FirstName = "Faiza",
+                            LastName = "Bowman",
+                            Password = "Password",
+                            Username = "chicken"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765264L,
+                            FirstName = "Nathalie",
+                            LastName = "Fellows",
+                            Password = "Password",
+                            Username = "foxtrail"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765268L,
+                            FirstName = "Barney",
+                            LastName = "Simons",
+                            Password = "Password",
+                            Username = "perseus"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765284L,
+                            FirstName = "Adrianna",
+                            LastName = "Prentice",
+                            Password = "Password",
+                            Username = "applepie"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392765289L,
+                            FirstName = "Maxim",
+                            LastName = "Fowler",
+                            Password = "Password",
+                            Username = "candyfog"
                         });
                 });
 
             modelBuilder.Entity("RevAppoint.Domain.POCOs.Professional", b =>
                 {
                     b.HasBaseType("RevAppoint.Domain.POCOs.User");
+
+                    b.Property<int>("AppointmentLengthInHours")
+                        .HasColumnType("int");
 
                     b.Property<long?>("AvailableTimeEntityID")
                         .HasColumnType("bigint");
@@ -124,13 +178,80 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637469593152589270L,
-                            FirstName = "John",
-                            LastName = "Jacob",
-                            Password = "BadPassWord24",
-                            Username = "Speedy12",
+                            EntityID = 637470557392789599L,
+                            FirstName = "Shelley",
+                            LastName = "Stacey",
+                            Password = "BadPassword",
+                            Username = "banjojudo",
+                            AppointmentLengthInHours = 1,
                             Location = "Chicago",
                             Title = "Blacksmith"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792364L,
+                            FirstName = "Salgado",
+                            LastName = "Arnie",
+                            Password = "BadPassword",
+                            Username = "hotdogpeas",
+                            AppointmentLengthInHours = 2,
+                            Location = "Las Vegas",
+                            Title = "Web Developer"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792407L,
+                            FirstName = "Chanel",
+                            LastName = "Tamera",
+                            Password = "BadPassword",
+                            Username = "psychobatman",
+                            AppointmentLengthInHours = 3,
+                            Location = "Las Vegas",
+                            Title = "Driver"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792414L,
+                            FirstName = "Lawrence",
+                            LastName = "Gregg",
+                            Password = "BadPassword",
+                            Username = "brownbread",
+                            AppointmentLengthInHours = 1,
+                            Location = "New York",
+                            Title = "Nurse"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792419L,
+                            FirstName = "Ibrahim",
+                            LastName = "Elis",
+                            Password = "BadPassword",
+                            Username = "oystersnatch",
+                            AppointmentLengthInHours = 2,
+                            Location = "New York",
+                            Title = "Barber"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792442L,
+                            FirstName = "Page",
+                            LastName = "Branch",
+                            Password = "BadPassword",
+                            Username = "islandhorse",
+                            AppointmentLengthInHours = 4,
+                            Location = "Chicago",
+                            Title = "Barber"
+                        },
+                        new
+                        {
+                            EntityID = 637470557392792450L,
+                            FirstName = "Chante",
+                            LastName = "Jacob",
+                            Password = "BadPassword",
+                            Username = "cocktailwave",
+                            AppointmentLengthInHours = 12,
+                            Location = "Chicago",
+                            Title = "Web Developer"
                         });
                 });
 

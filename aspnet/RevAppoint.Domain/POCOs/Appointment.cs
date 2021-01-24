@@ -5,6 +5,7 @@ namespace RevAppoint.Domain.POCOs
         public Time Time { get; set; }
         public Professional Professional { get; set; }
         public User Client { get; set; }
+        public bool IsAccepted { get; set; }
         public bool IsFufilled { get; set; }
 
         public Appointment(){}
@@ -14,6 +15,8 @@ namespace RevAppoint.Domain.POCOs
             this.Professional = professional;
             this.Client = client;
             this.IsFufilled = false;
+            this.IsAccepted = false;
         }
+
     }
 }

@@ -35,12 +35,25 @@ namespace RevAppoint.Storage
         {
             builder.Entity<Customer>().HasData(new List<Customer>
             {
-                new Customer() {Username = "Username1",Password = "BadPassWord21",FirstName = "Isaiah",LastName = "Smith"}
+                new Customer() {Username = "Username1",Password = "Password",FirstName = "Melvin",LastName = "Mac"},
+                new Customer() {Username = "trombone",Password = "Password",FirstName = "Barbara",LastName = "Gross"},
+                new Customer() {Username = "chicken",Password = "Password",FirstName = "Faiza",LastName = "Bowman"},
+                new Customer() {Username = "foxtrail",Password = "Password",FirstName = "Nathalie",LastName = "Fellows"},
+                new Customer() {Username = "perseus",Password = "Password",FirstName = "Barney",LastName = "Simons"},
+                new Customer() {Username = "applepie",Password = "Password",FirstName = "Adrianna",LastName = "Prentice"},
+                new Customer() {Username = "candyfog",Password = "Password",FirstName = "Maxim",LastName = "Fowler"}
             });
 
             builder.Entity<Professional>().HasData(new List<Professional>
             {
-                new Professional() {Username = "Speedy12",Password = "BadPassWord24",FirstName = "John",LastName = "Jacob",Title = "Blacksmith",Location = "Chicago"}
+                
+                new Professional() {Username = "banjojudo",Password = "BadPassword",FirstName = "Shelley",LastName = "Stacey",Title = "Blacksmith",Location = "Chicago",AppointmentLengthInHours = 1},
+                new Professional() {Username = "hotdogpeas",Password = "BadPassword",FirstName = "Salgado",LastName = "Arnie",Title = "Web Developer",Location = "Las Vegas",AppointmentLengthInHours = 2},
+                new Professional() {Username = "psychobatman",Password = "BadPassword",FirstName = "Chanel",LastName = "Tamera",Title = "Driver",Location = "Las Vegas",AppointmentLengthInHours = 3},
+                new Professional() {Username = "brownbread",Password = "BadPassword",FirstName = "Lawrence",LastName = "Gregg",Title = "Nurse",Location = "New York",AppointmentLengthInHours = 1},
+                new Professional() {Username = "oystersnatch",Password = "BadPassword",FirstName = "Ibrahim",LastName = "Elis",Title = "Barber",Location = "New York",AppointmentLengthInHours = 2},
+                new Professional() {Username = "islandhorse",Password = "BadPassword",FirstName = "Page",LastName = "Branch",Title = "Barber",Location = "Chicago",AppointmentLengthInHours = 4},
+                new Professional() {Username = "cocktailwave",Password = "BadPassword",FirstName = "Chante",LastName = "Jacob",Title = "Web Developer",Location = "Chicago",AppointmentLengthInHours = 12}
             });
         }
     }

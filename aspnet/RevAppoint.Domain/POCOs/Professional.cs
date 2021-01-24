@@ -5,18 +5,21 @@ namespace RevAppoint.Domain.POCOs
         public string Title { get; set; }
         public string Location { get; set; }
         public Time AvailableTime { get; set; }
+        public int AppointmentLengthInHours {get;set;}
 
         public Professional(){}
         public Professional(string title, string location)
         {
             this.Title = title;
             this.Location = location;
+            this.AppointmentLengthInHours = 1;
         }
         public Professional(string title, string location, Time availableTime)
         {
             this.Title = title;
             this.Location = location;
             this.AvailableTime = availableTime;
+            this.AppointmentLengthInHours = 1;
         }
     }
 }

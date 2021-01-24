@@ -10,9 +10,14 @@ Hello, @Model.Customer.FirstName
 @using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {
   <input type="submit" value="View History"/>
+
 }
 
 @using (@Html.BeginForm("CurrentAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {
   <input type="submit" value="View Current Appointments"/>
 }
+=======
+  
+}
+
