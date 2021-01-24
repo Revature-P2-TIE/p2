@@ -9,7 +9,6 @@ using RevAppoint.Repo.Repositories;
 namespace RevAppoint.Client.Controllers
 {
     [Route("[controller]")]
-    [Route("")]
     public class CustomerController : Controller
     {
         private UnitOfWork Repo;
@@ -19,7 +18,6 @@ namespace RevAppoint.Client.Controllers
         }
 
         [HttpGet("/Customer")]
-        [Route("")]
         public IActionResult GetUser()
         {
             return View("Login", new CustomerViewModel(Repo));
