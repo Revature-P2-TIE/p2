@@ -17,6 +17,7 @@ namespace RevAppoint.Client.Models
         public CustomerViewModel(UnitOfWork Repo)
         {
             Customers = Repo.GetAll<Customer>();
+            AppointmentHistory = Repo.GetAll<Appointment>();
         }
     }
 }

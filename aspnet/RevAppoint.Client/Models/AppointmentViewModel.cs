@@ -1,12 +1,15 @@
+using System;
+using System.Collections.Generic;
 using RevAppoint.Domain.POCOs;
 
 namespace RevAppoint.Client.Models
 {
     public class AppointmentViewModel
     {
-        Customer Customer {get;set;}
-        Professional Professional{get;set;}
-        Appointment Appointment{get;set;}
-
+        public List<Appointment> Appointments { get; set; }
+        public string StartTime { get; set; }
+        public Professional Professional { get; set;}
+        public Customer Customer { get; set;}  
+        public DateTime Time { get; set; }        
     }
 }

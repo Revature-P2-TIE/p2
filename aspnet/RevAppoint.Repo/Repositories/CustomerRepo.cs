@@ -17,5 +17,9 @@ namespace RevAppoint.Repo.Repositories
         {
             return _db.Customers.SingleOrDefault(s => s.Username == Username);
         }
+        public IEnumerable<Appointment> GetAppointments(string username)
+        {
+            return _db.Appointments.Where(a=> a.Client.Username==username);
+        }
     }
 }
