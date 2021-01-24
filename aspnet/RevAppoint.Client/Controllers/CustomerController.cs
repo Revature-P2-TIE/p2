@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,10 @@ namespace RevAppoint.Client.Controllers
         [Route("")]
         public IActionResult GetUser()
         {
-            return View("Login", new CustomerViewModel(Repo));
+            CustomerViewModel model = new CustomerViewModel(Repo);
+            model.Professionals = Repo.GetAll<Professional>();
+            //Repo.ProfessionalRepo.GetProfessionals();
+            return View("Login", model);
         }
 
         [HttpPost("/Home")]
@@ -38,6 +42,7 @@ namespace RevAppoint.Client.Controllers
             else
             {
                 customer.Customers = Repo.GetAll<Customer>();
+                customer.Professionals = Repo.ProfessionalRepo.GetProfessionals();
                 return View("Login", customer);
             }
         }

@@ -18,6 +18,11 @@ namespace RevAppoint.Repo.Repositories
             return _db.Professionals.SingleOrDefault(s => s.Username == Username);
         }
 
+        public IEnumerable<Professional> GetProfessionals()
+        {
+            return _db.Professionals;
+        }
+
         public IEnumerable<Professional> SearchForProfessionals(string SearchParam, string SearchValue)
         {
             List<Professional> returnList = new List<Professional>();
