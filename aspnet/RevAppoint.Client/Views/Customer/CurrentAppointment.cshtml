@@ -1,0 +1,10 @@
+@model RevAppoint.Client.Models.CustomerViewModel;
+
+<p>Hello @Model.Customer.FirstName</p>
+<p>Usernamme @Model.Customer.Username</p>
+
+@using (@Html.BeginForm("SelectUser", "Customer", FormMethod.Post))
+{
+  <input name = "Username" value = @Model.Customer.Username hidden ="true">
+  <input type="submit" value="Home"/>
+}

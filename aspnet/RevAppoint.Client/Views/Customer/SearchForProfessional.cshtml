@@ -1,0 +1,16 @@
+@model RevAppoint.Client.Models.CustomerViewModel;
+
+<p>Hello @Model.Customer.FirstName</p>
+<p>Usernamme @Model.Customer.Username</p>
+
+@using (@Html.BeginForm("DisplayProfessionals", "Customer", FormMethod.Post))
+{
+    <label for="cars">Choose a search parameter:</label>
+    <select name="SearchParam">
+    <option value="title">Title</option>
+    <option value="name">Last Name</option>
+    <option value="location">Location</option>
+    </select>
+  <input name = "Username" value = @Model.Customer.Username hidden ="true">
+  <input type="submit" value="Home"/>
+}

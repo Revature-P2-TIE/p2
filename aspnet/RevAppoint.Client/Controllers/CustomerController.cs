@@ -29,17 +29,35 @@ namespace RevAppoint.Client.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
+ 
             if(ModelState.IsValid)
             {
                 customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
                 return View("UserHome", customer);
             }
+            //TODO ADD LOGIC TO CHECH IF THEY ARE A PROFESSIONAL
             else
             {
                 customer.Customers = Repo.GetAll<Customer>();
                 return View("Login", customer);
             }
         }
+
+        [HttpPost("/Display")]
+        public IActionResult DisplayProfessionals(CustomerViewModel model)
+        {
+            return View("DisplayProfessionals", model);
+        }
+        [HttpGet("/SearchForProfessionals/{id}")]
+        public IActionResult SearchForProfessionals(string id)
+        {
+           CustomerViewModel customer = new CustomerViewModel();
+           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+           customer.Username = customer.Customer.Username;
+           return View("SearchForProfessional", customer);
+        }
+        [HttpGet("/AppointmentHistory/{id}")]
+        public IActionResult AppointmentHistory(string customerUsername)
 
         [HttpGet("/Home/{username}")]
         public IActionResult Home(string username)
@@ -50,23 +68,9 @@ namespace RevAppoint.Client.Controllers
             return View("UserHome", CustomerViewModel);    
         }
 
-        [HttpGet("/Professionals/{id}")]
-        public IActionResult DisplayProfessionals(string id)
-        {
-            if(id != null)
-            {
-                var professional = new ProfessionalViewModel(Repo);
-                ViewBag.Customer = id;
-                return View("DisplayProfessionals", professional);
-            }
-            else
-            {
-                return RedirectToAction("GetUser");
-            }
-        }
-
         [HttpGet("/History/{id}")]
         public IActionResult AppointmentHistory(string id)
+
         {
             AppointmentViewModel appointment = new AppointmentViewModel();
             var Customer = Repo.CustomerRepo.GetCustomer(id);
@@ -105,14 +109,22 @@ namespace RevAppoint.Client.Controllers
             catch (FormatException) 
             {
                 // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
-            }
-
+        }
+        [HttpGet("/CurrentAppointments/{id}")]
+        public IActionResult CurrentAppointments(string id)
+        {
+           CustomerViewModel customer = new CustomerViewModel();
+           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+            customer.Username = customer.Customer.Username;
+            return View("CurrentAppointment", customer);
+        }
             appointment.IsFufilled = false;
             Repo.Insert<Appointment>(appointment);
             Repo.Save();
             CustomerViewModel customer = new CustomerViewModel();
             customer.Username = appointment.Client.Username;
             return RedirectToAction("Home",customer);
+
 
         }
     }
