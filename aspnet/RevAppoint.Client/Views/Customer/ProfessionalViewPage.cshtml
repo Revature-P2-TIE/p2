@@ -1,0 +1,12 @@
+@model RevAppoint.Client.Models.CustomerViewModel;
+
+<p>Hello @Model.Username</p>
+<p>Viewing: @Model.SearchedProfessionalsUsername</p>
+
+@using (@Html.BeginForm("CreateAppointment", "Customer", FormMethod.Get))
+{
+  <input name = "Username" value = @Model.Username hidden ="true">
+  <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
+
+  <input type="submit" value="To Create Appointment"/>
+}

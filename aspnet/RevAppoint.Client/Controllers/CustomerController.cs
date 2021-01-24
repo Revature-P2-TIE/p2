@@ -26,7 +26,6 @@ namespace RevAppoint.Client.Controllers
         }
 
         [HttpPost("/Home")]
-        [ValidateAntiForgeryToken]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
  
@@ -46,6 +45,11 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/Display")]
         public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
+            //Querying a list of professionals based on users search values
+            //then adding them to a list property on the model for use in the view
+            model.ListOfProfessionals = 
+            Repo.ProfessionalRepo.SearchForProfessionals(model.SearchParam, model.ProfessionalSearchValue);
+
             return View("DisplayProfessionals", model);
         }
         [HttpGet("/SearchForProfessionals/{id}")]
@@ -56,9 +60,10 @@ namespace RevAppoint.Client.Controllers
            customer.Username = customer.Customer.Username;
            return View("SearchForProfessional", customer);
         }
+        /*
         [HttpGet("/AppointmentHistory/{id}")]
         public IActionResult AppointmentHistory(string customerUsername)
-
+        */
         [HttpGet("/Home/{username}")]
         public IActionResult Home(string username)
         {
@@ -75,9 +80,10 @@ namespace RevAppoint.Client.Controllers
             AppointmentViewModel appointment = new AppointmentViewModel();
             var Customer = Repo.CustomerRepo.GetCustomer(id);
             appointment.Appointments = Repo.CustomerRepo.GetAppointments(Customer.EntityID).ToList();
+            appointment.CustomerUsername = Customer.Username;
             return View("UserHistory",appointment);
         }
-
+        
         [HttpPost("/SelectTime")]
         public IActionResult SelectTime(string id,string profid)
         {
@@ -88,7 +94,7 @@ namespace RevAppoint.Client.Controllers
             return View("SelectTime", appointment);
         }
 
-        [HttpPost("/SetAppointment")]
+      /*  [HttpPost("/SetAppointment")]
         public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
         {
             string format = "MM/dd/yyyy h:mm tt";
@@ -109,7 +115,9 @@ namespace RevAppoint.Client.Controllers
             catch (FormatException) 
             {
                 // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
+            }
         }
+        */
         [HttpGet("/CurrentAppointments/{id}")]
         public IActionResult CurrentAppointments(string id)
         {
@@ -118,14 +126,33 @@ namespace RevAppoint.Client.Controllers
             customer.Username = customer.Customer.Username;
             return View("CurrentAppointment", customer);
         }
-            appointment.IsFufilled = false;
-            Repo.Insert<Appointment>(appointment);
-            Repo.Save();
-            CustomerViewModel customer = new CustomerViewModel();
-            customer.Username = appointment.Client.Username;
-            return RedirectToAction("Home",customer);
+         //   appointment.IsFufilled = false;
+         //   Repo.Insert<Appointment>(appointment);
+         //   Repo.Save();
+         //   CustomerViewModel customer = new CustomerViewModel();
+         //   customer.Username = appointment.Client.Username;
+         //   return RedirectToAction("Home",customer);
 
 
+      //  }
+        [HttpPost("/ProfessionalView")]
+        public IActionResult ViewProfessional(CustomerViewModel model)
+        {
+            return View("ProfessionalViewPage", model);
         }
+        [HttpGet("/ProfessionalView/CreateAppointment")]
+        public IActionResult CreateAppointment(CustomerViewModel model)
+        {
+
+            return View("CreateAppointment", model);
+        }
+
+        [HttpGet("/ProfessionalView/AppointmentCompletion")]
+        public IActionResult AppointmentCompletion(CustomerViewModel model)
+        {
+            return View("AppointmentCompletion", model);
+        }
+      
+      
     }
 }

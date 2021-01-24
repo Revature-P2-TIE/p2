@@ -23,3 +23,8 @@ Appointment History
     
 }
 </table>
+
+@using (@Html.BeginForm("Home", "Customer", new {username = @Model.CustomerUsername},FormMethod.Get))
+{
+  <input type="submit" value="Home"/>
+}
