@@ -6,6 +6,7 @@ namespace RevAppoint.Domain.POCOs
         public string Location { get; set; }
         public Time AvailableTime { get; set; }
         public int AppointmentLengthInHours {get;set;}
+        //hourlyrate
 
         public Professional(){}
         public Professional(string title, string location)

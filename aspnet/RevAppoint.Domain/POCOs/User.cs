@@ -9,5 +9,6 @@ namespace RevAppoint.Domain.POCOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<Appointment> Appointments { get; set; }
+        //rating
     }
 }

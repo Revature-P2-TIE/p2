@@ -97,7 +97,7 @@ namespace RevAppoint.Client.Controllers
             return View("SelectTime", appointment);
         }
 
-      /*  [HttpPost("/SetAppointment")]
+        [HttpPost("/SetAppointment")]
         public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
         {
             string format = "MM/dd/yyyy h:mm tt";
@@ -119,8 +119,15 @@ namespace RevAppoint.Client.Controllers
             {
                 // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
             }
+            
+            appointment.IsFufilled = false;
+            Repo.Insert<Appointment>(appointment);
+            Repo.Save();
+            CustomerViewModel customer = new CustomerViewModel();
+            customer.Username = appointment.Client.Username;
+            return RedirectToAction("Home",customer);
         }
-        */
+        
         [HttpGet("/CurrentAppointments/{id}")]
         public IActionResult CurrentAppointments(string id)
         {
@@ -129,15 +136,7 @@ namespace RevAppoint.Client.Controllers
             customer.Username = customer.Customer.Username;
             return View("CurrentAppointment", customer);
         }
-         //   appointment.IsFufilled = false;
-         //   Repo.Insert<Appointment>(appointment);
-         //   Repo.Save();
-         //   CustomerViewModel customer = new CustomerViewModel();
-         //   customer.Username = appointment.Client.Username;
-         //   return RedirectToAction("Home",customer);
 
-
-      //  }
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
