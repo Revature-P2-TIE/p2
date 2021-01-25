@@ -8,12 +8,13 @@ namespace RevAppoint.Domain.POCOs
         public int AppointmentLengthInHours {get;set;}
         //hourlyrate
 
-        public Professional(){}
+        public Professional(){this.Type = this.GetType().Name;}
         public Professional(string title, string location)
         {
             this.Title = title;
             this.Location = location;
             this.AppointmentLengthInHours = 1;
+            this.Type = this.GetType().Name;
         }
         public Professional(string title, string location, Time availableTime)
         {
@@ -21,6 +22,7 @@ namespace RevAppoint.Domain.POCOs
             this.Location = location;
             this.AvailableTime = availableTime;
             this.AppointmentLengthInHours = 1;
+            this.Type = this.GetType().Name;
         }
     }
 }

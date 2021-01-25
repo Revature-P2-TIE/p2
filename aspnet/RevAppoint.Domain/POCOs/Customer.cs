@@ -11,6 +11,7 @@ namespace RevAppoint.Domain.POCOs
             this.Password = password;
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.Type = this.GetType().Name;
         }
     }
 }

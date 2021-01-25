@@ -8,7 +8,8 @@ namespace RevAppoint.Domain.POCOs
         public string Password {get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Type {get; set;}
         public List<Appointment> Appointments { get; set; }
-        //rating
+        public List<Review> Reviews {get;set;}
     }
 }
