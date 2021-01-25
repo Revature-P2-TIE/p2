@@ -16,3 +16,20 @@
   </ol>
   <input type="submit" value="Choose User" style="float: left;"/>
 }
+
+<br>
+
+<form action ="/Professional/ProfessionalHome/" method="get">
+  <ol>
+  @foreach (var item in Model.Professionals)
+  {
+    
+      <li> 
+        <input type="radio" asp-for="@Model.Username" value="@item.Username">
+        <label for="@item">@item.Username</label><br>
+      </li>
+    
+  }
+  </ol>
+  <button type="submit" class ="button" >Continue as Professional</button>
+</form>

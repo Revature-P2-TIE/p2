@@ -1,0 +1,12 @@
+@model RevAppoint.Client.Models.ProfessionalViewModel;
+
+Hello Professional: @Model.Username
+<p>Set Availability Page</p>
+
+@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input name ="Username" value = @Model.Username hidden = "true">
+  <input type="submit" value="Home"/>
+}
+
+
