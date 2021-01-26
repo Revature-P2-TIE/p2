@@ -46,7 +46,6 @@ namespace RevAppoint.Storage
 
             builder.Entity<Professional>().HasData(new List<Professional>
             {
-                
                 new Professional() {Username = "banjojudo",Password = "BadPassword",FirstName = "Shelley",LastName = "Stacey",Title = "Blacksmith",Location = "Chicago",AppointmentLengthInHours = 1,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "giti@gmail.com"},
                 new Professional() {Username = "hotdogpeas",Password = "BadPassword",FirstName = "Salgado",LastName = "Arnie",Title = "Web Developer",Location = "Las Vegas",AppointmentLengthInHours = 2,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "Tamaguchi@gmail.com"},
                 new Professional() {Username = "psychobatman",Password = "BadPassword",FirstName = "Chanel",LastName = "Tamera",Title = "Driver",Location = "Las Vegas",AppointmentLengthInHours = 3,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "jquery@gmail.com"},

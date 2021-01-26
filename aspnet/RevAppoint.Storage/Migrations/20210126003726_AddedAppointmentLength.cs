@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RevAppoint.Storage.Migrations
 {
-    public partial class MorepropertiesforUserandProfessionalAdded : Migration
+    public partial class AddedAppointmentLength : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -127,20 +127,20 @@ namespace RevAppoint.Storage.Migrations
                 columns: new[] { "EntityID", "EmailAddress", "FirstName", "Gender", "LastName", "MemberSince", "Password", "PhoneNumber", "Type", "Username" },
                 values: new object[,]
                 {
-                    { 637471997487521337L, "yeye@gmail.com", "Melvin", "F", "Mac", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(3650), "Password", "(773)-555-1234", "Customer", "Username1" },
-                    { 637471997487536087L, "rockout@gmail.com", "Barbara", "M", "Gross", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6094), "Password", "(773)-555-1233", "Customer", "trombone" },
-                    { 637471997487536099L, "playwithme@gmail.com", "Faiza", "F", "Bowman", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6101), "Password", "(773)-555-1241", "Customer", "chicken" },
-                    { 637471997487536103L, "REviw@gmail.com", "Nathalie", "M", "Fellows", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6104), "Password", "(773)-555-1234", "Customer", "foxtrail" },
-                    { 637471997487536106L, "HotBatman@gmail.com", "Barney", "F", "Simons", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6107), "Password", "(773)-555-1144", "Customer", "perseus" },
-                    { 637471997487536112L, "Tootoo@gmail.com", "Adrianna", "M", "Prentice", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6113), "Password", "(773)-555-1234", "Customer", "applepie" },
-                    { 637471997487536208L, "harhar@gmail.com", "Maxim", "M", "Fowler", new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6210), "Password", "(773)-555-1234", "Customer", "candyfog" },
-                    { 637471997487544649L, null, "Shelley", null, "Stacey", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(4668), "BadPassword", null, "Professional", "banjojudo" },
-                    { 637471997487546303L, null, "Salgado", null, "Arnie", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6316), "BadPassword", null, "Professional", "hotdogpeas" },
-                    { 637471997487546320L, null, "Chanel", null, "Tamera", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6323), "BadPassword", null, "Professional", "psychobatman" },
-                    { 637471997487546326L, null, "Lawrence", null, "Gregg", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6328), "BadPassword", null, "Professional", "brownbread" },
-                    { 637471997487546331L, null, "Ibrahim", null, "Elis", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6333), "BadPassword", null, "Professional", "oystersnatch" },
-                    { 637471997487546340L, null, "Page", null, "Branch", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6342), "BadPassword", null, "Professional", "islandhorse" },
-                    { 637471997487546345L, null, "Chante", null, "Jacob", new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6347), "BadPassword", null, "Professional", "cocktailwave" }
+                    { 637472002451022530L, "yeye@gmail.com", "Melvin", "F", "Mac", new DateTime(2021, 1, 25, 19, 37, 25, 105, DateTimeKind.Local).AddTicks(8431), "Password", "(773)-555-1234", "Customer", "Username1" },
+                    { 637472002451063142L, "rockout@gmail.com", "Barbara", "M", "Gross", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3154), "Password", "(773)-555-1233", "Customer", "trombone" },
+                    { 637472002451063164L, "playwithme@gmail.com", "Faiza", "F", "Bowman", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3166), "Password", "(773)-555-1241", "Customer", "chicken" },
+                    { 637472002451063171L, "REviw@gmail.com", "Nathalie", "M", "Fellows", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3173), "Password", "(773)-555-1234", "Customer", "foxtrail" },
+                    { 637472002451063177L, "HotBatman@gmail.com", "Barney", "F", "Simons", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3179), "Password", "(773)-555-1144", "Customer", "perseus" },
+                    { 637472002451063188L, "Tootoo@gmail.com", "Adrianna", "M", "Prentice", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3190), "Password", "(773)-555-1234", "Customer", "applepie" },
+                    { 637472002451063194L, "harhar@gmail.com", "Maxim", "M", "Fowler", new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3196), "Password", "(773)-555-1234", "Customer", "candyfog" },
+                    { 637472002451079798L, "giti@gmail.com", "Shelley", "F", "Stacey", new DateTime(2021, 1, 25, 19, 37, 25, 107, DateTimeKind.Local).AddTicks(9830), "BadPassword", "(773)-555-1234", "Professional", "banjojudo" },
+                    { 637472002451081744L, "Tamaguchi@gmail.com", "Salgado", "F", "Arnie", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1758), "BadPassword", "(773)-555-1234", "Professional", "hotdogpeas" },
+                    { 637472002451081765L, "jquery@gmail.com", "Chanel", "F", "Tamera", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1767), "BadPassword", "(773)-555-1234", "Professional", "psychobatman" },
+                    { 637472002451081771L, "HarVey@gmail.com", "Lawrence", "F", "Gregg", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1774), "BadPassword", "(773)-555-1234", "Professional", "brownbread" },
+                    { 637472002451081778L, "Lmao@gmail.com", "Ibrahim", "F", "Elis", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1780), "BadPassword", "(773)-555-1234", "Professional", "oystersnatch" },
+                    { 637472002451081790L, "Vier@gmail.com", "Page", "F", "Branch", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1793), "BadPassword", "(773)-555-1234", "Professional", "islandhorse" },
+                    { 637472002451081796L, "Locomotive@gmail.com", "Chante", "F", "Jacob", new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1799), "BadPassword", "(773)-555-1234", "Professional", "cocktailwave" }
                 });
 
             migrationBuilder.InsertData(
@@ -148,13 +148,13 @@ namespace RevAppoint.Storage.Migrations
                 column: "EntityID",
                 values: new object[]
                 {
-                    637471997487521337L,
-                    637471997487536087L,
-                    637471997487536099L,
-                    637471997487536103L,
-                    637471997487536106L,
-                    637471997487536112L,
-                    637471997487536208L
+                    637472002451022530L,
+                    637472002451063142L,
+                    637472002451063164L,
+                    637472002451063171L,
+                    637472002451063177L,
+                    637472002451063188L,
+                    637472002451063194L
                 });
 
             migrationBuilder.InsertData(
@@ -162,13 +162,13 @@ namespace RevAppoint.Storage.Migrations
                 columns: new[] { "EntityID", "AppointmentLengthInHours", "AvailableTimeEntityID", "Bio", "HourlyRate", "Language", "Location", "Rating", "Title" },
                 values: new object[,]
                 {
-                    { 637471997487544649L, 1, null, null, 0m, null, "Chicago", 5.0, "Blacksmith" },
-                    { 637471997487546303L, 2, null, null, 0m, null, "Las Vegas", 5.0, "Web Developer" },
-                    { 637471997487546320L, 3, null, null, 0m, null, "Las Vegas", 5.0, "Driver" },
-                    { 637471997487546326L, 1, null, null, 0m, null, "New York", 5.0, "Nurse" },
-                    { 637471997487546331L, 2, null, null, 0m, null, "New York", 5.0, "Barber" },
-                    { 637471997487546340L, 4, null, null, 0m, null, "Chicago", 5.0, "Barber" },
-                    { 637471997487546345L, 12, null, null, 0m, null, "Chicago", 5.0, "Web Developer" }
+                    { 637472002451079798L, 1, null, null, 0m, null, "Chicago", 5.0, "Blacksmith" },
+                    { 637472002451081744L, 2, null, null, 0m, null, "Las Vegas", 5.0, "Web Developer" },
+                    { 637472002451081765L, 3, null, null, 0m, null, "Las Vegas", 5.0, "Driver" },
+                    { 637472002451081771L, 1, null, null, 0m, null, "New York", 5.0, "Nurse" },
+                    { 637472002451081778L, 2, null, null, 0m, null, "New York", 5.0, "Barber" },
+                    { 637472002451081790L, 4, null, null, 0m, null, "Chicago", 5.0, "Barber" },
+                    { 637472002451081796L, 12, null, null, 0m, null, "Chicago", 5.0, "Web Developer" }
                 });
 
             migrationBuilder.CreateIndex(

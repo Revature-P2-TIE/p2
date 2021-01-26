@@ -10,8 +10,8 @@ using RevAppoint.Storage;
 namespace RevAppoint.Storage.Migrations
 {
     [DbContext(typeof(RevAppointContext))]
-    [Migration("20210126002909_More properties for User and Professional Added")]
-    partial class MorepropertiesforUserandProfessionalAdded
+    [Migration("20210126003726_AddedAppointmentLength")]
+    partial class AddedAppointmentLength
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -114,12 +114,12 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637471997487521337L,
+                            EntityID = 637472002451022530L,
                             EmailAddress = "yeye@gmail.com",
                             FirstName = "Melvin",
                             Gender = "F",
                             LastName = "Mac",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(3650),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 105, DateTimeKind.Local).AddTicks(8431),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1234",
                             Type = "Customer",
@@ -127,12 +127,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536087L,
+                            EntityID = 637472002451063142L,
                             EmailAddress = "rockout@gmail.com",
                             FirstName = "Barbara",
                             Gender = "M",
                             LastName = "Gross",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6094),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3154),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1233",
                             Type = "Customer",
@@ -140,12 +140,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536099L,
+                            EntityID = 637472002451063164L,
                             EmailAddress = "playwithme@gmail.com",
                             FirstName = "Faiza",
                             Gender = "F",
                             LastName = "Bowman",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6101),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3166),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1241",
                             Type = "Customer",
@@ -153,12 +153,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536103L,
+                            EntityID = 637472002451063171L,
                             EmailAddress = "REviw@gmail.com",
                             FirstName = "Nathalie",
                             Gender = "M",
                             LastName = "Fellows",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6104),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3173),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1234",
                             Type = "Customer",
@@ -166,12 +166,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536106L,
+                            EntityID = 637472002451063177L,
                             EmailAddress = "HotBatman@gmail.com",
                             FirstName = "Barney",
                             Gender = "F",
                             LastName = "Simons",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6107),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3179),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1144",
                             Type = "Customer",
@@ -179,12 +179,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536112L,
+                            EntityID = 637472002451063188L,
                             EmailAddress = "Tootoo@gmail.com",
                             FirstName = "Adrianna",
                             Gender = "M",
                             LastName = "Prentice",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6113),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3190),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1234",
                             Type = "Customer",
@@ -192,12 +192,12 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487536208L,
+                            EntityID = 637472002451063194L,
                             EmailAddress = "harhar@gmail.com",
                             FirstName = "Maxim",
                             Gender = "M",
                             LastName = "Fowler",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 753, DateTimeKind.Local).AddTicks(6210),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 106, DateTimeKind.Local).AddTicks(3196),
                             Password = "Password",
                             PhoneNumber = "(773)-555-1234",
                             Type = "Customer",
@@ -240,11 +240,14 @@ namespace RevAppoint.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityID = 637471997487544649L,
+                            EntityID = 637472002451079798L,
+                            EmailAddress = "giti@gmail.com",
                             FirstName = "Shelley",
+                            Gender = "F",
                             LastName = "Stacey",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(4668),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 107, DateTimeKind.Local).AddTicks(9830),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "banjojudo",
                             AppointmentLengthInHours = 1,
@@ -255,11 +258,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546303L,
+                            EntityID = 637472002451081744L,
+                            EmailAddress = "Tamaguchi@gmail.com",
                             FirstName = "Salgado",
+                            Gender = "F",
                             LastName = "Arnie",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6316),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1758),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "hotdogpeas",
                             AppointmentLengthInHours = 2,
@@ -270,11 +276,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546320L,
+                            EntityID = 637472002451081765L,
+                            EmailAddress = "jquery@gmail.com",
                             FirstName = "Chanel",
+                            Gender = "F",
                             LastName = "Tamera",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6323),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1767),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "psychobatman",
                             AppointmentLengthInHours = 3,
@@ -285,11 +294,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546326L,
+                            EntityID = 637472002451081771L,
+                            EmailAddress = "HarVey@gmail.com",
                             FirstName = "Lawrence",
+                            Gender = "F",
                             LastName = "Gregg",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6328),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1774),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "brownbread",
                             AppointmentLengthInHours = 1,
@@ -300,11 +312,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546331L,
+                            EntityID = 637472002451081778L,
+                            EmailAddress = "Lmao@gmail.com",
                             FirstName = "Ibrahim",
+                            Gender = "F",
                             LastName = "Elis",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6333),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1780),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "oystersnatch",
                             AppointmentLengthInHours = 2,
@@ -315,11 +330,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546340L,
+                            EntityID = 637472002451081790L,
+                            EmailAddress = "Vier@gmail.com",
                             FirstName = "Page",
+                            Gender = "F",
                             LastName = "Branch",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6342),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1793),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "islandhorse",
                             AppointmentLengthInHours = 4,
@@ -330,11 +348,14 @@ namespace RevAppoint.Storage.Migrations
                         },
                         new
                         {
-                            EntityID = 637471997487546345L,
+                            EntityID = 637472002451081796L,
+                            EmailAddress = "Locomotive@gmail.com",
                             FirstName = "Chante",
+                            Gender = "F",
                             LastName = "Jacob",
-                            MemberSince = new DateTime(2021, 1, 25, 19, 29, 8, 754, DateTimeKind.Local).AddTicks(6347),
+                            MemberSince = new DateTime(2021, 1, 25, 19, 37, 25, 108, DateTimeKind.Local).AddTicks(1799),
                             Password = "BadPassword",
+                            PhoneNumber = "(773)-555-1234",
                             Type = "Professional",
                             Username = "cocktailwave",
                             AppointmentLengthInHours = 12,
