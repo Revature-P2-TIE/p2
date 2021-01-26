@@ -10,7 +10,7 @@ namespace RevAppoint.Storage
         public DbSet<Professional> Professionals {get;set;}
         public DbSet<Time> Times {get;set;}
         public DbSet<Customer> Customers {get;set;}
-        public DbSet<Customer> Users {get;set;}
+        public DbSet<User> Users {get;set;}
 
         public RevAppointContext(DbContextOptions<RevAppointContext> options) : base(options){}
         public RevAppointContext(){}
