@@ -35,13 +35,13 @@ namespace RevAppoint.Storage
         {
             builder.Entity<Customer>().HasData(new List<Customer>
             {
-                new Customer() {Username = "Username1",Password = "Password",FirstName = "Melvin",LastName = "Mac"},
-                new Customer() {Username = "trombone",Password = "Password",FirstName = "Barbara",LastName = "Gross"},
-                new Customer() {Username = "chicken",Password = "Password",FirstName = "Faiza",LastName = "Bowman"},
-                new Customer() {Username = "foxtrail",Password = "Password",FirstName = "Nathalie",LastName = "Fellows"},
-                new Customer() {Username = "perseus",Password = "Password",FirstName = "Barney",LastName = "Simons"},
-                new Customer() {Username = "applepie",Password = "Password",FirstName = "Adrianna",LastName = "Prentice"},
-                new Customer() {Username = "candyfog",Password = "Password",FirstName = "Maxim",LastName = "Fowler"}
+                new Customer() {Username = "Username1",Password = "Password",FirstName = "Melvin",LastName = "Mac",Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "yeye@gmail.com"},
+                new Customer() {Username = "trombone",Password = "Password",FirstName = "Barbara",LastName = "Gross",Gender = "M",PhoneNumber = "(773)-555-1233",EmailAddress = "rockout@gmail.com"},
+                new Customer() {Username = "chicken",Password = "Password",FirstName = "Faiza",LastName = "Bowman",Gender = "F",PhoneNumber = "(773)-555-1241",EmailAddress = "playwithme@gmail.com"},
+                new Customer() {Username = "foxtrail",Password = "Password",FirstName = "Nathalie",LastName = "Fellows",Gender = "M",PhoneNumber = "(773)-555-1234",EmailAddress = "REviw@gmail.com"},
+                new Customer() {Username = "perseus",Password = "Password",FirstName = "Barney",LastName = "Simons",Gender = "F",PhoneNumber = "(773)-555-1144",EmailAddress = "HotBatman@gmail.com"},
+                new Customer() {Username = "applepie",Password = "Password",FirstName = "Adrianna",LastName = "Prentice",Gender = "M",PhoneNumber = "(773)-555-1234",EmailAddress = "Tootoo@gmail.com"},
+                new Customer() {Username = "candyfog",Password = "Password",FirstName = "Maxim",LastName = "Fowler",Gender = "M",PhoneNumber = "(773)-555-1234",EmailAddress = "harhar@gmail.com"}
             });
 
             builder.Entity<Professional>().HasData(new List<Professional>

@@ -9,7 +9,7 @@ namespace RevAppoint.Domain.POCOs
         public bool IsFufilled { get; set; }
 
         public Appointment(){}
-        public Appointment(Time time, Professional professional, User client, bool IsFufilled)
+        public Appointment(Time time, Professional professional, User client)
         {
             this.Time = time;
             this.Professional = professional;
