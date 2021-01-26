@@ -140,8 +140,8 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
-            var ProfUsername = model.Username;
-
+            var Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            ProfessionalViewModel professional = new ProfessionalViewModel();
             return View("ProfessionalViewPage", model);
         }
 
@@ -149,11 +149,7 @@ namespace RevAppoint.Client.Controllers
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
 
-            AppointmentViewModel appointment = new AppointmentViewModel();
-            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(model.SearchedProfessionalsUsername);
-            appointment.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
-
-            return View("CreateAppointment", appointment);
+            return View("CreateAppointment", model);
         }
 
         [HttpGet("/ProfessionalView/AppointmentCompletion")]
