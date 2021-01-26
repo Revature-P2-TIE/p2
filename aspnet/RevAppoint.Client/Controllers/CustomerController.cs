@@ -21,6 +21,35 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Customer")]
         public IActionResult GetUser()
         {
+            return View("FormLogin");
+        }
+
+        [HttpPost("/FormLogin")]
+        public IActionResult FormLogin(LoginViewModel model)
+        {
+            var user = Repo.UserRepo.GetUser(model.Username, model.Password);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View("FormLogin");
+            }
+            else
+            {
+               if(user.Type == "Customer"){
+                    CustomerViewModel customer = new CustomerViewModel();
+                    customer.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
+                    return View("UserHome", customer);
+               }else{
+                   ProfessionalViewModel professional = new ProfessionalViewModel();
+                   professional.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+                   return View("~/Views/Shared/ProfessionalHome.cshtml", professional);
+               }
+            }
+        }
+/*
+        [HttpGet("/Customer")]
+        public IActionResult GetUser()
+        {
             CustomerViewModel model = new CustomerViewModel(Repo);
             model.Professionals = Repo.GetAll<Professional>();
             //Repo.ProfessionalRepo.GetProfessionals();
@@ -43,7 +72,7 @@ namespace RevAppoint.Client.Controllers
                 return View("Login", customer);
             }
         }
-
+*/
         [HttpPost("/Display")]
         public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
