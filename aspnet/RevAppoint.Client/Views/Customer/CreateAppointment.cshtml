@@ -1,12 +1,30 @@
-@model RevAppoint.Client.Models.CustomerViewModel;
+@model RevAppoint.Client.Models.AppointmentViewModel;
 
-<p>Hello @Model.Username</p>
-<p>Viewing: @Model.SearchedProfessionalsUsername</p>
+<p>Hello @Model.Customer.FirstName</p>
+<p>Usernamme @Model.Customer.Username</p>
+Choose a Time
 
-@using (@Html.BeginForm("AppointmentCompletion", "Customer", FormMethod.Get))
+@using (Html.BeginForm("SetAppointment", "Customer",new {id = Model.Customer.Username, profid = Model.Professional.Username} ,FormMethod.Post))
 {
-  <input name = "Username" value = @Model.Username hidden ="true">
-  <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
-
-  <input type="submit" value="Create Appointment"/>
+   <div class="container">
+      <div class="panel panel-primary">
+         <div class="panel-heading">Schedule an Appointment</div>
+         <div class="panel-body">
+            <div class="row">
+               <div class='col-md-6'>
+                  <div class="form-group">
+                     <label class="control-label">Appointment Time</label>
+                     <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="StartTime" id="StartTime"/>
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+         </div>
+      </div>
+   </div>
 }

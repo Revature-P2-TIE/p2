@@ -149,7 +149,11 @@ namespace RevAppoint.Client.Controllers
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
 
-            return View("CreateAppointment", model);
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(model.SearchedProfessionalsUsername);
+            appointment.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
+
+            return View("CreateAppointment", appointment);
         }
 
         [HttpGet("/ProfessionalView/AppointmentCompletion")]
