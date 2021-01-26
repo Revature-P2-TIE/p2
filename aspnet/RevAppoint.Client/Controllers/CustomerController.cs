@@ -119,7 +119,7 @@ namespace RevAppoint.Client.Controllers
             {
                 // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
             }
-            
+
             appointment.IsFufilled = false;
             Repo.Insert<Appointment>(appointment);
             Repo.Save();
@@ -158,7 +158,5 @@ namespace RevAppoint.Client.Controllers
         {
             return View("AppointmentCompletion", model);
         }
-      
-      
     }
 }

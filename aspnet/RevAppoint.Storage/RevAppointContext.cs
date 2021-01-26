@@ -46,14 +46,13 @@ namespace RevAppoint.Storage
 
             builder.Entity<Professional>().HasData(new List<Professional>
             {
-                
-                new Professional() {Username = "banjojudo",Password = "BadPassword",FirstName = "Shelley",LastName = "Stacey",Title = "Blacksmith",Location = "Chicago",AppointmentLengthInHours = 1},
-                new Professional() {Username = "hotdogpeas",Password = "BadPassword",FirstName = "Salgado",LastName = "Arnie",Title = "Web Developer",Location = "Las Vegas",AppointmentLengthInHours = 2},
-                new Professional() {Username = "psychobatman",Password = "BadPassword",FirstName = "Chanel",LastName = "Tamera",Title = "Driver",Location = "Las Vegas",AppointmentLengthInHours = 3},
-                new Professional() {Username = "brownbread",Password = "BadPassword",FirstName = "Lawrence",LastName = "Gregg",Title = "Nurse",Location = "New York",AppointmentLengthInHours = 1},
-                new Professional() {Username = "oystersnatch",Password = "BadPassword",FirstName = "Ibrahim",LastName = "Elis",Title = "Barber",Location = "New York",AppointmentLengthInHours = 2},
-                new Professional() {Username = "islandhorse",Password = "BadPassword",FirstName = "Page",LastName = "Branch",Title = "Barber",Location = "Chicago",AppointmentLengthInHours = 4},
-                new Professional() {Username = "cocktailwave",Password = "BadPassword",FirstName = "Chante",LastName = "Jacob",Title = "Web Developer",Location = "Chicago",AppointmentLengthInHours = 12}
+                new Professional() {Username = "banjojudo",Password = "BadPassword",FirstName = "Shelley",LastName = "Stacey",Title = "Blacksmith",Location = "Chicago",AppointmentLengthInHours = 1,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "giti@gmail.com"},
+                new Professional() {Username = "hotdogpeas",Password = "BadPassword",FirstName = "Salgado",LastName = "Arnie",Title = "Web Developer",Location = "Las Vegas",AppointmentLengthInHours = 2,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "Tamaguchi@gmail.com"},
+                new Professional() {Username = "psychobatman",Password = "BadPassword",FirstName = "Chanel",LastName = "Tamera",Title = "Driver",Location = "Las Vegas",AppointmentLengthInHours = 3,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "jquery@gmail.com"},
+                new Professional() {Username = "brownbread",Password = "BadPassword",FirstName = "Lawrence",LastName = "Gregg",Title = "Nurse",Location = "New York",AppointmentLengthInHours = 1,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "HarVey@gmail.com"},
+                new Professional() {Username = "oystersnatch",Password = "BadPassword",FirstName = "Ibrahim",LastName = "Elis",Title = "Barber",Location = "New York",AppointmentLengthInHours = 2,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "Lmao@gmail.com"},
+                new Professional() {Username = "islandhorse",Password = "BadPassword",FirstName = "Page",LastName = "Branch",Title = "Barber",Location = "Chicago",AppointmentLengthInHours = 4,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "Vier@gmail.com"},
+                new Professional() {Username = "cocktailwave",Password = "BadPassword",FirstName = "Chante",LastName = "Jacob",Title = "Web Developer",Location = "Chicago",AppointmentLengthInHours = 12,Gender = "F",PhoneNumber = "(773)-555-1234",EmailAddress = "Locomotive@gmail.com"}
             });
         }
     }
