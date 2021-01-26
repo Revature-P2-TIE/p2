@@ -19,5 +19,6 @@ namespace RevAppoint.Client.Models
         {
             Professionals = Repo.GetAll<Professional>();
         }
+
     }
 }

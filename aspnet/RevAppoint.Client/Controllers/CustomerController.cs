@@ -30,7 +30,6 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/Home")]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
- 
             if(ModelState.IsValid)
             {
                 customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
@@ -55,6 +54,7 @@ namespace RevAppoint.Client.Controllers
 
             return View("DisplayProfessionals", model);
         }
+
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {
@@ -131,8 +131,8 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/CurrentAppointments/{id}")]
         public IActionResult CurrentAppointments(string id)
         {
-           CustomerViewModel customer = new CustomerViewModel();
-           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+            CustomerViewModel customer = new CustomerViewModel();
+            customer.Customer = Repo.CustomerRepo.GetCustomer(id);
             customer.Username = customer.Customer.Username;
             return View("CurrentAppointment", customer);
         }
@@ -140,8 +140,11 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
+            var ProfUsername = model.Username;
+
             return View("ProfessionalViewPage", model);
         }
+
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
