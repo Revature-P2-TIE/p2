@@ -27,3 +27,12 @@
         </form>
     </div>
 </div>
+@using (@Html.BeginForm("AccountCreationCustomer", "Customer", FormMethod.Get))
+{
+  <input type="submit" value="Create a customer account" style="float: left;"/>
+}
+
+@using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Post))
+{
+  <input type="submit" value="Create a professional account" style="float: left;"/>
+}
