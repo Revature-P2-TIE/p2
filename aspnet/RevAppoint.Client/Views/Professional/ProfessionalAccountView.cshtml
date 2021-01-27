@@ -12,7 +12,7 @@ Hello Professional: @Model.Username
     <label class="row">Bio: @Model.Professional.Bio</label>
     <label class="row">Rating: @Model.Professional.Rating</label>
 </section>
-<section class="col" id="EditForm" hidden="true">
+<section class="col" id="EditForm">
     @using (@Html.BeginForm("EditAccountInfo", "Professional",new {id = @Model.Username}, FormMethod.Post))
     {
         <label for="@Model.Professional.Title" class="row">Title:</label>
@@ -27,10 +27,7 @@ Hello Professional: @Model.Username
         <input type="text" asp-for="@Model.Professional.Language">
         <label for="@Model.Professional.Bio" class="row">Bio:</label>
         <input type="text" asp-for="@Model.Professional.Bio">
-        <label for="@Model.Professional.Rating" class="row">Rating:</label>
-        <input type="text" asp-for="@Model.Professional.Rating">
         <input type="submit" class="row" value="Edit Account Info"/>
-        <button onclick="document.getElementById(AccountInfo).hidden=false document.getElementById(EditForm).hidden=true">Cancel</button>
     }
 </section>
 <section class="col">
