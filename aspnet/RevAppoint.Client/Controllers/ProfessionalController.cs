@@ -65,5 +65,14 @@ namespace RevAppoint.Client.Controllers
 
             return View("ClientView", model);
         }
+
+        [HttpGet("~/Professional/ProfessionalAccountView/{id}")]
+        public IActionResult ProfessionalAccountView(string id)
+        {
+            ProfessionalViewModel model = new ProfessionalViewModel();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+            model.Username = model.Professional.Username;
+            return View("ProfessionalAccountView", model);
+        }
     }
 }
