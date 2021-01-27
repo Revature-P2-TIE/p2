@@ -26,5 +26,11 @@ namespace RevAppoint.Repo.Repositories
         {
             return _db.Appointments.Where(x=>x.Client.Username == username).Include(x=>x.Professional).Include(x=>x.Time);
         }
+
+        public void AddCustomer(Customer customer)
+        {
+            _db.Customers.Add(customer);
+            _db.SaveChanges();
+        }
     }
 }

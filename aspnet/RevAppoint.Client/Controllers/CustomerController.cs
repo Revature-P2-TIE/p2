@@ -185,5 +185,23 @@ namespace RevAppoint.Client.Controllers
         {
             return View("AppointmentCompletion", model);
         }
+
+        [HttpGet("/AccountCreationCustomer")]
+        public IActionResult AccountCreationCustomer()
+        {
+
+            AccountCreationViewModel accountModel = new AccountCreationViewModel();
+            return View("AccountCreation", accountModel);
+        }
+
+        [HttpPost("/CreateAccount")]
+        public IActionResult CreateAccount(AccountCreationViewModel model)
+        {
+            Customer customer = new Customer(model.username, model.password, model.firstname, model.lastname, model.gender, model.phonenumber,model.emailaddress );
+            
+            Repo.CustomerRepo.AddCustomer(customer);
+            return RedirectToAction("GetUser");
+        }
+
     }
 }
