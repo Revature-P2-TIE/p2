@@ -98,5 +98,21 @@ namespace RevAppoint.Client.Controllers
 
             return View("ProfessionalAccountView", model);
         }
+
+        [HttpPost("~/Professional/ProfessionalAccountView/{id}")]
+        public IActionResult EditAccountInfo(string id, ProfessionalViewModel model)
+        {            
+            ProfessionalViewModel newModel = new ProfessionalViewModel();
+            newModel.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+            newModel.Professional.Title = model.Professional.Title;
+            newModel.Professional.Location = model.Professional.Location;
+            newModel.Professional.AppointmentLengthInHours = model.Professional.AppointmentLengthInHours;
+            newModel.Professional.HourlyRate = model.Professional.HourlyRate;
+            newModel.Professional.Language = model.Professional.Language;
+            newModel.Username = id;
+            Repo.Update(newModel.Professional);
+            Repo.Save();
+            return View("ProfessionalAccountView", newModel);
+        }
     }
 }
