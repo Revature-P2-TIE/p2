@@ -12,7 +12,7 @@ Hello Professional: @Model.Username
     <label class="row">Bio: @Model.Professional.Bio</label>
     <label class="row">Rating: @Model.Professional.Rating</label>
 </section>
-<section class="col" id="EditForm" hidden="true">
+<section class="col" id="EditForm" hidden="false">
     @using (@Html.BeginForm("EditAccountInfo", "Professional",new {id = @Model.Username}, FormMethod.Post))
     {
         <label for="@Model.Professional.Title" class="row">Title:</label>
