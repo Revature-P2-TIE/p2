@@ -9,6 +9,7 @@ namespace RevAppoint.Client.Models
     {
         [Required(AllowEmptyStrings=false)]
         public string Username{get;set;}
+        public string AppointmentID{get;set;}
         public IEnumerable<Professional> Professionals { get; set; }
         public Professional Professional { get; set; }
         public IEnumerable<Appointment> AppointmentHistory {get;set;}
