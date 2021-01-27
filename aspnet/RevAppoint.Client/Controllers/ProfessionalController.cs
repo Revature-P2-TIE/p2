@@ -109,6 +109,7 @@ namespace RevAppoint.Client.Controllers
             newModel.Professional.AppointmentLengthInHours = model.Professional.AppointmentLengthInHours;
             newModel.Professional.HourlyRate = model.Professional.HourlyRate;
             newModel.Professional.Language = model.Professional.Language;
+            newModel.Professional.Bio = model.Professional.Bio;
             newModel.Username = id;
             Repo.Update(newModel.Professional);
             Repo.Save();
