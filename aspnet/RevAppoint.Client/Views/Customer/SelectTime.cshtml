@@ -1,7 +1,7 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
 Choose a Time
-
+@Html.ValidationMessageFor(m => m.StartTime, "", new { @class = "text-danger" })
 @using (Html.BeginForm("SetAppointment", "Customer",new {id = Model.Customer.Username, profid = Model.Professional.Username} ,FormMethod.Post))
 {
    <div class="container">

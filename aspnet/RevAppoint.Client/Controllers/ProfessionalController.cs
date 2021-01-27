@@ -19,7 +19,6 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
         {
-
             return View("ProfessionalHome", model);
         }
 
@@ -49,9 +48,8 @@ namespace RevAppoint.Client.Controllers
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
 
-            var Customer = Repo.CustomerRepo.GetCustomer(model.Username);
 
-            model.CurrentAppointmets = Repo.CustomerRepo.GetAppointments(model.Username).ToList();
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
     
             return View("CurrentAppointments", model);
         }
@@ -64,6 +62,31 @@ namespace RevAppoint.Client.Controllers
             model.Username = model.Professional.Username;
 
             return View("ClientView", model);
+        }
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult CompleteAppointment(ProfessionalViewModel model)
+        {
+
+            Appointment appointment = Repo.GetById<Appointment>(long.Parse(model.AppointmentID));
+            appointment.IsFufilled = true;
+            Repo.Save();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            // model.Username = model.Professional.Username;
+
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
+            return View("CurrentAppointments", model);
+        }
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult AcceptAppointment(ProfessionalViewModel model)
+        {
+            Appointment appointment = Repo.GetById<Appointment>(long.Parse(model.AppointmentID));;
+            appointment.IsAccepted = true;
+            Repo.Save();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
+            return View("CurrentAppointments", model);
         }
 
         [HttpGet("~/Professional/ProfessionalAccountView/{id}")]
