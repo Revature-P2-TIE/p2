@@ -1,0 +1,14 @@
+@model RevAppoint.Client.Models.ProfessionalViewModel;
+
+Hello Professional: @Model.Username
+<p>Account Infomation</p>
+
+<label class="row">Title: @Model.Professional.Title</label>
+<label class="row">Locaton: @Model.Professional.Location</label>
+
+
+<label class="row">Appointment Length: @Model.Professional.AppointmentLengthInHours</label>
+<label class="row">HourlyRate: @Model.Professional.HourlyRate</label>
+<label class="row">Language: @Model.Professional.Language</label>
+<label class="row">Bio: @Model.Professional.Bio</label>
+<label class="row">Rating: @Model.Professional.Rating</label>
