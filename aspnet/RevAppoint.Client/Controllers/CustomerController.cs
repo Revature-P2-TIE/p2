@@ -94,32 +94,41 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/SetAppointment")]
         public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
         {
-            string format = "MM/dd/yyyy h:mm tt";
-            CultureInfo provider = CultureInfo.InvariantCulture;
-
-            Appointment appointment = new Appointment();
-            appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
-            var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
-
-            try 
+            if(ModelState.IsValid)
             {
-                DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
-                appointment.Time = new Time();
-                appointment.Time.Start = startTime;
-                appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
-                // Console.WriteLine("{0} converts to {1}.", model.StartTime.Trim(), startTime.ToString());
-            }
-            catch (FormatException) 
-            {
-                // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
-            }
+                string format = "MM/dd/yyyy h:mm tt";
+                CultureInfo provider = CultureInfo.InvariantCulture;
 
-            appointment.IsFufilled = false;
-            Repo.Insert<Appointment>(appointment);
-            Repo.Save();
-            CustomerViewModel customer = new CustomerViewModel();
-            customer.Username = appointment.Client.Username;
-            return RedirectToAction("Home",customer);
+                Appointment appointment = new Appointment();
+                appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
+                var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+
+                try 
+                {
+                    DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
+                    appointment.Time = new Time();
+                    appointment.Time.Start = startTime;
+                    appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
+                    // Console.WriteLine("{0} converts to {1}.", model.StartTime.Trim(), startTime.ToString());
+                }
+                catch (FormatException) 
+                {
+                    // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
+                }
+
+                appointment.IsFufilled = false;
+                Repo.Insert<Appointment>(appointment);
+                Repo.Save();
+                CustomerViewModel customer = new CustomerViewModel();
+                customer.Username = appointment.Client.Username;
+                return RedirectToAction("Home",customer);
+            }
+            else
+            {
+                model.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+                model.Customer = Repo.CustomerRepo.GetCustomer(id);
+                return View("SelectTime", model);
+            }
         }
         
         [HttpGet("/CurrentAppointments/{id}")]

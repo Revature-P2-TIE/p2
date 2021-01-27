@@ -19,7 +19,6 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
         {
-
             return View("ProfessionalHome", model);
         }
 
