@@ -49,7 +49,7 @@ namespace RevAppoint.Client.Controllers
             model.Username = model.Professional.Username;
 
 
-            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).Where(a=>a.IsFufilled==false).ToList();
     
             return View("CurrentAppointments", model);
         }
