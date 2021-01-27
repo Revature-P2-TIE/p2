@@ -33,3 +33,13 @@
   </ol>
   <button type="submit" class ="button" >Continue as Professional</button>
 </form>
+
+@using (@Html.BeginForm("AccountCreationCustomer", "Customer", FormMethod.Post))
+{
+  <input type="submit" value="Create a customer account" style="float: left;"/>
+}
+
+@using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Post))
+{
+  <input type="submit" value="Create a customer account" style="float: left;"/>
+}
