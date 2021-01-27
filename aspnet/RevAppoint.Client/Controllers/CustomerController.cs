@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
 using RevAppoint.Domain.POCOs;
@@ -50,7 +51,7 @@ namespace RevAppoint.Client.Controllers
                 }
             }
         }
-
+        
         [HttpPost("/Display")]
         public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
