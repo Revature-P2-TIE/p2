@@ -18,13 +18,13 @@ namespace RevAppoint.Client.Controllers
             Repo = repo;
         }
 
-        [HttpGet("/Customer")]
+        [HttpGet("/Login")]
         public IActionResult GetUser()
         {
             return View("FormLogin");
         }
 
-        [HttpPost("/FormLogin")]
+        [HttpPost("/Home")]
         public IActionResult FormLogin(LoginViewModel model)
         {
             var user = Repo.UserRepo.GetUser(model.Username, model.Password);
@@ -38,12 +38,15 @@ namespace RevAppoint.Client.Controllers
                if(user.Type == "Customer"){
                     CustomerViewModel customer = new CustomerViewModel();
                     customer.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
-                    return View("UserHome", customer);
-               }else{
+                    customer.Username = model.Username;
+                    return RedirectToAction("Home",new {
+                        username = customer.Username});
+                }
+               else{
                    ProfessionalViewModel professional = new ProfessionalViewModel();
                    professional.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
                    return View("~/Views/Shared/ProfessionalHome.cshtml", professional);
-               }
+                }
             }
         }
 /*
@@ -92,10 +95,7 @@ namespace RevAppoint.Client.Controllers
            customer.Username = customer.Customer.Username;
            return View("SearchForProfessional", customer);
         }
-        /*
-        [HttpGet("/AppointmentHistory/{id}")]
-        public IActionResult AppointmentHistory(string customerUsername)
-        */
+
         [HttpGet("/Home/{username}")]
         public IActionResult Home(string username)
         {
@@ -177,7 +177,6 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
-
             return View("CreateAppointment", model);
         }
 
