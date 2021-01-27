@@ -65,24 +65,21 @@ namespace RevAppoint.Client.Controllers
 
             return View("ClientView", model);
         }
-<<<<<<< HEAD
-        [HttpPut]
+        [HttpPost]
         public IActionResult CompleteAppointment(ProfessionalViewModel model)
-=======
+        {
+            
+            return View();
+        }
 
         [HttpGet("~/Professional/ProfessionalAccountView/{id}")]
         public IActionResult ProfessionalAccountView(string id)
->>>>>>> f3d8eb0b4f5fa2aac1310b03e250cc4475ce2c97
         {
             ProfessionalViewModel model = new ProfessionalViewModel();
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
-<<<<<<< HEAD
 
-            return View("ClientView", model);
-=======
             return View("ProfessionalAccountView", model);
->>>>>>> f3d8eb0b4f5fa2aac1310b03e250cc4475ce2c97
         }
     }
 }
