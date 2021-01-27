@@ -18,13 +18,13 @@ namespace RevAppoint.Client.Controllers
             Repo = repo;
         }
 
-        [HttpGet("/Customer")]
+        [HttpGet("/Login")]
         public IActionResult GetUser()
         {
             return View("FormLogin");
         }
 
-        [HttpPost("/FormLogin")]
+        [HttpPost("/Home")]
         public IActionResult FormLogin(LoginViewModel model)
         {
             var user = Repo.UserRepo.GetUser(model.Username, model.Password);
@@ -38,13 +38,16 @@ namespace RevAppoint.Client.Controllers
                if(user.Type == "Customer"){
                     CustomerViewModel customer = new CustomerViewModel();
                     customer.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
-                    return View("UserHome", customer);
-               }else{
+                    customer.Username = model.Username;
+                    return RedirectToAction("Home",new {
+                        username = customer.Username});
+                }
+               else{
                    ProfessionalViewModel professional = new ProfessionalViewModel();
                    professional.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
                    professional.Username = model.Username;
                    return View("~/Views/Shared/ProfessionalHome.cshtml", professional);
-               }
+                }
             }
         }
 /*
@@ -60,7 +63,6 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/Home")]
         public IActionResult SelectUser(CustomerViewModel customer)
         {
- 
             if(ModelState.IsValid)
             {
                 customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
@@ -85,6 +87,7 @@ namespace RevAppoint.Client.Controllers
 
             return View("DisplayProfessionals", model);
         }
+
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {
@@ -93,10 +96,7 @@ namespace RevAppoint.Client.Controllers
            customer.Username = customer.Customer.Username;
            return View("SearchForProfessional", customer);
         }
-        /*
-        [HttpGet("/AppointmentHistory/{id}")]
-        public IActionResult AppointmentHistory(string customerUsername)
-        */
+
         [HttpGet("/Home/{username}")]
         public IActionResult Home(string username)
         {
@@ -161,8 +161,8 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/CurrentAppointments/{id}")]
         public IActionResult CurrentAppointments(string id)
         {
-           CustomerViewModel customer = new CustomerViewModel();
-           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+            CustomerViewModel customer = new CustomerViewModel();
+            customer.Customer = Repo.CustomerRepo.GetCustomer(id);
             customer.Username = customer.Customer.Username;
             return View("CurrentAppointment", customer);
         }
@@ -170,17 +170,15 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
+            var Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            ProfessionalViewModel professional = new ProfessionalViewModel();
             return View("ProfessionalViewPage", model);
         }
+
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
-
-            AppointmentViewModel appointment = new AppointmentViewModel();
-            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(model.SearchedProfessionalsUsername);
-            appointment.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
-
-            return View("CreateAppointment", appointment);
+            return View("CreateAppointment", model);
         }
 
         [HttpGet("/ProfessionalView/AppointmentCompletion")]
