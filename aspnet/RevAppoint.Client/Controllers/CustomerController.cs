@@ -134,7 +134,7 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
-            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.SearchedProfessionalsUsername);
             return View("ProfessionalViewPage", model);
         }
 

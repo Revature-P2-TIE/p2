@@ -65,12 +65,15 @@ namespace RevAppoint.Client.Controllers
 
             return View("ClientView", model);
         }
+<<<<<<< HEAD
         [HttpPost]
         public IActionResult CompleteAppointment(ProfessionalViewModel model)
         {
             
             return View();
         }
+=======
+>>>>>>> fbe2968fd0c2925c644c0ecb0207c386f1560a06
 
         [HttpGet("~/Professional/ProfessionalAccountView/{id}")]
         public IActionResult ProfessionalAccountView(string id)
