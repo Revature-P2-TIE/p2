@@ -116,15 +116,15 @@ namespace RevAppoint.Client.Controllers
             return View("UserHistory",appointment);
         }
         
-        [HttpPost("/SelectTime")]
-        public IActionResult SelectTime(string id,string profid)
-        {
-            AppointmentViewModel appointment = new AppointmentViewModel();
-            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
-            appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
+        // [HttpPost("/SelectTime")]
+        // public IActionResult SelectTime(string id,string profid)
+        // {
+        //     AppointmentViewModel appointment = new AppointmentViewModel();
+        //     appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+        //     appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
 
-            return View("SelectTime", appointment);
-        }
+        //     return View("SelectTime", appointment);
+        // }
 
         [HttpPost("/SetAppointment")]
         public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
@@ -170,13 +170,22 @@ namespace RevAppoint.Client.Controllers
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
             var Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
-            ProfessionalViewModel professional = new ProfessionalViewModel();
             return View("ProfessionalViewPage", model);
+        }
+
+        [HttpPost("/SelectTime")]
+        public IActionResult SelectTime(CustomerViewModel customer)
+        {
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(customer.SearchedProfessionalsUsername);
+            appointment.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
+            return View("SelectTime", appointment);
         }
 
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
+
             return View("CreateAppointment", model);
         }
 

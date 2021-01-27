@@ -3,7 +3,7 @@
 <p>Hello @Model.Username</p>
 <p>Viewing: @Model.SearchedProfessionalsUsername</p>
 
-@using (@Html.BeginForm("CreateAppointment", "Customer", FormMethod.Get))
+@using (@Html.BeginForm("SelectTime", "Customer", FormMethod.Post))
 {
 
   <input name = "Username" value = @Model.Username hidden ="true">
