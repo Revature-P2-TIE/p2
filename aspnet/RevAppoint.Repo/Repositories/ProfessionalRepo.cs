@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using RevAppoint.Domain.POCOs;
 using RevAppoint.Storage;
 
@@ -40,6 +41,10 @@ namespace RevAppoint.Repo.Repositories
                  return _db.Professionals.Where(p => p.Location == SearchValue);
             }
             return returnList;
+        }
+        public IEnumerable<Appointment> GetAppointments(long id)
+        {
+            return _db.Appointments.Where(x=>x.Professional.EntityID == id).Include(x=>x.Time).Include(x=>x.Client);
         }
     }
 }

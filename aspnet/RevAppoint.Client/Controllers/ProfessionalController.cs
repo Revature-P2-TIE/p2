@@ -49,9 +49,8 @@ namespace RevAppoint.Client.Controllers
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
 
-            var Customer = Repo.CustomerRepo.GetCustomer(model.Username);
 
-            model.CurrentAppointmets = Repo.CustomerRepo.GetAppointments(model.Username).ToList();
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
     
             return View("CurrentAppointments", model);
         }
@@ -65,15 +64,31 @@ namespace RevAppoint.Client.Controllers
 
             return View("ClientView", model);
         }
-<<<<<<< HEAD
+        [Route("[action]")]
         [HttpPost]
         public IActionResult CompleteAppointment(ProfessionalViewModel model)
         {
-            
-            return View();
+
+            Appointment appointment = Repo.GetById<Appointment>(long.Parse(model.AppointmentID));
+            appointment.IsFufilled = true;
+            Repo.Save();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            // model.Username = model.Professional.Username;
+
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
+            return View("CurrentAppointments", model);
         }
-=======
->>>>>>> fbe2968fd0c2925c644c0ecb0207c386f1560a06
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult AcceptAppointment(ProfessionalViewModel model)
+        {
+            Appointment appointment = Repo.GetById<Appointment>(long.Parse(model.AppointmentID));;
+            appointment.IsAccepted = true;
+            Repo.Save();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
+            return View("CurrentAppointments", model);
+        }
 
         [HttpGet("~/Professional/ProfessionalAccountView/{id}")]
         public IActionResult ProfessionalAccountView(string id)
