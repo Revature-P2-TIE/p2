@@ -48,7 +48,6 @@ namespace RevAppoint.Client.Controllers
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
 
-
             model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();
     
             return View("CurrentAppointments", model);
