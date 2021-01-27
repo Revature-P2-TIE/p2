@@ -82,7 +82,7 @@ namespace RevAppoint.Client.Controllers
         public IActionResult AcceptAppointment(ProfessionalViewModel model)
         {
             Appointment appointment = Repo.GetById<Appointment>(long.Parse(model.AppointmentID));;
-            appointment.IsAccepted = true;
+            appointment.IsAccepted = !appointment.IsAccepted;
             Repo.Save();
             model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
             model.CurrentAppointmets = Repo.ProfessionalRepo.GetAppointments(model.Professional.EntityID).ToList();

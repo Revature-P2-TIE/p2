@@ -138,6 +138,7 @@ namespace RevAppoint.Client.Controllers
             CustomerViewModel customer = new CustomerViewModel();
             customer.Customer = Repo.CustomerRepo.GetCustomer(id);
             customer.Username = customer.Customer.Username;
+            customer.CurrentAppointments = Repo.CustomerRepo.GetAppointments(id).Where(a=>a.IsFufilled == false);
             return View("CurrentAppointment", customer);
         }
 
