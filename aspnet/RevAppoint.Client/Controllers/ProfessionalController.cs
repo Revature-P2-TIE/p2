@@ -65,5 +65,14 @@ namespace RevAppoint.Client.Controllers
 
             return View("ClientView", model);
         }
+        [HttpPut]
+        public IActionResult CompleteAppointment(ProfessionalViewModel model)
+        {
+            ProfessionalViewModel model = new ProfessionalViewModel();
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+            model.Username = model.Professional.Username;
+
+            return View("ClientView", model);
+        }
     }
 }
