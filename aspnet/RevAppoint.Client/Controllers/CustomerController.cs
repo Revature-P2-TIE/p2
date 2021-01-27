@@ -50,33 +50,7 @@ namespace RevAppoint.Client.Controllers
                 }
             }
         }
-/*
-        [HttpGet("/Customer")]
-        public IActionResult GetUser()
-        {
-            CustomerViewModel model = new CustomerViewModel(Repo);
-            model.Professionals = Repo.GetAll<Professional>();
-            //Repo.ProfessionalRepo.GetProfessionals();
-            return View("Login", model);
-        }
 
-        [HttpPost("/Home")]
-        public IActionResult SelectUser(CustomerViewModel customer)
-        {
-            if(ModelState.IsValid)
-            {
-                customer.Customer = Repo.CustomerRepo.GetCustomer(customer.Username);
-                return View("UserHome", customer);
-            }
-            //TODO ADD LOGIC TO CHECH IF THEY ARE A PROFESSIONAL
-            else
-            {
-                customer.Customers = Repo.GetAll<Customer>();
-                customer.Professionals = Repo.ProfessionalRepo.GetProfessionals();
-                return View("Login", customer);
-            }
-        }
-*/
         [HttpPost("/Display")]
         public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
@@ -117,16 +91,6 @@ namespace RevAppoint.Client.Controllers
             return View("UserHistory",appointment);
         }
         
-        // [HttpPost("/SelectTime")]
-        // public IActionResult SelectTime(string id,string profid)
-        // {
-        //     AppointmentViewModel appointment = new AppointmentViewModel();
-        //     appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
-        //     appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
-
-        //     return View("SelectTime", appointment);
-        // }
-
         [HttpPost("/SetAppointment")]
         public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
         {
@@ -170,7 +134,7 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/ProfessionalView")]
         public IActionResult ViewProfessional(CustomerViewModel model)
         {
-            var Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+            model.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
             return View("ProfessionalViewPage", model);
         }
 
@@ -186,7 +150,6 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
-
             return View("CreateAppointment", model);
         }
 

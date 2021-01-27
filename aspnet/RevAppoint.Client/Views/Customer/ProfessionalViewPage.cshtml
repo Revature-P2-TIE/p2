@@ -9,5 +9,16 @@
   <input name = "Username" value = @Model.Username hidden ="true">
   <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
 
+  <label class="row">Title: @Model.Professional.Title</label>
+  <label class="row">Locaton: @Model.Professional.Location</label>
+
+
+  <label class="row">Appointment Length: @Model.Professional.AppointmentLengthInHours</label>
+  <label class="row">HourlyRate: @Model.Professional.HourlyRate</label>
+  <label class="row">Language: @Model.Professional.Language</label>
+  <label class="row">Bio: @Model.Professional.Bio</label>
+  <label class="row">Rating: @Model.Professional.Rating</label>
+
+
   <input type="submit" value="To Create Appointment"/>
 }
