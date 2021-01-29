@@ -1,6 +1,6 @@
-@model RevAppoint.Client.Models.CustomerViewModel;
+@model RevAppoint.Client.Models.UserModel;
 
-Hello, @Model.Customer.FirstName
+Hello, @Model.Username
 
 @using (@Html.BeginForm("SearchForProfessionals", "Customer",new {id = @Model.Username}, FormMethod.Get))
 {

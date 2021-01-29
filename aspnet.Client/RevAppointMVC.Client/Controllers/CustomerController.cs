@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
     public class CustomerController : Controller
     {
-        private string apiUrl = "http://localhost:5000/";
-        private HttpClient _http = new HttpClient();
+        private string apiUrl = "http://localhost:7000/";
+        private string loginController = "Login";
+      //  private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
         public IActionResult GetUser()
@@ -22,6 +25,52 @@ namespace RevAppoint.Client.Controllers
             return View("FormLogin");
         }
 
+        
+        [HttpPost("/Home")]
+        public async Task<IActionResult> FormLogin(LoginViewModel model)
+        {
+  
+        //Serializing the model and converting it into a string
+        var json = JsonConvert.SerializeObject(model);
+        StringContent content = new StringContent(json.ToString());
+
+        //Creating a HTTP handler to bypass SSL cert checks
+        HttpClientHandler clientHandler = new HttpClientHandler();
+        clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+        
+        //creating httpclient that uses the handler
+        HttpClient client = new HttpClient(clientHandler);
+ 
+        //Passing the serialized object to the API
+        var response = await client.PostAsync(apiUrl+loginController+"/Post", content);
+
+        /*
+        Getting an object back from the api,
+        The api is going to search its database for a user with the credentials that we sent
+        and send us back a user based on its search
+        */
+        UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+       
+        //If the username/password combo is in the API's database, we will have a binded model
+        if(user.Username != null)
+        {
+            Console.WriteLine(user.Username);
+            return View("UserHome", user);
+        }
+          
+        //This will happen if the username/password combo provided is not in the system
+        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        return View("FormLogin");
+
+        }
+
+        [HttpPost("/UserHome")]
+        public IActionResult SelectUser(CustomerViewModel customer)
+        {
+                return View("UserHome", customer);
+        }
+        
+        /*
         [HttpPost("/Home")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
@@ -52,6 +101,7 @@ namespace RevAppoint.Client.Controllers
  /*       [HttpPost("/Home")]
         public IActionResult FormLogin(LoginViewModel model)
         {
+            
             var user = Repo.UserRepo.GetUser(model.Username, model.Password);
             if (user == null)
             {
@@ -101,6 +151,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
+/*
         [HttpPost("/Display")]
         public IActionResult DisplayProfessionals(CustomerViewModel model)
         {
@@ -227,6 +278,6 @@ namespace RevAppoint.Client.Controllers
             Repo.CustomerRepo.AddCustomer(customer);
             return RedirectToAction("GetUser");
         }
-
+    */
     }
 }
