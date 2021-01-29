@@ -59,7 +59,6 @@ namespace RevAppoint.Client.Controllers
             ProfessionalViewModel model = new ProfessionalViewModel();
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
-id.
             return View("ClientView", model);
         }
     }

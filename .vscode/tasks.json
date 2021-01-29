@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/aspnet/RevAppoint.Client/RevAppoint.Client.csproj",
+                "${workspaceFolder}/aspnet.Client/RevAppointMVC.Client/RevAppointMVC.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/aspnet/RevAppoint.Client/RevAppoint.Client.csproj",
+                "${workspaceFolder}/aspnet.Client/RevAppointMVC.Client/RevAppointMVC.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/aspnet/RevAppoint.Client/RevAppoint.Client.csproj",
+                "${workspaceFolder}/aspnet.Client/RevAppointMVC.Client/RevAppointMVC.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

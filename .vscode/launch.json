@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/aspnet/RevAppoint.Client/bin/Debug/net5.0/RevAppoint.Client.dll",
+            "program": "${workspaceFolder}/aspnet.Client/RevAppointMVC.Client/bin/Debug/net5.0/RevAppointMVC.Client.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/aspnet/RevAppoint.Client",
+            "cwd": "${workspaceFolder}/aspnet.Client/RevAppointMVC.Client",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

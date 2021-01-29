@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
 
@@ -22,6 +23,33 @@ namespace RevAppoint.Client.Controllers
         }
 
         [HttpPost("/Home")]
+        public async Task<IActionResult> FormLogin(LoginViewModel model)
+        {
+            var user = await _http.GetAsync(apiUrl);
+             Repo.UserRepo.GetUser(model.Username, model.Password);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View("FormLogin");
+            }
+            else
+            {
+               if(user.Type == "Customer"){
+                    CustomerViewModel customer = new CustomerViewModel();
+                    customer.Customer = Repo.CustomerRepo.GetCustomer(model.Username);
+                    customer.Username = model.Username;
+                    return RedirectToAction("Home",new {
+                    username = customer.Username});
+                }
+                else{
+                    ProfessionalViewModel professional = new ProfessionalViewModel();
+                    professional.Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
+                    return View("~/Views/Shared/ProfessionalHome.cshtml", professional);
+                }
+            }
+        }
+
+ /*       [HttpPost("/Home")]
         public IActionResult FormLogin(LoginViewModel model)
         {
             var user = Repo.UserRepo.GetUser(model.Username, model.Password);
@@ -45,7 +73,7 @@ namespace RevAppoint.Client.Controllers
                    return View("~/Views/Shared/ProfessionalHome.cshtml", professional);
                 }
             }
-        }
+        }*/
 /*
         [HttpGet("/Customer")]
         public IActionResult GetUser()
