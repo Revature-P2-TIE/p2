@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RevAppoint.Domain.POCOs
 {
-    public abstract class User : AEntityID
+    public class User : AEntityID
     {
         public string Username { get; set; }
         public string Password {get; set; }

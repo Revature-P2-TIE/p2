@@ -1,10 +1,5 @@
-  using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using RevAppoint.Domain.POCOs;
 using RevAppoint.Repo.Repositories;
 
@@ -36,7 +31,7 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointment);
         }
 
-        [HttpGet("[action]/{id}")]
+        [HttpGet("[action]/{username}")]
         public IActionResult GetByUsername(string username)
         {
             var Appointments = _repo.CustomerRepo.GetAppointments(username);
