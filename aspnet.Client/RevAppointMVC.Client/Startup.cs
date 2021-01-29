@@ -8,11 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RevAppoint.Storage;
-using RevAppoint.Repo;
 using Microsoft.EntityFrameworkCore;
-using RevAppoint.Repo.Repositories;
-using RevAppoint.Domain.POCOs;
+
 
 namespace RevAppoint.Client
 {
@@ -28,15 +25,7 @@ namespace RevAppoint.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddDbContext<RevAppointContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("sqlserver"), opts =>
-                {
-                    opts.EnableRetryOnFailure(2);
-                });
-            });
-            services.AddScoped<UnitOfWork>();
+            services.AddControllersWithViews();            
         }
         
 

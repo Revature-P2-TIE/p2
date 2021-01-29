@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\RevAppoint.Domain\RevAppoint.Domain.csproj" />
-    <ProjectReference Include="..\RevAppoint.Storage\RevAppoint.Storage.csproj" />
-    <ProjectReference Include="..\RevAppoint.Repo\RevAppoint.Repo.csproj" />
   </ItemGroup>
 
   <ItemGroup>

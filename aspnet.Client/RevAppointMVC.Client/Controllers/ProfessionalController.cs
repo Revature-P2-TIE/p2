@@ -1,20 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
-using RevAppoint.Domain.POCOs;
-using RevAppoint.Repo.Repositories;
 
 namespace RevAppoint.Client.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class ProfessionalController : Controller
     {
-        private UnitOfWork Repo;
-        public ProfessionalController(UnitOfWork repo)
-        {
-            Repo = repo;
-        }
+        private string apiUrl = "http://localhost:5000/";
+        private HttpClient _http = new HttpClient();
 
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
@@ -62,7 +59,7 @@ namespace RevAppoint.Client.Controllers
             ProfessionalViewModel model = new ProfessionalViewModel();
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
-
+id.
             return View("ClientView", model);
         }
     }

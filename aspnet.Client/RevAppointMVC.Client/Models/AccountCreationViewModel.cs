@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using RevAppoint.Domain.POCOs;
-using RevAppoint.Repo.Repositories;
 
 namespace RevAppoint.Client.Models
 {

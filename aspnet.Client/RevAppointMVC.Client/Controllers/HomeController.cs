@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RevAppoint.Client.Models;
-using RevAppoint.Domain.POCOs;
-using RevAppoint.Repo.Repositories;
 
 namespace RevAppoint.Client.Controllers
 {
     public class HomeController : Controller
     {
-        private UnitOfWork _repo;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(UnitOfWork repo, ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _repo = repo;
             _logger = logger;
         }
 

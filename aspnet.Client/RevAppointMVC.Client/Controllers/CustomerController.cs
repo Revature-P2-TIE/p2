@@ -2,21 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
-using RevAppoint.Domain.POCOs;
-using RevAppoint.Repo.Repositories;
 
 namespace RevAppoint.Client.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class CustomerController : Controller
     {
-        private UnitOfWork Repo;
-        public CustomerController(UnitOfWork repo)
-        {
-            Repo = repo;
-        }
+        private string apiUrl = "http://localhost:5000/";
+        private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
         public IActionResult GetUser()
@@ -132,14 +129,14 @@ namespace RevAppoint.Client.Controllers
             string format = "MM/dd/yyyy h:mm tt";
             CultureInfo provider = CultureInfo.InvariantCulture;
 
-            Appointment appointment = new Appointment();
+            AppointmentModel appointment = new AppointmentModel();
             appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
             var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
 
             try 
             {
                 DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
-                appointment.Time = new Time();
+                appointment.Time = new TimeModel();
                 appointment.Time.Start = startTime;
                 appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
                 // Console.WriteLine("{0} converts to {1}.", model.StartTime.Trim(), startTime.ToString());
@@ -150,7 +147,7 @@ namespace RevAppoint.Client.Controllers
             }
 
             appointment.IsFufilled = false;
-            Repo.Insert<Appointment>(appointment);
+            Repo.Insert<AppointmentModel>(appointment);
             Repo.Save();
             CustomerViewModel customer = new CustomerViewModel();
             customer.Username = appointment.Client.Username;
@@ -197,7 +194,7 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/CreateAccount")]
         public IActionResult CreateAccount(AccountCreationViewModel model)
         {
-            Customer customer = new Customer(model.username, model.password, model.firstname, model.lastname, model.gender, model.phonenumber,model.emailaddress );
+            CustomerModel customer = new CustomerModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress};
             
             Repo.CustomerRepo.AddCustomer(customer);
             return RedirectToAction("GetUser");
