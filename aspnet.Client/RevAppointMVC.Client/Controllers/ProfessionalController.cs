@@ -11,7 +11,7 @@ namespace RevAppoint.Client.Controllers
     [Route("[controller]")]
     public class ProfessionalController : Controller
     {
-        private string apiUrl = "http://localhost:5000/";
+        private string apiUrl = "http://localhost:7000/";
         private HttpClient _http = new HttpClient();
 
         [HttpGet("/Professional/ProfessionalHome")]

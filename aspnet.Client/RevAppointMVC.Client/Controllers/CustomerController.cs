@@ -54,8 +54,11 @@ namespace RevAppoint.Client.Controllers
         //If the username/password combo is in the API's database, we will have a binded model
         if(user.Username != null)
         {
-            Console.WriteLine(user.Username);
-            return View("UserHome", user);
+            if(user.Type == "Customer"){
+                return View("UserHome", user);
+            }else{
+                return View("~/Views/Shared/ProfessionalHome.cshtml", user);
+            }
         }
           
         //This will happen if the username/password combo provided is not in the system
