@@ -1,0 +1,58 @@
+@model RevAppoint.Client.Models.ProfessionalViewModel;
+
+Hello Professional: @Model.Username
+
+<p>Current Appointment Page</p>
+
+<br>
+<table style="width:100%">
+  <tr>
+    <td><u>Appointment ID</u></td>
+    <td><u>Professional Name</u></td> @*Override toString method here?*@
+    <td><u>Is Fufilled</u></td>
+    <td><u>Start Time</u></td>
+    <td><u>End Time</u></td>
+    <td><u>Delete</u></td>
+    <td><u>View Client</u></td>
+    <td><u>Completed</u></td>
+  </tr>
+  @foreach (var item in Model.CurrentAppointmets)
+  {
+    <tr>
+    <td>@item.EntityID</td>
+    <td>@item.Professional.FirstName</td>
+    <td>@item.IsFufilled</td>
+    <td>@item.Time.Start.ToString("MM/dd/yyyy hh:mm tt")</td>
+    <td>@item.Time.End.ToString("MM/dd/yyyy hh:mm tt")</td>
+    <td>
+    @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))
+    {
+      <input name ="Username" value = @Model.Username hidden = "true">
+      <input type="submit" value="Delete"/>
+    }
+    </td>
+    <td>
+    @using (@Html.BeginForm("ClientView", "Professional",new {id = @Model.Username}, FormMethod.Get))
+    {
+      <input name ="Username" value = @Model.Username hidden = "true">
+      
+      <input type="submit" value="View Client"/>
+    }
+    </td>
+    <td>
+    @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
+    {
+      <input name ="Username" value = @Model.Username hidden = "true">
+      <input type="submit" value="Completed"/>
+    }
+    </td>
+    </tr>
+}
+</table>
+
+@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input name ="Username" value = @Model.Username hidden = "true">
+  <input type="submit" value="Home"/>
+}
+
