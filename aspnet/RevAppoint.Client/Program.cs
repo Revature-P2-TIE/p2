@@ -21,7 +21,6 @@ namespace RevAppoint.Client
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    // d
                 });
     }
 }
