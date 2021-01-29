@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RevAppoint.Client.Models;
 
@@ -20,6 +21,7 @@ namespace RevAppoint.Client.Controllers
             return View("ProfessionalHome", model);
         }
 
+        /*
         [HttpGet("/Professional/SetAvailability/{id}")]
         public IActionResult SetAvailability(string id)
         {
@@ -28,6 +30,32 @@ namespace RevAppoint.Client.Controllers
             model.Username = model.Professional.Username;
             return View("SetAvailability", model);
         }
+        */
+
+         [HttpGet("/Professional/SetAvailability/{id}")]
+        public async Task<IActionResult> SetAvailability(string id)
+        {
+         
+            var response = await _http.GetAsync(apiUrl);
+
+                return View("SetAvailability", response);
+
+            
+           
+    /*
+        if(response.IsSuccessStatusCode){
+
+            var response.Con
+            return View("SetAvailability", content);
+        
+        }
+    */
+        }
+
+
+    }
+}
+        /*
 
         [HttpGet("/Professional/AppointmentHistory/{id}")]
         public IActionResult AppointmentHistory(string id)
@@ -59,8 +87,7 @@ namespace RevAppoint.Client.Controllers
             ProfessionalViewModel model = new ProfessionalViewModel();
             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
             model.Username = model.Professional.Username;
-id.
             return View("ClientView", model);
         }
-    }
-}
+
+        */
