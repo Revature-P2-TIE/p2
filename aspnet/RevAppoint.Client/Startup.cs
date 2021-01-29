@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RevAppoint.Repo.Repositories;
 
 namespace RevAppoint.Client
 {
@@ -32,6 +33,7 @@ namespace RevAppoint.Client
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RevAppoint.Client", Version = "v1" });
             });
+            services.AddScoped<UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
