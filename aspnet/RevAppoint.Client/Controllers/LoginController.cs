@@ -33,29 +33,29 @@ namespace RevAppoint.Client.Controllers
         public async Task<IActionResult> Post()
         {
         
+        //Reading the Body/Context of the request
         StreamReader streamReader = new StreamReader(Request.Body);
+        string body = await streamReader.ReadToEndAsync();
 
-        //var body = Request.HttpContent.ToString();
-        //  var obj = JsonConvert.DeserializeObject<User>(bod);
+        //Deserializing the object that was sent in the context
+        var obj = JsonConvert.DeserializeObject<User>(body);
 
-           string body = await streamReader.ReadToEndAsync();
-           var obj = JsonConvert.DeserializeObject<User>(body);
-           System.Console.WriteLine(obj.Username);
-            // System.Console.WriteLine(obj);
-              
-           // if (ModelState.IsValid)
-           // {
-                var User = _repo.UserRepo.GetUser(obj.Username,obj.Password);
-              if (User != null)
-               {
-                    return Ok(User);
-                }
-                return NotFound();
-           // }
-           // else
-          //  {
-          //      return NotFound();
-           // }
+        //Testing 
+        System.Console.WriteLine(obj.Username);
+    
+        /*
+        Searching the repo for a username/password combo that matches 
+        the users input
+        */
+        var User = _repo.UserRepo.GetUser(obj.Username,obj.Password);
+
+        //Sending a response back with the user from the repo
+        if (User != null)
+        {
+          return Ok(User);
+        }
+        return NotFound();
+  
         }
     }
 }
