@@ -1,7 +1,7 @@
-@model RevAppoint.Client.Models.CustomerViewModel;
+@model RevAppoint.Client.Models.CustomerModel;
 
-<p>Hello @Model.Customer.FirstName</p>
-<p>Username @Model.Customer.Username</p>
+<p>Hello @Model.FirstName</p>
+<p>Username @Model.Username</p>
 
 @using (@Html.BeginForm("DisplayProfessionals", "Customer", FormMethod.Post))
 {
@@ -12,6 +12,6 @@
     <option value="location">Location</option>
     </select>
     <input type="text" name ="ProfessionalSearchValue"> 
-  <input name = "Username" value = @Model.Customer.Username hidden ="true">
+  <input name = "Username" value = @Model.Username hidden ="true">
   <input type="submit" value="Search"/>
 }

@@ -17,6 +17,7 @@ namespace RevAppoint.Client.Controllers
     {
         private string apiUrl = "http://localhost:7000/";
         private string loginController = "Login";
+        private string apiCustomerController = "Customer";
       //  private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
@@ -26,7 +27,7 @@ namespace RevAppoint.Client.Controllers
         }
 
         
-        [HttpPost("/Home")]
+        [HttpPost("/Login")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
   
@@ -71,6 +72,31 @@ namespace RevAppoint.Client.Controllers
         public IActionResult SelectUser(CustomerViewModel customer)
         {
                 return View("UserHome", customer);
+        }
+
+        [HttpGet("/SearchForProfessionals/{id}")]
+        public async Task<IActionResult> SearchForProfessionals(string id)
+        {
+            var json = JsonConvert.SerializeObject(id);
+            StringContent content = new StringContent(json.ToString());
+
+            //Creating a HTTP handler to bypass SSL cert checks
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            
+            //creating httpclient that uses the handler
+            HttpClient client = new HttpClient(clientHandler);
+    
+            //Passing the serialized object to the API
+            var response = await client.GetAsync(apiUrl+apiCustomerController+"/getone/"+id);
+
+            /*
+            Getting an object back from the api,
+            The api is going to search its database for a user with the credentials that we sent
+            and send us back a user based on its search
+            */
+            CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync());
+           return View("SearchForProfessional", customer);
         }
         
         /*
