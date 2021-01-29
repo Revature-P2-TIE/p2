@@ -29,7 +29,6 @@ namespace RevAppoint.Client.Controllers
             return Ok(Customers);
         }
         
-        
         [HttpGet("[action]/{id}")]
         public IActionResult GetOne(long id)
         {
@@ -51,6 +50,5 @@ namespace RevAppoint.Client.Controllers
                 return NotFound();
             }
         }
-
     }
 }
