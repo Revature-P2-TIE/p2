@@ -7,7 +7,8 @@ namespace RevAppoint.Domain.POCOs
         public User Client { get; set; }
         public bool IsAccepted { get; set; }
         public bool IsFufilled { get; set; }
-
+     
+     
         public Appointment(){}
         public Appointment(Time time, Professional professional, User client)
         {

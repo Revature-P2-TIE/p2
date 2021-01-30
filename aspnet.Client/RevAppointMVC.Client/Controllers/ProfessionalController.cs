@@ -18,8 +18,9 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
         {
-
-            return View("ProfessionalHome", model);
+            UserModel userModel = new UserModel();
+            userModel.Username = model.Username;
+            return View("ProfessionalHome", userModel);
         }
 
         /*
@@ -36,13 +37,10 @@ namespace RevAppoint.Client.Controllers
          [HttpGet("/Professional/SetAvailability/{id}")]
         public async Task<IActionResult> SetAvailability(string id)
         {
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };            
-            HttpClient client = new HttpClient(clientHandler);    
-            var response = await client.GetAsync(apiUrl+apiProfessionalController+"/GetOne/"+id);
-            ProfessionalModel professional = JsonConvert.DeserializeObject<ProfessionalModel>(await response.Content.ReadAsStringAsync());
-            professional.Username = id;
-            return View("SetAvailability", professional);
+         ProfessionalViewModel model = new ProfessionalViewModel();
+         model.Username = id;
+         return View("SetAvailability", model);
+        
         }
 
         [HttpGet("/Professional/AppointmentHistory/{id}")]
