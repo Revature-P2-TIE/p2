@@ -9,5 +9,7 @@ namespace RevAppoint.Client.Models
 
         [Required(AllowEmptyStrings=false)]
         public string Password{get;set;}
+
+        public string Error{get;set;}
     }
 }

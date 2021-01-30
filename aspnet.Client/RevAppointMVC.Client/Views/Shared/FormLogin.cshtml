@@ -5,6 +5,11 @@
 }
 
 <h2>Login</h2>
+@if(Model.Error != ""){ 
+<h2>
+  @Model.Error
+</h2>
+}
 
 <hr />
 <div class="row">
@@ -32,7 +37,7 @@
   <input type="submit" value="Create a customer account" style="float: left;"/>
 }
 
-@using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Post))
+@using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Get))
 {
   <input type="submit" value="Create a professional account" style="float: left;"/>
 }

@@ -38,10 +38,19 @@ namespace RevAppoint.Repo.Repositories
         }
 
 
-        public void AddCustomer(Customer customer)
+        public bool AddCustomer(Customer customer)
         {
-            _db.Customers.Add(customer);
-            _db.SaveChanges();
+              IEnumerable<Customer> list = _db.Customers.Where(x => x.Username == customer.Username);     
+             
+             if(list.Count() < 1) 
+             {
+                 _db.Customers.Add(customer);
+                 _db.SaveChanges();
+                 return true;
+             }
+             
+             return false;
+ 
         }
     }
 }

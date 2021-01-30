@@ -51,5 +51,20 @@ namespace RevAppoint.Repo.Repositories
         {
             return _db.Appointments.Where(x=>x.Professional.Username == username).Include(x=>x.Time);
         }
+
+        public bool AddProfessional(Professional professional)
+        {
+              IEnumerable<Professional> list = _db.Professionals.Where(x => x.Username == professional.Username);     
+             
+             if(list.Count() < 1) 
+             {
+                 _db.Professionals.Add(professional);
+                 _db.SaveChanges();
+                 return true;
+             }
+             
+             return false;
+ 
+        }
     }
 }
