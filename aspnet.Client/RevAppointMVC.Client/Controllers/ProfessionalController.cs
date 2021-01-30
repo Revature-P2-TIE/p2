@@ -97,6 +97,7 @@ namespace RevAppoint.Client.Controllers
             var response = await client.PutAsync(apiUrl+apiProfessionalController+"/UpdateProfessional",content);
 
             return View("ProfessionalAccountView", newModel);
+        }
 
         [HttpGet("/Professional/PendingAppointments/{id}")]
         public async Task<IActionResult> PendingAppointments(string id)
