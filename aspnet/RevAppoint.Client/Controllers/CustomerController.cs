@@ -37,6 +37,12 @@ namespace RevAppoint.Client.Controllers
             var Customer = _repo.GetById<Customer>(id);
             return Ok(Customer);
         }
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetOneByUsername(string username)
+        {
+            var Customer = _repo.CustomerRepo.GetCustomer(username);
+            return Ok(Customer);
+        }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> Post()

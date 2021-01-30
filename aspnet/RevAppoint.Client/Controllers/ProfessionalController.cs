@@ -69,5 +69,11 @@ namespace  aspnet.RevAppoint.Client
             return NotFound();
         }
     }
+    [HttpGet("[action]/{SearchParam}/{ProfessionalSearchValue}")]
+    public IActionResult SearchForProfessionals(string SearchParam, string ProfessionalSearchValue)
+    {
+      var Professionals = _repo.ProfessionalRepo.SearchForProfessionals(SearchParam,ProfessionalSearchValue);
+      return Ok(Professionals);
+    }
   }
 }
