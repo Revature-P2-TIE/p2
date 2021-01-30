@@ -18,7 +18,9 @@ namespace RevAppoint.Client.Controllers
         private string apiUrl = "http://localhost:7000/";
         private string loginController = "Login";
         private string apiCustomerController = "Customer";
+        private string apiProfessionalController = "Professional";
         private string apiAppointmentController = "Appointment";
+
       //  private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
@@ -88,7 +90,7 @@ namespace RevAppoint.Client.Controllers
             HttpClient client = new HttpClient(clientHandler);
     
             //Passing the serialized object to the API
-            var response = await client.GetAsync(apiUrl+apiCustomerController+"/getone/"+id);
+            var response = await client.GetAsync(apiUrl+apiCustomerController+"/GetOneByUsername/"+id);
 
             /*
             Getting an object back from the api,
@@ -98,6 +100,8 @@ namespace RevAppoint.Client.Controllers
             // NOTE: this is probably not necessary due to the fact that we just need a username in the next view(passed in as an id), 
             // but I'm leaving it here as a test of our API call -Elmer
             CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync());
+            Console.WriteLine(customer.Username);
+            // customer.Username = id;
            return View("SearchForProfessional", customer);
         }
 
@@ -201,9 +205,19 @@ namespace RevAppoint.Client.Controllers
         {
             //Querying a list of professionals based on users search values
             //then adding them to a list property on the model for use in the view
-            model.ListOfProfessionals = 
-            Repo.ProfessionalRepo.SearchForProfessionals(model.SearchParam, model.ProfessionalSearchValue);
-
+            // model.ListOfProfessionals = 
+            // Repo.ProfessionalRepo.SearchForProfessionals(model.SearchParam, model.ProfessionalSearchValue);
+            //Creating a HTTP handler to bypass SSL cert checks
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }; 
+            //creating httpclient that uses the handler
+            HttpClient client = new HttpClient(clientHandler);
+    
+            //Passing the serialized object to the API
+            var response = await client.GetAsync(apiUrl+apiProfessionalController+"/SearchForProfessionals/"+model.SearchParam+"/"+model.ProfessionalSearchValue);
+            model.ListOfProfessionals = JsonConvert.DeserializeObject<IEnumerable<ProfessionalModel>>(await response.Content.ReadAsStringAsync());
+            // model.Username = model.Username;
+            // IEnumerable<ProfessionalViewModel> professionals = JsonConvert.DeserializeObject<IEnumerable<ProfessionalViewModel>>(await response.Content.ReadAsStringAsync());
             return View("DisplayProfessionals", model);
         }
 
