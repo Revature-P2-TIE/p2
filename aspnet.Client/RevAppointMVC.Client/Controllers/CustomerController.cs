@@ -267,19 +267,19 @@ namespace RevAppoint.Client.Controllers
         // [HttpGet("/History/{id}")]
         // public IActionResult AppointmentHistory(string id)
 
-/*
-        [HttpGet("/SearchForProfessionals/{id}")]
-        public IActionResult SearchForProfessionals(string id)
-        {
-           CustomerViewModel customer = new CustomerViewModel();
-           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
-           customer.Username = customer.Customer.Username;
-           return View("SearchForProfessional", customer);
-        }
+
+        // [HttpGet("/SearchForProfessionals/{id}")]
+        // public IActionResult SearchForProfessionals(string id)
+        // {
+        //    CustomerViewModel customer = new CustomerViewModel();
+        //    customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+        //    customer.Username = customer.Customer.Username;
+        //    return View("SearchForProfessional", customer);
+        // }
 
       
-        [HttpGet("/History/{id}")]
-        public IActionResult AppointmentHistory(string id)
+        // [HttpGet("/History/{id}")]
+        // public IActionResult AppointmentHistory(string id)
         
         // {
         //     AppointmentViewModel appointment = new AppointmentViewModel();
@@ -303,11 +303,11 @@ namespace RevAppoint.Client.Controllers
         public async Task<IActionResult> SetAppointment(AppointmentViewModel model)
         {
         
-            /*
-            Getting an object back from the api,
-            The api is going to search its database for a user with the credentials that we sent
-            and send us back a user based on its search
-            */
+            
+            //Getting an object back from the api,
+            //The api is going to search its database for a user with the credentials that we sent
+            //and send us back a user based on its search
+            
             // UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
        
             //If the username/password combo is in the API's database, we will have a binded model
