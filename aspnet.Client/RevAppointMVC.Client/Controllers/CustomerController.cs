@@ -19,6 +19,8 @@ namespace RevAppoint.Client.Controllers
         private string loginController = "Login";
         private string apiCustomerController = "Customer";
         private string apiProfessionalController = "Professional";
+        private string apiAppointmentController = "Appointment";
+
       //  private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
@@ -102,6 +104,19 @@ namespace RevAppoint.Client.Controllers
             // customer.Username = id;
            return View("SearchForProfessional", customer);
         }
+
+        [HttpGet("/History/{id}")]
+        public async Task<IActionResult> AppointmentHistory(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsername/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            return View("UserHistory",appointment);
+        }
         
         /*
         [HttpPost("/Home")]
@@ -184,7 +199,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
-
+/*
         [HttpPost("/Display")]
         public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
         {
@@ -205,7 +220,7 @@ namespace RevAppoint.Client.Controllers
             // IEnumerable<ProfessionalViewModel> professionals = JsonConvert.DeserializeObject<IEnumerable<ProfessionalViewModel>>(await response.Content.ReadAsStringAsync());
             return View("DisplayProfessionals", model);
         }
-/*
+
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {
