@@ -18,6 +18,7 @@ namespace RevAppoint.Client.Controllers
         private string apiUrl = "http://localhost:7000/";
         private string loginController = "Login";
         private string apiCustomerController = "Customer";
+        private string apiAppointmentController = "Appointment";
       //  private HttpClient _http = new HttpClient();
 
         [HttpGet("/Login")]
@@ -97,6 +98,21 @@ namespace RevAppoint.Client.Controllers
             */
             CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync());
            return View("SearchForProfessional", customer);
+        }
+
+        [HttpGet("/History/{id}")]
+        public async Task<IActionResult> AppointmentHistory(string id)
+
+        {
+            var json = JsonConvert.SerializeObject(id);
+            StringContent content = new StringContent(json.ToString());
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsername/"+id);
+            AppointmentViewModel appointment = JsonConvert.DeserializeObject<AppointmentViewModel>(await response.Content.ReadAsStringAsync());
+            appointment.CustomerUsername = id;
+            return View("UserHistory",appointment);
         }
         
         /*
