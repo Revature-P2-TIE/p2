@@ -37,8 +37,17 @@ namespace  aspnet.RevAppoint.Client
       string body = await streamReader.ReadToEndAsync();
 
       var professional = JsonConvert.DeserializeObject<Professional>(body);
+      var oldProfessional = _repo.ProfessionalRepo.GetProfessional(professional.Username);
+      oldProfessional.Title = professional.Title;
+      oldProfessional.Location = professional.Location;
+      oldProfessional.AppointmentLengthInHours = professional.AppointmentLengthInHours;
+      oldProfessional.HourlyRate = professional.HourlyRate;
+      oldProfessional.Language = professional.Language;
+      oldProfessional.Bio = professional.Bio;
 
-      _repo.Update(professional);
+
+      _repo.Update(oldProfessional);
+      _repo.Save();
       return Ok();
 
     }

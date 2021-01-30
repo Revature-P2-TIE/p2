@@ -2,9 +2,9 @@
 
 Hello Professional: @Model.Username
 
-@using (@Html.BeginForm("SetAvailability", "Professional",new {id = @Model.Username}, FormMethod.Get))
+@using (@Html.BeginForm("ViewProfile", "Professional",new {id = @Model.Username}, FormMethod.Get))
 {
-  <input type="submit" value="Set Availability"/>
+  <input type="submit" value="View My Profile"/>
 }
 
 @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))

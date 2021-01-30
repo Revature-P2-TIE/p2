@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -43,6 +44,21 @@ namespace RevAppoint.Client.Controllers
         
         }
 
+        [HttpGet("/Professional/ViewProfile/{id}")]
+        public async Task<IActionResult> ViewProfile(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiProfessionalController+"/GetOneByUsername/"+id);
+            var professional = JsonConvert.DeserializeObject<ProfessionalModel>(await response.Content.ReadAsStringAsync());
+            ProfessionalViewModel professionalView = new ProfessionalViewModel();
+            professionalView.Professional = professional;
+            professionalView.Username = id;
+            return View("ProfessionalAccountView",professionalView);
+        
+        }
+
         [HttpGet("/Professional/AppointmentHistory/{id}")]
         public async Task<IActionResult> AppointmentHistory(string id)
         {
@@ -55,6 +71,34 @@ namespace RevAppoint.Client.Controllers
             appointment.Appointments = appointments;
             appointment.ProfessionalUsername = id;
             return View("AppointmentHistory", appointment);
+        }
+
+        [HttpPost("~/Professional/ProfessionalAccountView/{id}")]
+        public async Task<IActionResult> EditAccountInfoAsync(string id, ProfessionalViewModel model)
+        {            
+            ProfessionalViewModel newModel = new ProfessionalViewModel();
+            ProfessionalModel newProf = new ProfessionalModel();
+            newProf.Title = model.Professional.Title;
+            newProf.Location = model.Professional.Location;
+            newProf.AppointmentLengthInHours = model.Professional.AppointmentLengthInHours;
+            newProf.HourlyRate = model.Professional.HourlyRate;
+            newProf.Language = model.Professional.Language;
+            newProf.Bio = model.Professional.Bio;
+            newProf.Username = id;
+
+            newModel.Professional = newProf;
+
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            var json = JsonConvert.SerializeObject(newProf);
+            StringContent content = new StringContent(json.ToString());
+            Console.WriteLine(json);
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.PutAsync(apiUrl+apiProfessionalController+"/UpdateProfessional",content);
+
+
+
+            return View("ProfessionalAccountView", newModel);
         }
     }
 }
@@ -128,22 +172,4 @@ namespace RevAppoint.Client.Controllers
 
             return View("ProfessionalAccountView", model);
         }
-
-        [HttpPost("~/Professional/ProfessionalAccountView/{id}")]
-        public IActionResult EditAccountInfo(string id, ProfessionalViewModel model)
-        {            
-            ProfessionalViewModel newModel = new ProfessionalViewModel();
-            newModel.Professional = Repo.ProfessionalRepo.GetProfessional(id);
-            newModel.Professional.Title = model.Professional.Title;
-            newModel.Professional.Location = model.Professional.Location;
-            newModel.Professional.AppointmentLengthInHours = model.Professional.AppointmentLengthInHours;
-            newModel.Professional.HourlyRate = model.Professional.HourlyRate;
-            newModel.Professional.Language = model.Professional.Language;
-            newModel.Professional.Bio = model.Professional.Bio;
-            newModel.Username = id;
-            Repo.Update(newModel.Professional);
-            Repo.Save();
-            return View("ProfessionalAccountView", newModel);
-        }
-
-        */
+*/
