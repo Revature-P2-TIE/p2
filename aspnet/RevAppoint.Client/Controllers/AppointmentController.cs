@@ -46,7 +46,7 @@ namespace RevAppoint.Client.Controllers
         public IActionResult GetByProUsername(string username)
         {
             var Appointments = _repo.ProfessionalRepo.GetAppointments(username);
-            return Ok(Appointments)
+            return Ok(Appointments);
         }
         
          [HttpGet("[action]/{username}")]
