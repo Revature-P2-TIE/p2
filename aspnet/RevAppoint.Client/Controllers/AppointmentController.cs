@@ -103,7 +103,7 @@ namespace RevAppoint.Client.Controllers
             string body = await streamReader.ReadToEndAsync();
             System.Console.WriteLine(body);
             var Time = JsonConvert.DeserializeObject<Time>(body);
-            Appointment appointment = new Appointment();
+            var appointment = new Appointment();
             appointment.Time = Time;
             appointment.Professional = _repo.ProfessionalRepo.GetProfessional(ProfessionalUsername);
             appointment.Client = _repo.CustomerRepo.GetCustomer(CustomerUsername);
@@ -119,6 +119,36 @@ namespace RevAppoint.Client.Controllers
             {
                 return NotFound();
             }
+        }
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> AppointmentComplete(string id)
+        {
+                    
+        //Reading the Body/Context of the request
+
+            Appointment appointment = _repo.GetById<Appointment>(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+            appointment.IsFufilled = true;
+            _repo.Save();
+            return Ok();
+        }
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> AppointmentAccept(string id)
+        {
+                    
+        //Reading the Body/Context of the request
+
+            Appointment appointment = _repo.GetById<Appointment>(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+            appointment.IsAccepted = true;
+            _repo.Save();
+            return Ok();
         }
     }
 }
