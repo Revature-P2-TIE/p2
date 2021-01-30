@@ -1,7 +1,11 @@
 @model RevAppoint.Client.Models.UserModel;
 
-Hello Professional: @Model.Username
+@{
+    ViewData["Title"] = "ProfessionalHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+<h2>Hello, @Model.FirstName</h2>
 <div class="row">
   <div class="col-md-6">
     <div class="card">
