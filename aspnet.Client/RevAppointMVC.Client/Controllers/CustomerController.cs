@@ -115,9 +115,33 @@ namespace RevAppoint.Client.Controllers
             var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
             AppointmentViewModel appointment = new AppointmentViewModel();
             appointment.Appointments = appointments;
+            appointment.CustomerUsername = id;
             return View("UserHistory",appointment);
         }
+
+         [HttpGet("/CurrentAppointments/{id}")]
+        public async Task<IActionResult> CurrentAppointments(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsernameAccepted/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            appointment.CustomerUsername = id;
+            return View("CurrentAppointment", appointment);
+        }
+
         
+        [HttpGet("/Home/{username}")]
+        public IActionResult Home(string username)
+        {
+            var CustomerViewModel = new UserModel();
+            CustomerViewModel.Username = username;
+            return View("UserHome", CustomerViewModel);    
+        }
+
         /*
         [HttpPost("/Home")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
@@ -221,6 +245,7 @@ namespace RevAppoint.Client.Controllers
             return View("DisplayProfessionals", model);
         }
 
+
         // [HttpGet("/SearchForProfessionals/{id}")]
         // public IActionResult SearchForProfessionals(string id)
         // {
@@ -242,6 +267,20 @@ namespace RevAppoint.Client.Controllers
         // [HttpGet("/History/{id}")]
         // public IActionResult AppointmentHistory(string id)
 
+/*
+        [HttpGet("/SearchForProfessionals/{id}")]
+        public IActionResult SearchForProfessionals(string id)
+        {
+           CustomerViewModel customer = new CustomerViewModel();
+           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+           customer.Username = customer.Customer.Username;
+           return View("SearchForProfessional", customer);
+        }
+
+      
+        [HttpGet("/History/{id}")]
+        public IActionResult AppointmentHistory(string id)
+        
         // {
         //     AppointmentViewModel appointment = new AppointmentViewModel();
         //     var Customer = Repo.CustomerRepo.GetCustomer(id);

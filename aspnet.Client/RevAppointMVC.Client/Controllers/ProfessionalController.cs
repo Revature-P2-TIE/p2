@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
@@ -11,13 +12,15 @@ namespace RevAppoint.Client.Controllers
     public class ProfessionalController : Controller
     {
         private string apiUrl = "http://localhost:7000/";
-        private HttpClient _http = new HttpClient();
+        private string apiProfessionalController = "Professional";
+        private string apiAppointmentController = "Appointment";
 
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
         {
-
-            return View("ProfessionalHome", model);
+            UserModel userModel = new UserModel();
+            userModel.Username = model.Username;
+            return View("ProfessionalHome", userModel);
         }
 
         /*
@@ -34,24 +37,25 @@ namespace RevAppoint.Client.Controllers
          [HttpGet("/Professional/SetAvailability/{id}")]
         public async Task<IActionResult> SetAvailability(string id)
         {
-         
-            var response = await _http.GetAsync(apiUrl);
-
-                return View("SetAvailability", response);
-
-            
-           
-    /*
-        if(response.IsSuccessStatusCode){
-
-            var response.Con
-            return View("SetAvailability", content);
+         ProfessionalViewModel model = new ProfessionalViewModel();
+         model.Username = id;
+         return View("SetAvailability", model);
         
         }
-    */
+
+        [HttpGet("/Professional/AppointmentHistory/{id}")]
+        public async Task<IActionResult> AppointmentHistory(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsername/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            appointment.ProfessionalUsername = id;
+            return View("AppointmentHistory", appointment);
         }
-
-
     }
 }
         /*

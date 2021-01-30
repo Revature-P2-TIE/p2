@@ -41,7 +41,25 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointments);
         }
 
-        [HttpPost("[action]/{CustomerUsername}/{ProfessionalUsername}")]
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByProUsername(string username)
+        {
+            var Appointments = _repo.ProfessionalRepo.GetAppointments(username);
+            return Ok(Appointments);
+        }
+        
+         [HttpGet("[action]/{username}")]
+        public IActionResult GetByUsernameAccepted(string username)
+        {
+            var Appointments = _repo.CustomerRepo.GetAppointmentsAccepted(username);
+            return Ok(Appointments);
+        }
+
+         //Look here if broken
+        //[HttpPost("[action]")]
+        //public async Task<IActionResult> Post()
+
+         [HttpPost("[action]/{CustomerUsername}/{ProfessionalUsername}")]
         public async Task<IActionResult> Post(string CustomerUsername,string ProfessionalUsername)
         {
                     
