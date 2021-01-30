@@ -76,8 +76,8 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/SearchForProfessionals/{id}")]
         public async Task<IActionResult> SearchForProfessionals(string id)
         {
-            var json = JsonConvert.SerializeObject(id);
-            StringContent content = new StringContent(json.ToString());
+            // var json = JsonConvert.SerializeObject(id);
+            // StringContent content = new StringContent(json.ToString());
 
             //Creating a HTTP handler to bypass SSL cert checks
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -94,6 +94,8 @@ namespace RevAppoint.Client.Controllers
             The api is going to search its database for a user with the credentials that we sent
             and send us back a user based on its search
             */
+            // NOTE: this is probably not necessary due to the fact that we just need a username in the next view(passed in as an id), 
+            // but I'm leaving it here as a test of our API call -Elmer
             CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync());
            return View("SearchForProfessional", customer);
         }
@@ -179,9 +181,9 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
-/*
+
         [HttpPost("/Display")]
-        public IActionResult DisplayProfessionals(CustomerViewModel model)
+        public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
         {
             //Querying a list of professionals based on users search values
             //then adding them to a list property on the model for use in the view
@@ -190,7 +192,7 @@ namespace RevAppoint.Client.Controllers
 
             return View("DisplayProfessionals", model);
         }
-
+/*
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {
