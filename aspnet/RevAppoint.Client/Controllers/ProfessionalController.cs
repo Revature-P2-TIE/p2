@@ -75,5 +75,11 @@ namespace  aspnet.RevAppoint.Client
       var Professionals = _repo.ProfessionalRepo.SearchForProfessionals(SearchParam,ProfessionalSearchValue);
       return Ok(Professionals);
     }
+    [HttpGet("[action]/{username}")]
+    public IActionResult GetOneByUsername(string username)
+    {
+        var Professional = _repo.ProfessionalRepo.GetProfessional(username);
+        return Ok(Professional);
+    }
   }
 }

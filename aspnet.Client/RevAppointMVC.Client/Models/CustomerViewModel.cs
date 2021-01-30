@@ -16,6 +16,8 @@ namespace RevAppoint.Client.Models
         public string ProfessionalSearchValue {get;set;}
         public IEnumerable<ProfessionalModel> ListOfProfessionals {get;set;}
         public string SearchedProfessionalsUsername {get;set;}
+        public ProfessionalModel Professional {get;set;}
+        
  /*       public CustomerViewModel(){}
         public CustomerViewModel(UnitOfWork Repo)
         {

@@ -1,10 +1,11 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
-<p>Hello @Model.Customer.FirstName</p>
-<p>Usernamme @Model.Customer.Username</p>
+@* <p>Hello @Model.Customer.FirstName</p> *@
+<p>Customer Username @Model.CustomerUsername</p>
+<p>Professional Username @Model.ProfessionalUsername</p>
 Choose a Time
 
-@using (Html.BeginForm("SetAppointment", "Customer",new {id = Model.Customer.Username, profid = Model.Professional.Username} ,FormMethod.Post))
+@using (Html.BeginForm("SetAppointment", "Customer",FormMethod.Post))
 {
    <div class="container">
       <div class="panel panel-primary">
@@ -27,4 +28,8 @@ Choose a Time
          </div>
       </div>
    </div>
+   <input name = "CustomerUsername" value = @Model.CustomerUsername hidden ="true">
+   <input name = "ProfessionalUsername" value = @Model.ProfessionalUsername hidden ="true">
+
+   
 }

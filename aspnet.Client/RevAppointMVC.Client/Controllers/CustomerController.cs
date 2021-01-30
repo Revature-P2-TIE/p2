@@ -100,7 +100,7 @@ namespace RevAppoint.Client.Controllers
             // NOTE: this is probably not necessary due to the fact that we just need a username in the next view(passed in as an id), 
             // but I'm leaving it here as a test of our API call -Elmer
             CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await response.Content.ReadAsStringAsync());
-            Console.WriteLine(customer.Username);
+            // Console.WriteLine(customer.Username);
             // customer.Username = id;
            return View("SearchForProfessional", customer);
         }
@@ -199,7 +199,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
-/*
+
         [HttpPost("/Display")]
         public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
         {
@@ -221,121 +221,176 @@ namespace RevAppoint.Client.Controllers
             return View("DisplayProfessionals", model);
         }
 
-        [HttpGet("/SearchForProfessionals/{id}")]
-        public IActionResult SearchForProfessionals(string id)
-        {
-           CustomerViewModel customer = new CustomerViewModel();
-           customer.Customer = Repo.CustomerRepo.GetCustomer(id);
-           customer.Username = customer.Customer.Username;
-           return View("SearchForProfessional", customer);
-        }
+        // [HttpGet("/SearchForProfessionals/{id}")]
+        // public IActionResult SearchForProfessionals(string id)
+        // {
+        //    CustomerViewModel customer = new CustomerViewModel();
+        //    customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+        //    customer.Username = customer.Customer.Username;
+        //    return View("SearchForProfessional", customer);
+        // }
 
-        [HttpGet("/Home/{username}")]
-        public IActionResult Home(string username)
-        {
-            var CustomerViewModel = new CustomerViewModel();
-            CustomerViewModel.Username = username;
-            CustomerViewModel.Customer = Repo.CustomerRepo.GetCustomer(username);
-            return View("UserHome", CustomerViewModel);    
-        }
+        // [HttpGet("/Home/{username}")]
+        // public IActionResult Home(string username)
+        // {
+        //     var CustomerViewModel = new CustomerViewModel();
+        //     CustomerViewModel.Username = username;
+        //     CustomerViewModel.Customer = Repo.CustomerRepo.GetCustomer(username);
+        //     return View("UserHome", CustomerViewModel);    
+        // }
 
-        [HttpGet("/History/{id}")]
-        public IActionResult AppointmentHistory(string id)
+        // [HttpGet("/History/{id}")]
+        // public IActionResult AppointmentHistory(string id)
 
-        {
-            AppointmentViewModel appointment = new AppointmentViewModel();
-            var Customer = Repo.CustomerRepo.GetCustomer(id);
-            appointment.Appointments = Repo.CustomerRepo.GetAppointments(Customer.EntityID).ToList();
-            appointment.CustomerUsername = Customer.Username;
-            return View("UserHistory",appointment);
-        }
+        // {
+        //     AppointmentViewModel appointment = new AppointmentViewModel();
+        //     var Customer = Repo.CustomerRepo.GetCustomer(id);
+        //     appointment.Appointments = Repo.CustomerRepo.GetAppointments(Customer.EntityID).ToList();
+        //     appointment.CustomerUsername = Customer.Username;
+        //     return View("UserHistory",appointment);
+        // }
         
-        [HttpPost("/SelectTime")]
-        public IActionResult SelectTime(string id,string profid)
-        {
-            AppointmentViewModel appointment = new AppointmentViewModel();
-            appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
-            appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
+        // [HttpPost("/SelectTime")]
+        // public IActionResult SelectTime(string id,string profid)
+        // {
+        //     AppointmentViewModel appointment = new AppointmentViewModel();
+        //     appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
+        //     appointment.Customer = Repo.CustomerRepo.GetCustomer(id);
 
-            return View("SelectTime", appointment);
-        }
+        //     return View("SelectTime", appointment);
+        // }
 
         [HttpPost("/SetAppointment")]
-        public IActionResult SetAppointment(string id, string profid, AppointmentViewModel model)
+        public async Task<IActionResult> SetAppointment(AppointmentViewModel model)
         {
+        
+            /*
+            Getting an object back from the api,
+            The api is going to search its database for a user with the credentials that we sent
+            and send us back a user based on its search
+            */
+            // UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+       
+            //If the username/password combo is in the API's database, we will have a binded model
+            
+            
+            //Find the customer
+            Console.WriteLine("Customer User Name"+model.CustomerUsername);
+            // HttpClientHandler customerclientHandler = new HttpClientHandler();
+            // customerclientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            // HttpClient customerclient = new HttpClient(customerclientHandler);
+            // var customerresponse = await customerclient.GetAsync(apiUrl+apiCustomerController+"/GetOneByUsername/"+model.CustomerUsername);
+            // CustomerModel customer = JsonConvert.DeserializeObject<CustomerModel>(await customerresponse.Content.ReadAsStringAsync());
+
+            //Find the professional
+            HttpClientHandler professionalclientHandler = new HttpClientHandler();
+            professionalclientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient professionalclient = new HttpClient(professionalclientHandler);
+            var professionalresponse = await professionalclient.GetAsync(apiUrl+apiProfessionalController+"/GetOneByUsername/"+model.ProfessionalUsername);
+            ProfessionalModel professional = JsonConvert.DeserializeObject<ProfessionalModel>(await professionalresponse.Content.ReadAsStringAsync());
+            // Console.WriteLine(professional.Username);
+            //Parse Datetimepicker
+            AppointmentModel appointment = new AppointmentModel(); 
+
+            // appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
+            // var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
             string format = "MM/dd/yyyy h:mm tt";
             CultureInfo provider = CultureInfo.InvariantCulture;
-
-            AppointmentModel appointment = new AppointmentModel();
-            appointment.Client = Repo.CustomerRepo.GetCustomer(id); 
-            var professional = appointment.Professional = Repo.ProfessionalRepo.GetProfessional(profid);
-
             try 
             {
                 DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
                 appointment.Time = new TimeModel();
                 appointment.Time.Start = startTime;
                 appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
-                // Console.WriteLine("{0} converts to {1}.", model.StartTime.Trim(), startTime.ToString());
             }
             catch (FormatException) 
             {
-                // Console.WriteLine("{0} is not in the correct format.", model.StartTime.Trim());
             }
-
+            
             appointment.IsFufilled = false;
-            Repo.Insert<AppointmentModel>(appointment);
-            Repo.Save();
-            CustomerViewModel customer = new CustomerViewModel();
-            customer.Username = appointment.Client.Username;
-            return RedirectToAction("Home",customer);
+            appointment.Professional= professional;
+            // appointment.Client = customer;
+            appointment.EntityID= DateTime.Now.Ticks;
+
+            // Repo.Insert<AppointmentModel>(appointment);
+            // Repo.Save();
+
+            //Serializing the model and converting it into a string
+            var json = JsonConvert.SerializeObject(appointment.Time);
+            StringContent content = new StringContent(json.ToString());
+            Console.WriteLine(json); 
+            //Creating a HTTP handler to bypass SSL cert checks
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            
+            //creating httpclient that uses the handler
+            HttpClient client = new HttpClient(clientHandler);
+    
+            //Passing the serialized object to the API
+            var response = await client.PostAsync(apiUrl+"Appointment"+"/Post/"+model.CustomerUsername+"/"+model.ProfessionalUsername, content); //this is where it's breaking
+
+            CustomerViewModel customerView = new CustomerViewModel();
+            customerView.Username = model.CustomerUsername;
+            // return RedirectToAction("Home",customerView);
+
+            AppointmentViewModel appointmentModel= new AppointmentViewModel();
+            appointmentModel.ProfessionalUsername = model.ProfessionalUsername;
+            appointmentModel.CustomerUsername = model.CustomerUsername;
+            return View("CreateAppointment",appointmentModel);
         }
         
-        [HttpGet("/CurrentAppointments/{id}")]
-        public IActionResult CurrentAppointments(string id)
-        {
-            CustomerViewModel customer = new CustomerViewModel();
-            customer.Customer = Repo.CustomerRepo.GetCustomer(id);
-            customer.Username = customer.Customer.Username;
-            return View("CurrentAppointment", customer);
-        }
+        // [HttpGet("/CurrentAppointments/{id}")]
+        // public IActionResult CurrentAppointments(string id)
+        // {
+        //     CustomerViewModel customer = new CustomerViewModel();
+        //     customer.Customer = Repo.CustomerRepo.GetCustomer(id);
+        //     customer.Username = customer.Customer.Username;
+        //     return View("CurrentAppointment", customer);
+        // }
 
-        [HttpPost("/ProfessionalView")]
-        public IActionResult ViewProfessional(CustomerViewModel model)
+        [HttpGet("/ProfessionalView")]
+        public async Task<IActionResult> ViewProfessional(CustomerViewModel model)
         {
-            var Professional = Repo.ProfessionalRepo.GetProfessional(model.Username);
-            ProfessionalViewModel professional = new ProfessionalViewModel();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiProfessionalController+"/GetOneByUsername/"+model.SearchedProfessionalsUsername);
+            var professional = JsonConvert.DeserializeObject<ProfessionalModel>(await response.Content.ReadAsStringAsync());
+            model.Professional = professional;
             return View("ProfessionalViewPage", model);
         }
 
         [HttpGet("/ProfessionalView/CreateAppointment")]
         public IActionResult CreateAppointment(CustomerViewModel model)
         {
-            return View("CreateAppointment", model);
+            AppointmentViewModel appointmentModel= new AppointmentViewModel();
+            appointmentModel.ProfessionalUsername = model.SearchedProfessionalsUsername;
+            appointmentModel.CustomerUsername = model.Username;
+            return View("CreateAppointment", appointmentModel);
         }
 
-        [HttpGet("/ProfessionalView/AppointmentCompletion")]
-        public IActionResult AppointmentCompletion(CustomerViewModel model)
-        {
-            return View("AppointmentCompletion", model);
-        }
+        // [HttpGet("/ProfessionalView/AppointmentCompletion")]
+        // public IActionResult AppointmentCompletion(CustomerViewModel model)
+        // {
+        //     return View("AppointmentCompletion", model);
+        // }
 
-        [HttpGet("/AccountCreationCustomer")]
-        public IActionResult AccountCreationCustomer()
-        {
+        // [HttpGet("/AccountCreationCustomer")]
+        // public IActionResult AccountCreationCustomer()
+        // {
 
-            AccountCreationViewModel accountModel = new AccountCreationViewModel();
-            return View("AccountCreation", accountModel);
-        }
+        //     AccountCreationViewModel accountModel = new AccountCreationViewModel();
+        //     return View("AccountCreation", accountModel);
+        // }
 
-        [HttpPost("/CreateAccount")]
-        public IActionResult CreateAccount(AccountCreationViewModel model)
-        {
-            CustomerModel customer = new CustomerModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress};
+        // [HttpPost("/CreateAccount")]
+        // public IActionResult CreateAccount(AccountCreationViewModel model)
+        // {
+        //     CustomerModel customer = new CustomerModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress};
             
-            Repo.CustomerRepo.AddCustomer(customer);
-            return RedirectToAction("GetUser");
-        }
-    */
+        //     Repo.CustomerRepo.AddCustomer(customer);
+        //     return RedirectToAction("GetUser");
+        // }
+    
     }
 }

@@ -7,7 +7,6 @@ using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
     public class ProfessionalController : Controller
     {
