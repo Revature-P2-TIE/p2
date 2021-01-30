@@ -23,7 +23,7 @@ Choose a Professional
       <td>@item.FirstName</td>
       <td>@item.LastName</td>
       <td>@item.Location</td>
-        @using (@Html.BeginForm("ViewProfessional", "Customer", FormMethod.Post))
+        @using (@Html.BeginForm("ViewProfessional", "Customer", FormMethod.Get))
         {
           <input name="Username" value= @Model.Username hidden ="true">
           <input name="SearchedProfessionalsUsername" value =@item.Username hidden="true">

@@ -5,7 +5,6 @@ namespace RevAppoint.Client.Models
 {
     public class EntityModel
     {
-        [Key]
-        public long EntityID {get;}
+        public long EntityID {get;set;} 
     }
 }

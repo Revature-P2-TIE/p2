@@ -41,7 +41,6 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointments);
         }
 
-
         [HttpGet("[action]/{username}")]
         public IActionResult GetByProUsername(string username)
         {
@@ -56,17 +55,25 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointments);
         }
 
-        [HttpPost("[action]")]
-        public async Task<IActionResult> Post()
+         //Look here if broken
+        //[HttpPost("[action]")]
+        //public async Task<IActionResult> Post()
+
+         [HttpPost("[action]/{CustomerUsername}/{ProfessionalUsername}")]
+        public async Task<IActionResult> Post(string CustomerUsername,string ProfessionalUsername)
         {
                     
         //Reading the Body/Context of the request
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
-
-            var appointment = JsonConvert.DeserializeObject<Appointment>(body);
-    
-            
+            System.Console.WriteLine(body);
+            var Time = JsonConvert.DeserializeObject<Time>(body);
+            Appointment appointment = new Appointment();
+            appointment.Time = Time;
+            appointment.Professional = _repo.ProfessionalRepo.GetProfessional(ProfessionalUsername);
+            appointment.Client = _repo.CustomerRepo.GetCustomer(CustomerUsername);
+            appointment.IsAccepted = false;
+            appointment.IsFufilled = false;
             if (ModelState.IsValid)
             {
                 _repo.Insert<Appointment>(appointment);
