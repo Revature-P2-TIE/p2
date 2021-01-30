@@ -1,10 +1,50 @@
-@model RevAppoint.Client.Models.CustomerViewModel;
+@model RevAppoint.Client.Models.AppointmentViewModel;
 
-<p>Hello @Model.Customer.FirstName</p>
-<p>Usernamme @Model.Customer.Username</p>
+<header>Appointment History</header>
+<p>Hello @Model.CustomerUsername</p>
+<br>
+<table style="width:100%">
+  <tr>
+    <td><u>Job</u></td>
+    <td><u>Name</u></td> @*Override toString method here?*@
+    <td><u>Start Time</u></td>
+    <td><u>Estimated End Time</u></td>
+    <td><u>Status</u></td>
+    <td><u>Completed</u></td>
+  </tr>
+  @foreach (var item in Model.Appointments)
+  {
+    <tr>
+    <td><p>@item.Professional.Title</p></td>
+    <td><p>@item.Professional.FirstName @item.Professional.LastName</p></td>
+    <td><p>@item.Time.Start.ToString("MM/dd/yyyy hh:mm tt")</p></td>
+    <td><p>@item.Time.End.ToString("MM/dd/yyyy hh:mm tt")</p></td>
+    <td>
+      @if(@item.IsAccepted)
+      {
+        <p>Accepted</p>
+      }
+      else
+      {
+        <p>Not Accepted</p>
+      }
+    </td>
+    <td>
+      @if(@item.IsFufilled)
+      {
+        <p>Yes</p>
+      }
+      else
+      {
+        <p>No</p>
+      }
+    </td>
+    </tr>
+    
+}
+</table>
 
-@using (@Html.BeginForm("SelectUser", "Customer", FormMethod.Post))
+@using (@Html.BeginForm("Home", "Customer", new {username = @Model.CustomerUsername},FormMethod.Get))
 {
-  <input name = "Username" value = @Model.Customer.Username hidden ="true">
   <input type="submit" value="Home"/>
 }
