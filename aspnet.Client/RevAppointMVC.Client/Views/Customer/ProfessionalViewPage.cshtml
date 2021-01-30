@@ -1,13 +1,44 @@
 @model RevAppoint.Client.Models.CustomerViewModel;
 
-<p>Hello @Model.Username</p>
+@* <p>Hello @Model.Username</p>
 <p>Viewing: @Model.SearchedProfessionalsUsername</p>
-<p>Professional Title: @Model.Professional.Title</p>
+<p>Professional Title: @Model.Professional.Title</p> *@
 @using (@Html.BeginForm("CreateAppointment", "Customer", FormMethod.Get))
 {
+  var prof = @Model.Professional;
 
   <input name = "Username" value = @Model.Username hidden ="true">
   <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
-
+  <header>Meet @prof.FirstName @prof.LastName</header>
+  <table>
+      <tr>
+        <td>Job Title</td>
+        <td>@prof.Title</td>
+      </tr>
+      <tr>
+        <td>Hourly Rate</td>
+        <td>$@prof.HourlyRate</td>
+      </tr>
+      <tr>
+        <td>Spoken Language</td>
+        <td>@prof.Language</td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td>@prof.Location</td>
+      </tr>
+      <tr>
+        <td>Bio</td>
+        <td>@prof.Bio</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>@prof.Username</td>
+      </tr>
+      <tr>
+        <td>Joined on</td>
+        <td>@prof.MemberSince.ToString("MM/dd/yyyy")</td>
+      </tr>
+  </table>
   <input type="submit" value="To Create Appointment"/>
 }

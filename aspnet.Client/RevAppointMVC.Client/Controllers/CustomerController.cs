@@ -115,7 +115,7 @@ namespace RevAppoint.Client.Controllers
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsername/"+id);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsernameFufilled/"+id);
             var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
             AppointmentViewModel appointment = new AppointmentViewModel();
             appointment.Appointments = appointments;
@@ -123,7 +123,7 @@ namespace RevAppoint.Client.Controllers
             return View("UserHistory",appointment);
         }
 
-         [HttpGet("/CurrentAppointments/{id}")]
+        [HttpGet("/CurrentAppointments/{id}")]
         public async Task<IActionResult> CurrentAppointments(string id)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -135,6 +135,20 @@ namespace RevAppoint.Client.Controllers
             appointment.Appointments = appointments;
             appointment.CustomerUsername = id;
             return View("CurrentAppointment", appointment);
+        }
+
+        [HttpGet("/PendingAppointments/{id}")]
+        public async Task<IActionResult> PendingAppointments(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsernamePending/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            appointment.CustomerUsername = id;
+            return View("PendingAppointments", appointment);
         }
 
         
