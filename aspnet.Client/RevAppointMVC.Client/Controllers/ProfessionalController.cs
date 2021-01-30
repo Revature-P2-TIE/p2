@@ -129,64 +129,63 @@ namespace RevAppoint.Client.Controllers
         }
     }
 }
-        /*
 
-        [HttpGet("/Professional/AppointmentHistory/{id}")]
-        public IActionResult AppointmentHistory(string id)
-        {
-            ProfessionalViewModel model = new ProfessionalViewModel();
-            model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
-            model.Username = model.Professional.Username;
+//         [HttpGet("/Professional/AppointmentHistory/{id}")]
+//         public IActionResult AppointmentHistory(string id)
+//         {
+//             ProfessionalViewModel model = new ProfessionalViewModel();
+//             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+//             model.Username = model.Professional.Username;
            
-            return View("AppointmentHistory", model);
-        }
+//             return View("AppointmentHistory", model);
+//         }
 
-        [HttpGet("/Professional/CurrentAppointments/{id}")]
-        public IActionResult CurrentAppointments(string id)
-        {
-            ProfessionalViewModel model = new ProfessionalViewModel();
-            model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
-            model.Username = model.Professional.Username;
+//         [HttpGet("/Professional/CurrentAppointments/{id}")]
+//         public IActionResult CurrentAppointments(string id)
+//         {
+//             ProfessionalViewModel model = new ProfessionalViewModel();
+//             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+//             model.Username = model.Professional.Username;
 
-            var Customer = Repo.CustomerRepo.GetCustomer(model.Username);
+//             var Customer = Repo.CustomerRepo.GetCustomer(model.Username);
 
-            model.CurrentAppointmets = Repo.CustomerRepo.GetAppointments(model.Username).ToList();
+//             model.CurrentAppointmets = Repo.CustomerRepo.GetAppointments(model.Username).ToList();
     
-            return View("CurrentAppointments", model);
-        }
+//             return View("CurrentAppointments", model);
+//         }
 
-        [HttpGet("/Professional/ClientView/{id}")]
-        public IActionResult ClientView(string id)
-        {
-            ProfessionalViewModel model = new ProfessionalViewModel();
-            model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
-            model.Username = model.Professional.Username;
-            return View("ClientView", model);
-        }
-        [Route("[action]")]
-        [HttpPost]
-        public async Task<IActionResult> CompleteAppointment(ProfessionalViewModel model)
-        {
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            HttpClient client = new HttpClient(clientHandler);
-            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentComplete/"+model.AppointmentID);
+//         [HttpGet("/Professional/ClientView/{id}")]
+//         public IActionResult ClientView(string id)
+//         {
+//             ProfessionalViewModel model = new ProfessionalViewModel();
+//             model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+//             model.Username = model.Professional.Username;
+//             return View("ClientView", model);
+//         }
+//         [Route("[action]")]
+//         [HttpPost]
+//         public async Task<IActionResult> CompleteAppointment(ProfessionalViewModel model)
+//         {
+//             HttpClientHandler clientHandler = new HttpClientHandler();
+//             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+//             HttpClient client = new HttpClient(clientHandler);
+//             var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentComplete/"+model.AppointmentID);
             
-            return View("CurrentAppointments", model);
-        }
-        [Route("[action]")]
-        [HttpPost]
-        public async Task<IActionResult> AcceptAppointment(ProfessionalViewModel model)
-        {
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            HttpClient client = new HttpClient(clientHandler);
-            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentAccept/"+model.AppointmentID);
+//             return View("CurrentAppointments", model);
+//         }
+//         [Route("[action]")]
+//         [HttpPost]
+//         public async Task<IActionResult> AcceptAppointment(ProfessionalViewModel model)
+//         {
+//             HttpClientHandler clientHandler = new HttpClientHandler();
+//             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+//             HttpClient client = new HttpClient(clientHandler);
+//             var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentAccept/"+model.AppointmentID);
             
-            return View("CurrentAppointments", model);
-        }
-    }
-}
+//             return View("CurrentAppointments", model);
+//         }
+//     }
+// }
 
         // [HttpGet("/Professional/AppointmentHistory/{id}")]
         // public IActionResult AppointmentHistory(string id)
@@ -250,6 +249,6 @@ namespace RevAppoint.Client.Controllers
         //     return View("ProfessionalAccountView", newModel);
         // }
 
-            return View("ProfessionalAccountView", model);
-        }
-*/
+        //     return View("ProfessionalAccountView", model);
+        // }
+

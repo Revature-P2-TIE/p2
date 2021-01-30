@@ -102,8 +102,8 @@ namespace RevAppoint.Client.Controllers
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
             System.Console.WriteLine(body);
-            var Appointment = JsonConvert.DeserializeObject<Appointment>(body);
-            var Appointment = _repo.GetById<Appointment>(id);
+            var Time = JsonConvert.DeserializeObject<Time>(body);
+            var appointment = new Appointment();
             appointment.Time = Time;
             appointment.Professional = _repo.ProfessionalRepo.GetProfessional(ProfessionalUsername);
             appointment.Client = _repo.CustomerRepo.GetCustomer(CustomerUsername);
