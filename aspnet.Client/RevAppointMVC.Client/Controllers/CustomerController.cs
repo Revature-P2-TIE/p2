@@ -44,7 +44,6 @@ namespace RevAppoint.Client.Controllers
  
         //Passing the serialized object to the API
         var response = await client.PostAsync(apiUrl+loginController+"/Post", content);
-
         /*
         Getting an object back from the api,
         The api is going to search its database for a user with the credentials that we sent
