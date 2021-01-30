@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RevAppoint.Domain.POCOs;
 using RevAppoint.Repo.Repositories;
 
@@ -28,13 +30,14 @@ namespace  aspnet.RevAppoint.Client
       return Ok(professionals);
     }
 
-    [HttpPut("[action]/{id}")]
-    public IActionResult PutProfessional(string id,[FromBody]Professional professional)
+    [HttpPut("[action]")]
+    public async Task<IActionResult> UpdateProfessional()
     {
-      // if (id != professional.Username)
-      // {
-      //     return BadRequest();
-      // }
+      StreamReader streamReader = new StreamReader(Request.Body);
+      string body = await streamReader.ReadToEndAsync();
+
+      var professional = JsonConvert.DeserializeObject<Professional>(body);
+
       _repo.Update(professional);
       return Ok();
 
@@ -48,8 +51,13 @@ namespace  aspnet.RevAppoint.Client
     }
 
     [HttpPost("[action]")]
-    public IActionResult Post([FromBody]Professional professional)
+    public async Task<IActionResult> Post()
     {
+
+        StreamReader streamReader = new StreamReader(Request.Body);
+        string body = await streamReader.ReadToEndAsync();
+
+        var professional = JsonConvert.DeserializeObject<Professional>(body);
         if (ModelState.IsValid)
         {
             _repo.Insert<Professional>(professional);

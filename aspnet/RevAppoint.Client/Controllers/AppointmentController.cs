@@ -1,5 +1,8 @@
+using System.IO;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RevAppoint.Domain.POCOs;
 using RevAppoint.Repo.Repositories;
 
@@ -39,8 +42,16 @@ namespace RevAppoint.Client.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult Post([FromBody]Appointment appointment)
+        public async Task<IActionResult> Post()
         {
+                    
+        //Reading the Body/Context of the request
+            StreamReader streamReader = new StreamReader(Request.Body);
+            string body = await streamReader.ReadToEndAsync();
+
+            var appointment = JsonConvert.DeserializeObject<Appointment>(body);
+    
+            
             if (ModelState.IsValid)
             {
                 _repo.Insert<Appointment>(appointment);
