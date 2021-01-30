@@ -18,3 +18,8 @@ Hello Professional: @Model.Username
   <input type="submit" value="View Current Appointments"/>
 }
 
+@using (@Html.BeginForm("PendingAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
+{
+  <input type="submit" value="View Pending Appointments"/>
+}
+

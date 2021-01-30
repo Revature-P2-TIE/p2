@@ -48,10 +48,45 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointments);
         }
         
-         [HttpGet("[action]/{username}")]
+        [HttpGet("[action]/{username}")]
         public IActionResult GetByUsernameAccepted(string username)
         {
             var Appointments = _repo.CustomerRepo.GetAppointmentsAccepted(username);
+            return Ok(Appointments);
+        }
+
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByUsernameFufilled(string username)
+        {
+            var Appointments = _repo.CustomerRepo.GetAppointmentsFufilled(username);
+            return Ok(Appointments);
+        }
+
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByUsernamePending(string username)
+        {
+            var Appointments = _repo.CustomerRepo.GetAppointmentsPending(username);
+            return Ok(Appointments);
+        }
+
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByProUsernameAccepted(string username)
+        {
+            var Appointments = _repo.ProfessionalRepo.GetAppointmentsAccepted(username);
+            return Ok(Appointments);
+        }
+
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByProUsernameFufilled(string username)
+        {
+            var Appointments = _repo.ProfessionalRepo.GetAppointmentsFufilled(username);
+            return Ok(Appointments);
+        }
+
+        [HttpGet("[action]/{username}")]
+        public IActionResult GetByProUsernamePending(string username)
+        {
+            var Appointments = _repo.ProfessionalRepo.GetAppointmentsPending(username);
             return Ok(Appointments);
         }
 

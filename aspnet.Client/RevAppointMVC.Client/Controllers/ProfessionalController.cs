@@ -49,12 +49,40 @@ namespace RevAppoint.Client.Controllers
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsername/"+id);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsernameFufilled/"+id);
             var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
             AppointmentViewModel appointment = new AppointmentViewModel();
             appointment.Appointments = appointments;
             appointment.ProfessionalUsername = id;
             return View("AppointmentHistory", appointment);
+        }
+
+        [HttpGet("/Professional/PendingAppointments/{id}")]
+        public async Task<IActionResult> PendingAppointments(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsernamePending/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            appointment.ProfessionalUsername = id;
+            return View("PendingAppointments", appointment);
+        }
+
+        [HttpGet("/Professional/CurrentAppointments/{id}")]
+        public async Task<IActionResult> CurrentAppointments(string id)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsernameAccepted/"+id);
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
+            appointment.ProfessionalUsername = id;
+            return View("CurrentAppointments", appointment);
         }
     }
 }
