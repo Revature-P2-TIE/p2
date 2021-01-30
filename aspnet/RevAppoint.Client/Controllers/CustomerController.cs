@@ -1,10 +1,12 @@
   using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RevAppoint.Domain.POCOs;
 using RevAppoint.Repo.Repositories;
 
@@ -37,12 +39,34 @@ namespace RevAppoint.Client.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult Post([FromBody]Customer customer)
+        public async Task<IActionResult> Post()
         {
+            StreamReader streamReader = new StreamReader(Request.Body);
+            string body = await streamReader.ReadToEndAsync();
+            var customer = JsonConvert.DeserializeObject<Customer>(body);
+
             if (ModelState.IsValid)
             {
                 _repo.Insert<Customer>(customer);
                 _repo.Save();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("[action]")]
+        public async Task<IActionResult> UpdateCustomer()
+        {
+            StreamReader streamReader = new StreamReader(Request.Body);
+            string body = await streamReader.ReadToEndAsync();
+            var customer = JsonConvert.DeserializeObject<Customer>(body);
+
+            if (ModelState.IsValid)
+            {
+                _repo.Update<Customer>(customer);
                 return Ok();
             }
             else

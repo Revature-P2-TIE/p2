@@ -49,17 +49,9 @@ namespace RevAppoint.Client.Controllers
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
 
-            //Deserializing the object that was sent in the context
             var appointment = JsonConvert.DeserializeObject<Appointment>(body);
-
-            //Testing 
-            System.Console.WriteLine(appointment.Client.Username);
     
-            /*
-            Searching the repo for a username/password combo that matches 
-            the users input
-            */
-            // var User = _repo.UserRepo.GetUser(obj.Username,obj.Password);
+            
             if (ModelState.IsValid)
             {
                 _repo.Insert<Appointment>(appointment);
