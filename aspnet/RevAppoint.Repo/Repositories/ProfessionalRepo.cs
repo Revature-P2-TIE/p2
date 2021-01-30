@@ -44,7 +44,12 @@ namespace RevAppoint.Repo.Repositories
         }
         public IEnumerable<Appointment> GetAppointments(long id)
         {
-            return _db.Appointments.Where(x=>x.Professional.EntityID == id).Include(x=>x.Time).Include(x=>x.Client);
+            return _db.Appointments.Where(x=>x.Professional.EntityID == id).Include(x=>x.Time);
+        }
+
+        public IEnumerable<Appointment> GetAppointments(string username)
+        {
+            return _db.Appointments.Where(x=>x.Professional.Username == username).Include(x=>x.Time);
         }
     }
 }

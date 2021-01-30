@@ -199,7 +199,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
-/*
+
         [HttpPost("/Display")]
         public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
         {
@@ -220,7 +220,7 @@ namespace RevAppoint.Client.Controllers
             // IEnumerable<ProfessionalViewModel> professionals = JsonConvert.DeserializeObject<IEnumerable<ProfessionalViewModel>>(await response.Content.ReadAsStringAsync());
             return View("DisplayProfessionals", model);
         }
-
+/*
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {

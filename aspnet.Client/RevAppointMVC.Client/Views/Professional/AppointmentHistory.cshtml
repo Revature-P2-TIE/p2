@@ -1,12 +1,50 @@
-@model RevAppoint.Client.Models.ProfessionalViewModel;
+@model RevAppoint.Client.Models.AppointmentViewModel;
 
-Hello Professional: @Model.Username
-<p>Appointment History Page</p>
+Hello Professional: @Model.ProfessionalUsername;
+<header>Appointment History</header>
 
-@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
+<br>
+<table style="width:100%">
+  <tr>
+    <td><u>Start Time</u></td>
+    <td><u>Estimated End Time</u></td>
+    <td><u>Status</u></td>
+    <td><u>Completed</u></td>
+  </tr>
+  @foreach (var item in Model.Appointments)
+  {
+    <tr>
+    <td><p>@item.Time.Start.ToString("MM/dd/yyyy hh:mm tt")</p></td>
+    <td><p>@item.Time.End.ToString("MM/dd/yyyy hh:mm tt")</p></td>
+    <td>
+      @if(@item.IsAccepted)
+      {
+        <p>Accepted</p>
+      }
+      else
+      {
+        <p>Not Accepted</p>
+      }
+    </td>
+    <td>
+      @if(@item.IsFufilled)
+      {
+        <p>Yes</p>
+      }
+      else
+      {
+        <p>No</p>
+      }
+    </td>
+    </tr>
+    
+}
+</table>
+
+@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
 {
   
-  <input name ="Username" value = @Model.Username hidden = "true">
+  <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
   <input type="submit" value="Home"/>
 }
 
