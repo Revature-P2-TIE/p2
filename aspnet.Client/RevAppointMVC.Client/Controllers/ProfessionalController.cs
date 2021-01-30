@@ -7,7 +7,6 @@ using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
     public class ProfessionalController : Controller
     {
@@ -17,8 +16,9 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Professional/ProfessionalHome")]
         public IActionResult ProfessionalHome(ProfessionalViewModel model)
         {
-
-            return View("ProfessionalHome", model);
+            UserModel userModel = new UserModel();
+            userModel.Username = model.Username;
+            return View("ProfessionalHome", userModel);
         }
 
         /*
@@ -35,12 +35,15 @@ namespace RevAppoint.Client.Controllers
          [HttpGet("/Professional/SetAvailability/{id}")]
         public async Task<IActionResult> SetAvailability(string id)
         {
-         
-            var response = await _http.GetAsync(apiUrl);
+         ProfessionalViewModel model = new ProfessionalViewModel();
+         model.Username = id;
+         return View("SetAvailability", model);
+        
+        }
 
-                return View("SetAvailability", response);
 
-            
+
+
            
     /*
         if(response.IsSuccessStatusCode){
@@ -50,7 +53,7 @@ namespace RevAppoint.Client.Controllers
         
         }
     */
-        }
+        
 
 
     }
