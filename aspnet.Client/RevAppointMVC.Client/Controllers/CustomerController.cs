@@ -103,16 +103,14 @@ namespace RevAppoint.Client.Controllers
 
         [HttpGet("/History/{id}")]
         public async Task<IActionResult> AppointmentHistory(string id)
-
         {
-            var json = JsonConvert.SerializeObject(id);
-            StringContent content = new StringContent(json.ToString());
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
             var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByUsername/"+id);
-            AppointmentViewModel appointment = JsonConvert.DeserializeObject<AppointmentViewModel>(await response.Content.ReadAsStringAsync());
-            appointment.CustomerUsername = id;
+            var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            AppointmentViewModel appointment = new AppointmentViewModel();
+            appointment.Appointments = appointments;
             return View("UserHistory",appointment);
         }
         
@@ -197,7 +195,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
 */
-
+/*
         [HttpPost("/Display")]
         public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
         {
@@ -208,7 +206,7 @@ namespace RevAppoint.Client.Controllers
 
             return View("DisplayProfessionals", model);
         }
-/*
+
         [HttpGet("/SearchForProfessionals/{id}")]
         public IActionResult SearchForProfessionals(string id)
         {
