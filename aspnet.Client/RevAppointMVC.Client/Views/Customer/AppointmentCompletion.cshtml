@@ -1,10 +1,11 @@
-@model RevAppoint.Client.Models.CustomerViewModel;
+@model RevAppoint.Client.Models.AppointmentViewModel;
 
-<p>Hello @Model.Username</p>
+<p>Hello @Model.CustomerUsername</p>
 <p> !! Appointment Completed !!</p>
+<p>Display more info about appointment here</p>
 @using (@Html.BeginForm("SelectUser", "Customer", FormMethod.Post))
 {
-  <input name = "Username" value = @Model.Username hidden ="true">
+  <input name = "Username" value = @Model.CustomerUsername hidden ="true">
  
-  <input type="submit" value="To Create Appointment"/>
+  <input type="submit" value="Home"/>
 }
