@@ -1,6 +1,6 @@
 @model RevAppoint.Client.Models.AccountCreationViewModel;
 
-<h1>Create a customer account!</h1>
+<h1>Create a Customer Account!</h1>
 
 @using (@Html.BeginForm("CreateAccount", "Customer", FormMethod.Post))
 {
@@ -30,5 +30,5 @@
     <label for="EmailAddress">Email:</label>
     <input type ="text" name="EmailAddress" placeholder="Email Address" required>
     <br>
-  <input type="submit" value="Create an Account"/>
+  <input class = "customButton" type="submit" value="Create an Account"/>
 }

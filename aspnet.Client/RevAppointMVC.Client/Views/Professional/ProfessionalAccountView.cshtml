@@ -1,40 +1,91 @@
 @model RevAppoint.Client.Models.ProfessionalViewModel;
 
-Hello Professional: @Model.Username
-<p>Account Infomation</p>
+<h2>Account Infomation</h2>
+<h4>Hello Professional: @Model.Professional.FirstName</h4>
 
 <section id="AccountInfo" class="col">
-    <label class="row">Title: @Model.Professional.Title</label>
-    <label class="row">Locaton: @Model.Professional.Location</label>
-    <label class="row">Appointment Length: @Model.Professional.AppointmentLengthInHours</label>
-    <label class="row">HourlyRate: @Model.Professional.HourlyRate</label>
-    <label class="row">Language: @Model.Professional.Language</label>
-    <label class="row">Bio: @Model.Professional.Bio</label>
-    <label class="row">Rating: @Model.Professional.Rating</label>
-</section>
-<section class="col" id="EditForm">
-    @using (@Html.BeginForm("EditAccountInfo", "Professional",new {id = @Model.Username}, FormMethod.Post))
-    {
-        @Html.HiddenFor(m=>m.Professional.Rating);
-        <label for="@Model.Professional.Title" class="row">Title:</label>
-        <input type="text" asp-for="@Model.Professional.Title">
-        <label for="@Model.Professional.Location" class="row">Locaton:</label>
-        <input type="text" asp-for="@Model.Professional.Location">
-        <label for="@Model.Professional.AppointmentLengthInHours" class="row">Appointment Length:</label>
-        <input type="text" asp-for="@Model.Professional.AppointmentLengthInHours">
-        <label for="@Model.Professional.HourlyRate" class="row">HourlyRate:</label>
-        <input type="text" asp-for="@Model.Professional.HourlyRate">
-        <label for="@Model.Professional.Language" class="row">Language:</label>
-        <input type="text" asp-for="@Model.Professional.Language">
-        <label for="@Model.Professional.Bio" class="row">Bio:</label>
-        <input type="text" asp-for="@Model.Professional.Bio">
-        <input type="submit" class="row" value="Edit Account Info"/>
-    }
+    <div class="card">
+        <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Professional.FirstName @Model.Professional.LastName</h4>
+            <label class="card-text">Bio:</label>
+            <p class="card-text">@Model.Professional.Bio </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <label class="card-text">Username:</label>
+                <p class="card-text">@Model.Professional.Username</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Title:</label>
+                <p class="card-text">@Model.Professional.Title</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Spoken Language:</label>
+                <p class="card-text">@Model.Professional.Language</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Locaton:</label>
+                <p class="card-text">@Model.Professional.Location</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Appointment Length (Hours):</label>
+                <p class="card-text">@Model.Professional.AppointmentLengthInHours</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">HourlyRate:</label>
+                <p class="card-text">@Model.Professional.HourlyRate</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Joined on:</label>
+                <p class="card-text">@Model.Professional.MemberSince.ToString("MM/dd/yyyy")</p>
+            </li>
+            <li class="list-group-item">
+                <label class="card-text">Rating:</label>
+                <p class="card-text">@Model.Professional.Rating</p>
+            </li>
+        </ul>
+        <div class="card-body">
+            <label class="card-text">Edit Account Info:</label>
+            @using (@Html.BeginForm("EditAccountInfo", "Professional",new {id = @Model.Username}, FormMethod.Post))
+            {
+                @Html.HiddenFor(m=>m.Professional.MemberSince);
+                @Html.HiddenFor(m=>m.Professional.Rating);
+                <div class="row-md-4">
+                    <label for="@Model.Professional.Title" class="card-text">Title:</label>
+                    <input type="text" asp-for="@Model.Professional.Title">
+                </div>
+                <div class="row-md-4">
+                    <label for="@Model.Professional.Location" class="card-text">Locaton:</label>
+                    <input type="text" asp-for="@Model.Professional.Location">
+                </div>
+                <div class="row-md-4">
+                    <label for="@Model.Professional.AppointmentLengthInHours" class="card-text">Appointment Length:</label>
+                    <input type="text" asp-for="@Model.Professional.AppointmentLengthInHours">
+                </div>
+                <div class="row-md-4">
+                    <label for="@Model.Professional.HourlyRate" class="card-text">HourlyRate:</label>
+                    <input type="text" asp-for="@Model.Professional.HourlyRate">
+                </div>
+                <div class="row-md-4">
+                    <label for="@Model.Professional.Language" class="card-text">Language:</label>
+                    <input type="text" asp-for="@Model.Professional.Language">
+                </div>
+                <div class="row-md-4">
+                    <label for="@Model.Professional.Bio" class="card-text">Bio:</label>
+                    <input type="text" asp-for="@Model.Professional.Bio">
+                </div>
+                    <div class="row-md-4">
+                    <input class = "customButton" type="submit" value="Edit"/>
+                </div>
+            }
+        </div>
+    </div>
 </section>
 <section class="col">
     @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
     {
     <input name ="Username" value = @Model.Username hidden = "true">
-    <input type="submit" value="Home"/>
+    <input class = "customButton" type="submit" value="Home"/>
     }
 </section>

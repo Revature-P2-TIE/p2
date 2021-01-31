@@ -6,7 +6,7 @@ Hello Professional: @Model.Username
 @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
 {
   <input name ="Username" value = @Model.Username hidden = "true">
-  <input type="submit" value="Home"/>
+  <input class = "customButton" type="submit" value="Home"/>
 }
 
 

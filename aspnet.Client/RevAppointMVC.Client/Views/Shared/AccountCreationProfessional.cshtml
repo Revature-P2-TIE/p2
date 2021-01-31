@@ -1,6 +1,6 @@
 @model RevAppoint.Client.Models.ProfessionalModel;
 
-<h1>Create a customer account!</h1>
+<h1>Create a Professional Account!</h1>
 
 @using (@Html.BeginForm("CreateAccountProfessional", "Customer", FormMethod.Post))
 {
@@ -49,5 +49,5 @@
     <input type ="text" name="Bio" placeholder="I hammer things!" required>
     <input name = "Type" value = "Professional" hidden = "true">
     <br>
-  <input type="submit" value="Create an Account"/>
+  <input class = "customButton" type="submit" value="Create an Account"/>
 }

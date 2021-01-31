@@ -1,9 +1,9 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
-<p>Hello @Model.CustomerUsername</p>
+<h4>Hello @Model.CustomerUsername</h4>
 <p> !! Appointment Completed !!</p>
 <p>Display more info about appointment here</p>
-@using (@Html.BeginForm("SelectUser", "Customer", FormMethod.Post))
+@using (@Html.BeginForm("SelectUser", "Customer",new {id = @Model.CustomerUsername}, FormMethod.Post))
 {
   <input name = "Username" value = @Model.CustomerUsername hidden ="true">
  

@@ -29,7 +29,7 @@ Hello Professional: @Model.ProfessionalUsername
     {
       <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
       <input name ="AppointmentID" value = @item.EntityID hidden = "true">
-      <input type="submit" value="Accept"/>
+      <input class = "customButton" type="submit" value="Accept"/>
     }
     </td>
     @* <td>
@@ -45,7 +45,7 @@ Hello Professional: @Model.ProfessionalUsername
     {
       <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
       <input name ="AppointmentID" value = @item.EntityID hidden = "true">
-      <input type="submit" value="Completed"/>
+      <input class = "customButton" type="submit" value="Completed"/>
     }
     </td>
     </tr>
@@ -55,5 +55,5 @@ Hello Professional: @Model.ProfessionalUsername
 @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
 {
   <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
-  <input type="submit" value="Home"/>
+  <input class = "customButton" type="submit" value="Home"/>
 }

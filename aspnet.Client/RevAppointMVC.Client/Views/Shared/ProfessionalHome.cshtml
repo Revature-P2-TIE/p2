@@ -15,7 +15,7 @@
         <p class="card-text">View and Edit your information</p>
         @using (@Html.BeginForm("ViewProfile", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View My Profile"/>
+          <input class = "customButton" type="submit" value="View My Profile"/>
         }
       </div>
     </div>
@@ -27,7 +27,7 @@
         <p class="card-text">View Current Appointments</p>
         @using (@Html.BeginForm("CurrentAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View Current Appointments"/>
+          <input class = "customButton" type="submit" value="View Appointments"/>
         }
       </div>
     </div>
@@ -37,7 +37,7 @@
         <p class="card-text">View Pending Appointments</p>
         @using (@Html.BeginForm("PendingAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View Pending Appointments"/>
+          <input class = "customButton" type="submit" value="View Appointments"/>
         }
       </div>
     </div>
@@ -47,7 +47,7 @@
         <p class="card-text">View Your Old Appointments</p>
         @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View History"/>
+          <input class = "customButton" type="submit" value="View History"/>
         }
       </div>
     </div>
