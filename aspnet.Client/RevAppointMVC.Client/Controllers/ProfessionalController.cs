@@ -87,6 +87,8 @@ namespace RevAppoint.Client.Controllers
             newProf.Username = id;
 
             newModel.Professional = newProf;
+            newModel.Professional.Rating = model.Professional.Rating;
+            newModel.Username = id;
 
             HttpClientHandler clientHandler = new HttpClientHandler();
             var json = JsonConvert.SerializeObject(newProf);

@@ -15,6 +15,7 @@ Hello Professional: @Model.Username
 <section class="col" id="EditForm">
     @using (@Html.BeginForm("EditAccountInfo", "Professional",new {id = @Model.Username}, FormMethod.Post))
     {
+        @Html.HiddenFor(m=>m.Professional.Rating);
         <label for="@Model.Professional.Title" class="row">Title:</label>
         <input type="text" asp-for="@Model.Professional.Title">
         <label for="@Model.Professional.Location" class="row">Locaton:</label>
