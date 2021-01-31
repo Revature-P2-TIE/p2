@@ -12,6 +12,7 @@ namespace RevAppoint.Client.Models
         public IEnumerable<AppointmentModel> AppointmentHistory {get;set;}
         public IEnumerable<AppointmentModel> CurrentAppointmets {get;set;}
         public AppointmentModel Appointment {get;set;}
+        public string AppointmentID {get;set;}
  /*       public ProfessionalViewModel(){}
         public ProfessionalViewModel(UnitOfWork Repo)
         {

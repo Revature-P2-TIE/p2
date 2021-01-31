@@ -27,7 +27,7 @@ namespace RevAppoint.Repo.Repositories
             return _db.Appointments.Where(x=>x.Client.Username == username).Include(x=>x.Professional).Include(x=>x.Time);
         }
 
-         public IEnumerable<Appointment> GetAppointmentsAccepted(string username)
+        public IEnumerable<Appointment> GetAppointmentsAccepted(string username)
         {
             return _db.Appointments
                         .Where(x=>x.Client.Username == username)
@@ -37,6 +37,25 @@ namespace RevAppoint.Repo.Repositories
                         .Include(x=>x.Time);
         }
 
+        public IEnumerable<Appointment> GetAppointmentsFufilled(string username)
+        {
+            return _db.Appointments
+                        .Where(x=>x.Client.Username == username)
+                        .Where(x => x.IsAccepted == true)
+                        .Where(x =>x.IsFufilled == true)
+                        .Include(x=>x.Professional)
+                        .Include(x=>x.Time);
+        }
+
+        public IEnumerable<Appointment> GetAppointmentsPending(string username)
+        {
+            return _db.Appointments
+                        .Where(x=>x.Client.Username == username)
+                        .Where(x => x.IsAccepted == false)
+                        .Where(x =>x.IsFufilled == false)
+                        .Include(x=>x.Professional)
+                        .Include(x=>x.Time);
+        }
 
         public bool AddCustomer(Customer customer)
         {

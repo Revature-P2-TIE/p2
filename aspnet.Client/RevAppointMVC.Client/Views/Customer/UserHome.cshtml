@@ -1,19 +1,55 @@
 @model RevAppoint.Client.Models.UserModel;
 
-Hello, @Model.Username
-
-@using (@Html.BeginForm("SearchForProfessionals", "Customer",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="Find A Professional"/>
+@{
+    ViewData["Title"] = "CustomerHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View History"/>
+<h2>Hello, @Model.FirstName</h2>
+<div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Get a Professional</h4>
+          <p class="card-text">Search for a professional for the job you wish to complete</p>
+          @using (@Html.BeginForm("SearchForProfessionals", "Customer",new {id = @Model.Username}, FormMethod.Get))
+          {
+            <input type="submit" value="Find A Professional"/>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Appointment History</h4>
+          <p class="card-text">View the pass appointments that have been completed</p>
+          @using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
+          {
+            <input type="submit" value="View History"/>
 
-}
-
-@using (@Html.BeginForm("CurrentAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View Current Appointments"/>
-}
+          }
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Accepted Appointment</h4>
+          <p class="card-text">View active appointments that have been accpeted by a professional</p>
+          @using (@Html.BeginForm("CurrentAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
+          {
+            <input type="submit" value="View Current Appointments"/>
+          }
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Pending Appointment</h4>
+          <p class="card-text">View the appointments that are waiting for a professional to accept</p>
+          @using (@Html.BeginForm("PendingAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
+          {
+            <input type="submit" value="View Pending Appointments"/>
+          }
+        </div>
+      </div>
+  </div>
+</div>
