@@ -64,6 +64,7 @@ namespace RevAppoint.Repo.Repositories
              }
              
              return false;
+        }
 
         public IEnumerable<Appointment> GetAppointmentsAccepted(string username)
         {
