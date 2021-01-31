@@ -2,10 +2,10 @@
 @* Will need changes later to get domain models out of mvc *@
 @* @model IEnumerable<RevAppoint.Client.Models.ProfessionalViewModel>*@
 
-Choose a Professional
+<h2>Choose a Professional</h2>
 
-<p>Username = @Model.Username</p>
-<p>SearchParam = @Model.SearchParam</p>
+<h4>Username: @Model.Username</h4>
+<p>SearchParam: @Model.SearchParam</p>
 
 <br>
 <table style="width:100%">
@@ -28,7 +28,7 @@ Choose a Professional
           <input name="Username" value= @Model.Username hidden ="true">
           <input name="SearchedProfessionalsUsername" value =@item.Username hidden="true">
           //Need to add more to the model here!!!!
-          <td><input type="submit" value="Select Professional"/></td>
+          <td><input class = "customButton" type="submit" value="Select Professional"/></td>
         }
     </tr>
     
