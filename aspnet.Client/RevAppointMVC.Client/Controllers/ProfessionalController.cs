@@ -17,10 +17,13 @@ namespace RevAppoint.Client.Controllers
         private string apiAppointmentController = "Appointment";
 
         [HttpGet("/Professional/ProfessionalHome")]
-        public IActionResult ProfessionalHome(ProfessionalViewModel model)
+        public async Task<IActionResult> ProfessionalHome(ProfessionalViewModel model)
         {
-            UserModel userModel = new UserModel();
-            userModel.Username = model.Username;
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiProfessionalController+"/GetOneUserByUsername/"+model.Username);
+            var userModel = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
             return View("ProfessionalHome", userModel);
         }
 

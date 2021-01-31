@@ -12,8 +12,8 @@ Hello Professional: @Model.ProfessionalUsername
     <td><u>Is Fufilled</u></td>
     <td><u>Start Time</u></td>
     <td><u>End Time</u></td>
-    <td><u>Delete</u></td>
-    <td><u>View Client</u></td>
+    <td><u>Accept</u></td>
+    @* <td><u>View Client</u></td> *@
     <td><u>Completed</u></td>
   </tr>
   @foreach (var item in Model.Appointments)
@@ -32,14 +32,14 @@ Hello Professional: @Model.ProfessionalUsername
       <input type="submit" value="Accept"/>
     }
     </td>
-    <td>
+    @* <td>
     @using (@Html.BeginForm("ClientView", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
     {
       <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
       
       <input type="submit" value="View Client"/>
     }
-    </td>
+    </td> *@
     <td>
     @using (@Html.BeginForm("CompleteAppointment", "Professional", FormMethod.Post))
     {
