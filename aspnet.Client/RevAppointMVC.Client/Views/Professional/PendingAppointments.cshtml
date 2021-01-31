@@ -25,24 +25,26 @@ Hello Professional: @Model.ProfessionalUsername
     <td>@item.Time.Start.ToString("MM/dd/yyyy hh:mm tt")</td>
     <td>@item.Time.End.ToString("MM/dd/yyyy hh:mm tt")</td>
     <td>
-    @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
+    @using (@Html.BeginForm("AcceptAppointment", "Professional", FormMethod.Post))
     {
-      <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
-      <input type="submit" value="Decline"/>
+      <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
+      <input name ="AppointmentID" value = @item.EntityID hidden = "true">
+      <input type="submit" value="Accept"/>
     }
     </td>
     <td>
     @using (@Html.BeginForm("ClientView", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
     {
-      <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
+      <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
       
       <input type="submit" value="View Client"/>
     }
     </td>
     <td>
-    @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
+    @using (@Html.BeginForm("CompleteAppointment", "Professional", FormMethod.Post))
     {
-      <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
+      <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
+      <input name ="AppointmentID" value = @item.EntityID hidden = "true">
       <input type="submit" value="Completed"/>
     }
     </td>
