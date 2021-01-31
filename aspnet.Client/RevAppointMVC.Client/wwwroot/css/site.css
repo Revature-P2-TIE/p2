@@ -56,11 +56,16 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+ 
 }
-
+#MAIN{
+  color: blue;
+  color:#1F2833;
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+
 }
 .footer {
   position: absolute;
@@ -68,4 +73,53 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+#logoMain{
+width:200px;
+height: 100px;
+float:left;
+position: relative;
+}
+
+#logoMain > img{
+float:left;
+color:#435AD9;
+font-size: 30px;
+}
+.logo{
+float:left;
+color:#05F2C7;
+text-shadow: 2px 2px#435AD9;
+font-size: 30px;
+}
+
+.logo2
+{
+  color:#05F2C7;
+text-shadow: 2px 2px#435AD9;
+float:left;
+font-size: 30px;
+}
+
+.customButton{
+
+
+
+border-radius: 5px;
+width: 150px;
+font-size: 15px;
+background-color:#1F2833;
+color:  #C5C6C7;
+/*border-color:#05F2C7;*/
+border-color:#45A29E;
+margin: 15px 0px 0px 0px;
+
+}
+
+.customButton:hover{
+  background-color:#1F2833;
+  color: #45A29E;
+  /*border-color:#05F2C7;*/
+  border-color:#45A29E;
 }

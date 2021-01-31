@@ -26,7 +26,9 @@ namespace RevAppoint.Client.Controllers
         [HttpGet("/Login")]
         public IActionResult GetUser()
         {
-            return View("FormLogin");
+            LoginViewModel model = new LoginViewModel();
+            model.Error = "";
+            return View("FormLogin", model);
         }
 
         
@@ -65,13 +67,15 @@ namespace RevAppoint.Client.Controllers
         }
           
         //This will happen if the username/password combo provided is not in the system
-        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-        return View("FormLogin");
+     
+        LoginViewModel modelLogin = new LoginViewModel();
+        modelLogin.Error = "Invalid login attempt.";
+        return View("FormLogin", modelLogin);
 
         }
 
         [HttpPost("/UserHome")]
-        public IActionResult SelectUser(CustomerViewModel customer)
+        public IActionResult SelectUser(UserModel customer)
         {
                 return View("UserHome", customer);
         }
@@ -389,7 +393,10 @@ namespace RevAppoint.Client.Controllers
             AppointmentViewModel appointmentModel= new AppointmentViewModel();
             appointmentModel.ProfessionalUsername = model.ProfessionalUsername;
             appointmentModel.CustomerUsername = model.CustomerUsername;
-            return View("CreateAppointment",appointmentModel);
+
+            //Return to success page
+
+            return View("AppointmentCompletion",appointmentModel);
         }
         
         // [HttpGet("/CurrentAppointments/{id}")]
@@ -428,22 +435,99 @@ namespace RevAppoint.Client.Controllers
         //     return View("AppointmentCompletion", model);
         // }
 
-        // [HttpGet("/AccountCreationCustomer")]
-        // public IActionResult AccountCreationCustomer()
-        // {
+         [HttpGet("/AccountCreationCustomer")]
+         public IActionResult AccountCreationCustomer()
+         {
 
-        //     AccountCreationViewModel accountModel = new AccountCreationViewModel();
-        //     return View("AccountCreation", accountModel);
-        // }
+             AccountCreationViewModel accountModel = new AccountCreationViewModel();
+             return View("AccountCreation", accountModel);
+         }
 
-        // [HttpPost("/CreateAccount")]
-        // public IActionResult CreateAccount(AccountCreationViewModel model)
-        // {
-        //     CustomerModel customer = new CustomerModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress};
-            
-        //     Repo.CustomerRepo.AddCustomer(customer);
-        //     return RedirectToAction("GetUser");
-        // }
+         [HttpGet("/AccountCreationProfessional")]
+         public IActionResult AccountCreationProfessional()
+         {
+
+             ProfessionalModel accountModel = new ProfessionalModel();
+             return View("AccountCreationProfessional", accountModel);
+         }
+
+         [HttpPost("/CreateAccount")]
+        public async Task<IActionResult> CreateAccount(AccountCreationViewModel model)
+        {
+            CustomerModel customer = new CustomerModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress};
+
+            ////////////////////////////////////
+               //Serializing the model and converting it into a string
+            var json = JsonConvert.SerializeObject(model);
+            StringContent content = new StringContent(json.ToString());
+
+            //Creating a HTTP handler to bypass SSL cert checks
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+        
+            //creating httpclient that uses the handler
+            HttpClient client = new HttpClient(clientHandler);
+ 
+            //Passing the serialized object to the API
+            var response = await client.PostAsync(apiUrl+loginController+"/CreateAccountClient", content);
+            /*
+            Getting an object back from the api,
+            The api is going to search its database for a user with the credentials that we sent
+            and send us back a user based on its search
+            */
+            //UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+
+            LoginViewModel modelForm = new LoginViewModel();
+
+            if(response.IsSuccessStatusCode)
+            {
+                return View("FormLogin", modelForm );
+            }
+
+            modelForm.Error = "Could Not Create Account!";
+            return View("FormLogin", modelForm);
+        }
+    
+        [HttpPost("/CreateAccountProfessional")]
+        public async Task<IActionResult> CreateAccountProfessional(ProfessionalModel model)
+        {
+          //  ProfessionalModel customer = new ProfessionalModel(){Username = model.username, Password = model.password,FirstName = model.firstname,LastName = model.lastname,Gender = model.gender,PhoneNumber = model.phonenumber,EmailAddress = model.emailaddress,
+         //   Title = model.Title, Location = model.Title, AppointmentLengthInHours = model.AppointmentLengthInHours,
+         //   HourlyRate = model.HourlyRate, Language = model.Language, Bio = model.Bio
+        //    };
+
+            ////////////////////////////////////
+               //Serializing the model and converting it into a string
+            model.MemberSince = DateTime.Now;
+            var json = JsonConvert.SerializeObject(model);
+            StringContent content = new StringContent(json.ToString());
+
+            //Creating a HTTP handler to bypass SSL cert checks
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+        
+            //creating httpclient that uses the handler
+            HttpClient client = new HttpClient(clientHandler);
+ 
+            //Passing the serialized object to the API
+            var response = await client.PostAsync(apiUrl+loginController+"/CreateAccountProfessional", content);
+            /*
+            Getting an object back from the api,
+            The api is going to search its database for a user with the credentials that we sent
+            and send us back a user based on its search
+            */
+            //UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+
+            LoginViewModel modelForm = new LoginViewModel();
+
+            if(response.IsSuccessStatusCode)
+            {
+                return View("FormLogin", modelForm );
+            }
+
+            modelForm.Error = "Could Not Create Account!";
+            return View("FormLogin", modelForm);
+        }
     
     }
 }

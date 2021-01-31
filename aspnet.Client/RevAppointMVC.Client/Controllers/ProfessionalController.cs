@@ -127,6 +127,45 @@ namespace RevAppoint.Client.Controllers
             return View("CurrentAppointments", appointment);
 
         }
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<IActionResult> CompleteAppointment(AppointmentViewModel model)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentComplete/"+model.AppointmentID);
+            HttpClientHandler clientHandler2 = new HttpClientHandler();
+            clientHandler2.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client2 = new HttpClient(clientHandler2);
+            var response2 = await client2.GetAsync(apiUrl+apiProfessionalController+"/GetOneUserByUsername/"+model.ProfessionalUsername);
+            UserModel user = JsonConvert.DeserializeObject<UserModel>(await response2.Content.ReadAsStringAsync());
+
+            return View("ProfessionalHome", user);
+        }
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<IActionResult> AcceptAppointment(AppointmentViewModel model)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+            var response = await client.GetAsync(apiUrl+apiAppointmentController+"/AppointmentAccept/"+model.AppointmentID);
+            HttpClientHandler clientHandler2 = new HttpClientHandler();
+            clientHandler2.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client2 = new HttpClient(clientHandler2);
+            var response2 = await client2.GetAsync(apiUrl+apiProfessionalController+"/GetOneUserByUsername/"+model.ProfessionalUsername);
+            UserModel user = JsonConvert.DeserializeObject<UserModel>(await response2.Content.ReadAsStringAsync());
+            return View("ProfessionalHome", user);
+        }
+        // [HttpGet("/Professional/ClientView/{id}")]
+        // public IActionResult ClientView(string id)
+        // {
+        //     ProfessionalViewModel model = new ProfessionalViewModel();
+        //     model.Professional = Repo.ProfessionalRepo.GetProfessional(id);
+        //     model.Username = model.Professional.Username;
+        //     return View("ClientView", model);
+        // }
     }
 }
 

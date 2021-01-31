@@ -1,0 +1,53 @@
+@model RevAppoint.Client.Models.ProfessionalModel;
+
+<h1>Create a customer account!</h1>
+
+@using (@Html.BeginForm("CreateAccountProfessional", "Customer", FormMethod.Post))
+{
+   <label for="Username">Username:</label> 
+   <input type ="text" name="Username" placeholder="Username" required>
+   <br>
+   <label for="Password">Password:</label> 
+   <input type ="text" name="Password" placeholder="Password" required>
+    <br>
+    <label for="FirstName">First Name:</label> 
+   <input type ="text" name="FirstName" placeholder="First name" required>
+    <br>
+    <label for="LastName">Last Name:</label> 
+   <input type ="text" name="LastName" placeholder="Last name" required>
+    <br>
+    <label for="maleGender">Male:</label>
+    <input type="radio" name="Gender" value="Male" id ="maleGender" required>
+
+    <label for="femalGender">Female:</label>
+    <input type="radio" name="Gender" value="Female" id ="femaleGender" required>
+       <label for="otherGender">Other:</label>
+    <input type="radio" name="Gender" value="Other" id ="otherGender" required>
+    <br>
+    <label for="PhoneNumber">Phone Number:</label>
+    <input type ="text" name="PhoneNumber" placeholder="Phone number" required>
+    <br>
+    <label for="EmailAddress">Email:</label>
+    <input type ="text" name="EmailAddress" placeholder="Email Address" required>
+    <br>
+    <label for="Title">Title:</label>
+    <input type ="text" name="Title" placeholder="Blacksmith" required>
+    <br>
+    <label for="Location">Location:</label>
+    <input type ="text" name="Location" placeholder="Baltimore" required>
+    <br>
+    <label for="AppointmentLengthInHours">Appointment Length(hours):</label>
+    <input type ="text" name="AppointmentLengthInHours" placeholder="5" required>
+    <br>
+    <label for="HourlyRate">Hourly rate:</label>
+    <input type ="text" name="HourlyRate" placeholder="18" required>
+    <br>
+    <label for="Language">Language:</label>
+    <input type ="text" name="Language" placeholder="English" required>
+    <br>
+    <label for="Bio">Bio</label>
+    <input type ="text" name="Bio" placeholder="I hammer things!" required>
+    <input name = "Type" value = "Professional" hidden = "true">
+    <br>
+  <input type="submit" value="Create an Account"/>
+}
