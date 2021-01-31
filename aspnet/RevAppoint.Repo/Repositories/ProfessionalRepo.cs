@@ -52,7 +52,6 @@ namespace RevAppoint.Repo.Repositories
             return _db.Appointments.Where(x=>x.Professional.Username == username).Include(x=>x.Time);
         }
 
-
         public bool AddProfessional(Professional professional)
         {
               IEnumerable<Professional> list = _db.Professionals.Where(x => x.Username == professional.Username);     
@@ -65,8 +64,8 @@ namespace RevAppoint.Repo.Repositories
              }
              
              return false;
- 
         }
+
         public IEnumerable<Appointment> GetAppointmentsAccepted(string username)
         {
             return _db.Appointments
@@ -90,6 +89,7 @@ namespace RevAppoint.Repo.Repositories
                         .Where(x => x.IsAccepted == false)
                         .Where(x =>x.IsFufilled == false)
                         .Include(x=>x.Time);
+
         }
     }
 }

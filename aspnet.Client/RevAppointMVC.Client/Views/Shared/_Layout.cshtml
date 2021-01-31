@@ -20,7 +20,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Customer" asp-action="GetUser">Revature Freelance Hiring System</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Customer" asp-action="GetUser">
+                   <div id = "logoMain">
+                     <div class = "logo">tie</div>
+                     <img src="~/images/tieIcon.png" alt="spartan pizza logo" height="38" width="38" id = "spartanlogo">
+                     <div class = "logo2">together</div>
+                    </div>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,8 +44,8 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container" id = "MAIN">
+        <main role="main" class="pb-3" >
             @RenderBody()
         </main>
     </div>
