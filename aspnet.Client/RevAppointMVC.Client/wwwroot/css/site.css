@@ -110,7 +110,8 @@ border-radius: 5px;
 width: 150px;
 font-size: 15px;
 background-color:#1F2833;
-color:  #C5C6C7;
+/*color:  #C5C6C7;*/
+color: #fff;
 /*border-color:#05F2C7;*/
 border-color:#45A29E;
 margin: 15px 0px 0px 0px;
@@ -122,4 +123,10 @@ margin: 15px 0px 0px 0px;
   color: #45A29E;
   /*border-color:#05F2C7;*/
   border-color:#45A29E;
+
+  color:#435AD9;
+  border-color:#435AD9;
+  color:#05F2C7;
+  border-color:#05F2C7;
 }
+

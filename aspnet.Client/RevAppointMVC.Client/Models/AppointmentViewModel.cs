@@ -15,6 +15,8 @@ namespace RevAppoint.Client.Models
         public string AppointmentID {get;set;}
         public bool IsFufilled { get; set; }
         public bool IsAccepted { get; set; }
+        public string HourlyRate {get; set;}
+        public string AppointmentLengthInHours{get;set;}
 
     }
 }

@@ -34,10 +34,14 @@
       <li class="list-group-item">
         <label>Appointment Length (Hours):</label>
         <p class="card-text">@prof.AppointmentLengthInHours</p>
+        <input name = "AppointmentLengthInHours" value="@prof.AppointmentLengthInHours" hidden = "true">
+
       </li>
       <li class="list-group-item">
         <label>HourlyRate:</label>
         <p class="card-text">@prof.HourlyRate</p>
+        <input name = "HourlyRate" value="@prof.HourlyRate" hidden = "true">
+      
       </li>
       <li class="list-group-item">
         <label>Joined on:</label>
@@ -53,5 +57,7 @@
     </div>
   </div>
   <input name = "Username" value = @Model.Username hidden ="true">
-  <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true"> 
+  <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
+  <input name = "Professional.HourlyRate" value="@Model.Professional.HourlyRate" hidden = "true">
+  <input name = "Professional.AppointmentLengthInHours" value="@Model.Professional.AppointmentLengthInHours" hidden = "true">
 }

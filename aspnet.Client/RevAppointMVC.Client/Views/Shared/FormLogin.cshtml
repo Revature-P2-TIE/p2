@@ -32,12 +32,36 @@
         </form>
     </div>
 </div>
-@using (@Html.BeginForm("AccountCreationCustomer", "Customer", FormMethod.Get))
-{
-  <input type="submit" value="Customer" class = "customButton" style="float: left;"/>
-}
 
-@using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Get))
-{
-  <input type="submit" value="Professional" class = "customButton" style="float: left;"/>
-}
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Create Customer Account</h4>
+          <p class="card-text">
+            With this type of account, you can book appointments with professionals.
+            
+          </p>
+        @using (@Html.BeginForm("AccountCreationCustomer", "Customer", FormMethod.Get))
+      {
+        <input type="submit" value="Customer" class = "customButton" style="float: left;"/>
+      }
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Create a professional account</h4>
+          <p class="card-text">
+            With this type of account, you can be booked for an appointment. 
+          </p>
+          @using (@Html.BeginForm("AccountCreationProfessional", "Customer", FormMethod.Get))
+          {
+            <input type="submit" value="Professional" class = "customButton" style="float: left;"/>
+          }   
+        </div>
+      </div>  
+  </div>
+</div>

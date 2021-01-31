@@ -426,6 +426,8 @@ namespace RevAppoint.Client.Controllers
             AppointmentViewModel appointmentModel= new AppointmentViewModel();
             appointmentModel.ProfessionalUsername = model.SearchedProfessionalsUsername;
             appointmentModel.CustomerUsername = model.Username;
+            appointmentModel.AppointmentLengthInHours = model.AppointmentLengthInHours;
+            appointmentModel.HourlyRate = model.HourlyRate;
             return View("CreateAppointment", appointmentModel);
         }
 
@@ -499,6 +501,7 @@ namespace RevAppoint.Client.Controllers
             ////////////////////////////////////
                //Serializing the model and converting it into a string
             model.MemberSince = DateTime.Now;
+            model.Rating = 5;
             var json = JsonConvert.SerializeObject(model);
             StringContent content = new StringContent(json.ToString());
 
