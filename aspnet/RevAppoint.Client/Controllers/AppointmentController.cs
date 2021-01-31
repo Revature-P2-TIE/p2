@@ -121,7 +121,7 @@ namespace RevAppoint.Client.Controllers
             }
         }
         [HttpGet("[action]/{id}")]
-        public async Task<IActionResult> AppointmentComplete(string id)
+        public async Task<IActionResult> AppointmentComplete(long id)
         {
                     
         //Reading the Body/Context of the request
@@ -136,7 +136,7 @@ namespace RevAppoint.Client.Controllers
             return Ok();
         }
         [HttpGet("[action]/{id}")]
-        public async Task<IActionResult> AppointmentAccept(string id)
+        public async Task<IActionResult> AppointmentAccept(long id)
         {
                     
         //Reading the Body/Context of the request
@@ -146,7 +146,8 @@ namespace RevAppoint.Client.Controllers
             {
                 return NotFound();
             }
-            appointment.IsAccepted = true;
+            bool accept = appointment.IsAccepted;
+            appointment.IsAccepted = !accept;
             _repo.Save();
             return Ok();
         }

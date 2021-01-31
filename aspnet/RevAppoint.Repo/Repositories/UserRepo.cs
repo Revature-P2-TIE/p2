@@ -18,5 +18,9 @@ namespace RevAppoint.Repo.Repositories
         {
             return _db.Users.FirstOrDefault(x => (x.Username.Equals(Username) && x.Password.Equals(Password)));
         }
+        public User GetUser(string Username)
+        {
+            return _db.Users.FirstOrDefault(x => (x.Username.Equals(Username)));
+        }
     }
 }

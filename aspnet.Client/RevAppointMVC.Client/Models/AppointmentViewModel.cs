@@ -12,7 +12,7 @@ namespace RevAppoint.Client.Models
         public CustomerModel Customer { get; set;}  
         public string CustomerUsername {get;set;}
         public DateTime Time { get; set; }    
-
+        public string AppointmentID {get;set;}
         public bool IsFufilled { get; set; }
         public bool IsAccepted { get; set; }
 
