@@ -90,10 +90,6 @@ namespace RevAppoint.Client.Controllers
             return Ok(Appointments);
         }
 
-         //Look here if broken
-        //[HttpPost("[action]")]
-        //public async Task<IActionResult> Post()
-
          [HttpPost("[action]/{CustomerUsername}/{ProfessionalUsername}")]
         public async Task<IActionResult> Post(string CustomerUsername,string ProfessionalUsername)
         {
@@ -101,7 +97,6 @@ namespace RevAppoint.Client.Controllers
         //Reading the Body/Context of the request
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
-            System.Console.WriteLine(body);
             var Time = JsonConvert.DeserializeObject<Time>(body);
             var appointment = new Appointment();
             appointment.Time = Time;
@@ -109,6 +104,7 @@ namespace RevAppoint.Client.Controllers
             appointment.Client = _repo.CustomerRepo.GetCustomer(CustomerUsername);
             appointment.IsAccepted = false;
             appointment.IsFufilled = false;
+            streamReader.Close();
             if (ModelState.IsValid)
             {
                 _repo.Insert<Appointment>(appointment);
@@ -124,8 +120,6 @@ namespace RevAppoint.Client.Controllers
         public async Task<IActionResult> AppointmentComplete(long id)
         {
                     
-        //Reading the Body/Context of the request
-
             Appointment appointment = _repo.GetById<Appointment>(id);
             if (appointment == null)
             {
@@ -139,8 +133,6 @@ namespace RevAppoint.Client.Controllers
         public async Task<IActionResult> AppointmentAccept(long id)
         {
                     
-        //Reading the Body/Context of the request
-
             Appointment appointment = _repo.GetById<Appointment>(id);
             if (appointment == null)
             {

@@ -23,7 +23,7 @@ namespace RevAppoint.Client.Controllers
         }
 
          [HttpGet("[action]")]
-        public IActionResult Get(/*User user*/)
+        public IActionResult Get()
         {
                   System.Console.WriteLine("TEST");
     
@@ -40,14 +40,13 @@ namespace RevAppoint.Client.Controllers
         //Deserializing the object that was sent in the context
         var obj = JsonConvert.DeserializeObject<Customer>(body);
 
-        //Testing 
-        System.Console.WriteLine(obj.Username);
+        streamReader.Close();
+
     
         /*
         Searching the repo for a username/password combo that matches 
         the users input
         */
-        //ADD CHECKING HERE FOR VALID USERNAME
         if(_repo.CustomerRepo.AddCustomer(obj))
         {
           return Ok();
@@ -65,8 +64,7 @@ namespace RevAppoint.Client.Controllers
         //Deserializing the object that was sent in the context
         var obj = JsonConvert.DeserializeObject<Professional>(body);
 
-        //Testing 
-        System.Console.WriteLine(obj.Username);
+        streamReader.Close();
     
         /*
         Searching the repo for a username/password combo that matches 
@@ -91,8 +89,7 @@ namespace RevAppoint.Client.Controllers
         //Deserializing the object that was sent in the context
         var obj = JsonConvert.DeserializeObject<User>(body);
 
-        //Testing 
-        System.Console.WriteLine(obj.Username);
+        streamReader.Close();
     
         /*
         Searching the repo for a username/password combo that matches 

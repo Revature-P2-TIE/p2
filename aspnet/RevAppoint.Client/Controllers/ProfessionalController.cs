@@ -48,6 +48,7 @@ namespace  aspnet.RevAppoint.Client
 
       _repo.Update(oldProfessional);
       _repo.Save();
+      streamReader.Close();
       return Ok();
 
     }
@@ -67,6 +68,7 @@ namespace  aspnet.RevAppoint.Client
         string body = await streamReader.ReadToEndAsync();
 
         var professional = JsonConvert.DeserializeObject<Professional>(body);
+        streamReader.Close();
         if (ModelState.IsValid)
         {
             _repo.Insert<Professional>(professional);

@@ -18,5 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\RevAppointMVC.Client\RevAppointMVC.Client.csproj" />
+  </ItemGroup>
 </Project>
