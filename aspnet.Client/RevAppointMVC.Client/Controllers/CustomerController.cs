@@ -59,7 +59,8 @@ namespace RevAppoint.Client.Controllers
         {
             if(user.Type == "Customer"){
                 return View("UserHome", user);
-            }else{
+            }
+            else{
                 return View("~/Views/Shared/ProfessionalHome.cshtml", user);
             }
         }
