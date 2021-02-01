@@ -4,8 +4,9 @@
     ViewData["Title"] = "ProfessionalHome";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@* Note that this will break when we route back to the ProfessionalHome method (since we're only passing a username) *@
+<h2>Hello, @Model.FirstName</h2> 
 
-<h2>Hello, @Model.FirstName</h2>
 <div class="row">
   <div class="col-md-6">
     <div class="card">
@@ -14,7 +15,7 @@
         <p class="card-text">View and Edit your information</p>
         @using (@Html.BeginForm("ViewProfile", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View My Profile"/>
+          <input class = "customButton" type="submit" value="View My Profile"/>
         }
       </div>
     </div>
@@ -26,7 +27,7 @@
         <p class="card-text">View Current Appointments</p>
         @using (@Html.BeginForm("CurrentAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View Current Appointments"/>
+          <input class = "customButton" type="submit" value="View Appointments"/>
         }
       </div>
     </div>
@@ -36,7 +37,7 @@
         <p class="card-text">View Pending Appointments</p>
         @using (@Html.BeginForm("PendingAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View Pending Appointments"/>
+          <input class = "customButton" type="submit" value="View Appointments"/>
         }
       </div>
     </div>
@@ -46,7 +47,7 @@
         <p class="card-text">View Your Old Appointments</p>
         @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input type="submit" value="View History"/>
+          <input class = "customButton" type="submit" value="View History"/>
         }
       </div>
     </div>

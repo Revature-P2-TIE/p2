@@ -1,44 +1,11 @@
-@model RevAppoint.Client.Models.AccountCreationViewModel;
+@model RevAppoint.Client.Models.ProfessionalModel;
 
-<h1>Create a Customer Account!</h1>
-<!--
-@using (@Html.BeginForm("CreateAccount", "Customer", FormMethod.Post))
-{
-   <label for="Username">Username:</label> 
-   <input type ="text" name="Username" placeholder="Username" required>
-   <br>
-   <label for="Password">Password:</label> 
-   <input type ="text" name="Password" placeholder="Password" required>
-    <br>
-    <label for="FirstName">First Name:</label> 
-   <input type ="text" name="FirstName" placeholder="First name" required>
-    <br>
-    <label for="LastName">Last Name:</label> 
-   <input type ="text" name="LastName" placeholder="Last name" required>
-    <br>
-    <label for="maleGender">Male:</label>
-    <input type="radio" name="Gender" value="Male" id ="maleGender" required>
-
-    <label for="femalGender">Female:</label>
-    <input type="radio" name="Gender" value="Female" id ="femaleGender" required>
-       <label for="otherGender">Other:</label>
-    <input type="radio" name="Gender" value="Other" id ="otherGender" required>
-    <br>
-    <label for="PhoneNumber">Phone Number:</label>
-    <input type ="text" name="PhoneNumber" placeholder="Phone number" required>
-    <br>
-    <label for="EmailAddress">Email:</label>
-    <input type ="text" name="EmailAddress" placeholder="Email Address" required>
-    <br>
-  <input class = "customButton" type="submit" value="Create an Account"/>
-}
--->
-
+<h1>Create a Professional Account!</h1>
 
 
 <div class="row">
     <div class="col-md-4">
-        <form method="POST" asp-action="CreateAccount" asp-controller="Customer">
+        <form method="POST" asp-action="CreateAccountProfessional" asp-controller="Customer">
           <!--  <div asp-validation-summary="ModelOnly" class="text-danger"></div> -->
             <div class="form-group">
                 <label for="Username" class="control-label">Username:</label> 
@@ -62,6 +29,8 @@
            <!--      <span asp-validation-for="Password" class="text-danger"></span>-->
             </div>
 
+            
+
               <div class="form-group">
                 <label for="PhoneNumber" class="control-label">Phone number:</label> 
                <input type ="text" class="form-control" name="PhoneNumber" class="form-control" placeholder="410-410-4100" required>
@@ -73,8 +42,42 @@
            <!--      <span asp-validation-for="Password" class="text-danger"></span>-->
             </div>
 
-
+         
+              <div class="form-group">
+                <label for="Title" class="control-label">Title:</label> 
+               <input type ="text" class="form-control" name="Title" class="form-control" placeholder="Paper salesman" required>
+           <!--      <span asp-validation-for="Username" class="text-danger"></span>-->
+            </div>
             <div class="form-group">
+                   <label for="Location" class="control-label">Location:</label> 
+                  <input type ="text" class="form-control" name="Location" placeholder="Scranton" required>
+           <!--      <span asp-validation-for="Password" class="text-danger"></span>-->
+            </div>
+            
+              <div class="form-group">
+                <label for="AppointmentLengthInHours" class="control-label">Appointment Length In Hours:</label> 
+               <input type ="text" class="form-control" name="AppointmentLengthInHours" class="form-control" placeholder="2" required>
+           <!--      <span asp-validation-for="Username" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                   <label for="HourlyRate" class="control-label">Hourly rate:</label> 
+                  <input type ="text" class="form-control" name="HourlyRate" placeholder="18" required>
+           <!--      <span asp-validation-for="Password" class="text-danger"></span>-->
+            </div>
+
+              
+              <div class="form-group">
+                <label for="Language" class="control-label">Language:</label> 
+               <input type ="text" class="form-control" name="Language" class="form-control" placeholder="German" required>
+           <!--      <span asp-validation-for="Username" class="text-danger"></span>-->
+            </div>
+            <div class="form-group">
+                   <label for="Bio" class="control-label">Bio:</label> 
+                  <input type ="text" class="form-control" name="Bio" placeholder="Watch out for Jim..." required>
+           <!--      <span asp-validation-for="Password" class="text-danger"></span>-->
+            </div>
+
+             <div class="form-group">
                
             <label for="radiobtn" class="col-sm-2 control-label">Gender:</label>
  
@@ -102,10 +105,14 @@
                   </label>
                </div>
             </div>
+           
+            </div>
+            </div>
+            
+            
+
             <div class="form-group">
                 <input class = "customButton" type="submit" value="Create an Account"/>
-            </div>
-            </div>
             </div>
         </form>
     </div>

@@ -23,12 +23,61 @@ namespace RevAppoint.Client.Controllers
         }
 
          [HttpGet("[action]")]
-        public IActionResult Get(/*User user*/)
+        public IActionResult Get()
         {
                   System.Console.WriteLine("TEST");
     
                 return NotFound();  
         }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateAccountClient()
+        {
+        
+        //Reading the Body/Context of the request
+        StreamReader streamReader = new StreamReader(Request.Body);
+        string body = await streamReader.ReadToEndAsync();
+
+        //Deserializing the object that was sent in the context
+        var obj = JsonConvert.DeserializeObject<Customer>(body);
+
+        streamReader.Close();
+
+    
+        /*
+        Searching the repo for a username/password combo that matches 
+        the users input
+        */
+        if(_repo.CustomerRepo.AddCustomer(obj))
+        {
+          return Ok();
+        }
+        return NotFound();
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateAccountProfessional()
+        {
+        
+        //Reading the Body/Context of the request
+        StreamReader streamReader = new StreamReader(Request.Body);
+        string body = await streamReader.ReadToEndAsync();
+
+        //Deserializing the object that was sent in the context
+        var obj = JsonConvert.DeserializeObject<Professional>(body);
+
+        streamReader.Close();
+    
+        /*
+        Searching the repo for a username/password combo that matches 
+        the users input
+        */
+        //ADD CHECKING HERE FOR VALID USERNAME
+        if(_repo.ProfessionalRepo.AddProfessional(obj))
+        {
+          return Ok();
+        }
+        return NotFound();
+        }
+
         [HttpPost("[action]")]
         public async Task<IActionResult> Post()
         {
@@ -40,8 +89,7 @@ namespace RevAppoint.Client.Controllers
         //Deserializing the object that was sent in the context
         var obj = JsonConvert.DeserializeObject<User>(body);
 
-        //Testing 
-        System.Console.WriteLine(obj.Username);
+        streamReader.Close();
     
         /*
         Searching the repo for a username/password combo that matches 

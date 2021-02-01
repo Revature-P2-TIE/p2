@@ -48,6 +48,7 @@ namespace  aspnet.RevAppoint.Client
 
       _repo.Update(oldProfessional);
       _repo.Save();
+      streamReader.Close();
       return Ok();
 
     }
@@ -67,6 +68,7 @@ namespace  aspnet.RevAppoint.Client
         string body = await streamReader.ReadToEndAsync();
 
         var professional = JsonConvert.DeserializeObject<Professional>(body);
+        streamReader.Close();
         if (ModelState.IsValid)
         {
             _repo.Insert<Professional>(professional);
@@ -89,6 +91,18 @@ namespace  aspnet.RevAppoint.Client
     {
         var Professional = _repo.ProfessionalRepo.GetProfessional(username);
         return Ok(Professional);
+    }
+    [HttpGet("[action]/{username}")]
+    public IActionResult GetOneUserByUsername(string username)
+    {
+        var User = _repo.UserRepo.GetUser(username);
+
+        if (User ==null)
+        {
+        Console.WriteLine("not found");
+          return NotFound();
+        }
+        return Ok(User);
     }
   }
 }

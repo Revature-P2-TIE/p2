@@ -1,44 +1,63 @@
 @model RevAppoint.Client.Models.CustomerViewModel;
 
-@* <p>Hello @Model.Username</p>
-<p>Viewing: @Model.SearchedProfessionalsUsername</p>
-<p>Professional Title: @Model.Professional.Title</p> *@
+@{
+    ViewData["Title"] = "Selected Professional Info";
+}
+
 @using (@Html.BeginForm("CreateAppointment", "Customer", FormMethod.Get))
 {
   var prof = @Model.Professional;
+  <div class="card">
+    <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">@prof.FirstName @prof.LastName</h4>
+      <label>Bio:</label>
+      <p class="card-text">@prof.Bio </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <label>Username:</label>
+        <p class="card-text">@prof.Username</p>
+      </li>
+      <li class="list-group-item">
+        <label>Title:</label>
+        <p class="card-text">@prof.Title</p>
+      </li>
+      <li class="list-group-item">
+        <label>Spoken Language:</label>
+        <p class="card-text">@prof.Language</p>
+      </li>
+      <li class="list-group-item">
+        <label>Locaton:</label>
+        <p class="card-text">@prof.Location</p>
+      </li>
+      <li class="list-group-item">
+        <label>Appointment Length (Hours):</label>
+        <p class="card-text">@prof.AppointmentLengthInHours</p>
+        <input name = "AppointmentLengthInHours" value="@prof.AppointmentLengthInHours" hidden = "true">
 
+      </li>
+      <li class="list-group-item">
+        <label>HourlyRate:</label>
+        <p class="card-text">@prof.HourlyRate</p>
+        <input name = "HourlyRate" value="@prof.HourlyRate" hidden = "true">
+      
+      </li>
+      <li class="list-group-item">
+        <label>Joined on:</label>
+        <p class="card-text">@prof.MemberSince.ToString("MM/dd/yyyy")</p>
+      </li>
+      <li class="list-group-item">
+        <label>Rating:</label>
+        <p class="card-text">@prof.Rating</p>
+      </li>
+    </ul>
+    <div class="card-body">
+      <input class = "customButton" type="submit" value="Create Appointment"/>
+    </div>
+  </div>
   <input name = "Username" value = @Model.Username hidden ="true">
   <input name = "SearchedProfessionalsUsername" value = @Model.SearchedProfessionalsUsername hidden ="true">
-  <header>Meet @prof.FirstName @prof.LastName</header>
-  <table>
-      <tr>
-        <td>Job Title</td>
-        <td>@prof.Title</td>
-      </tr>
-      <tr>
-        <td>Hourly Rate</td>
-        <td>$@prof.HourlyRate</td>
-      </tr>
-      <tr>
-        <td>Spoken Language</td>
-        <td>@prof.Language</td>
-      </tr>
-      <tr>
-        <td>Location</td>
-        <td>@prof.Location</td>
-      </tr>
-      <tr>
-        <td>Bio</td>
-        <td>@prof.Bio</td>
-      </tr>
-      <tr>
-        <td>Username</td>
-        <td>@prof.Username</td>
-      </tr>
-      <tr>
-        <td>Joined on</td>
-        <td>@prof.MemberSince.ToString("MM/dd/yyyy")</td>
-      </tr>
-  </table>
-  <input type="submit" value="To Create Appointment"/>
+  <input name = "Professional.HourlyRate" value="@Model.Professional.HourlyRate" hidden = "true">
+  <input name = "Professional.AppointmentLengthInHours" value="@Model.Professional.AppointmentLengthInHours" hidden = "true">
 }

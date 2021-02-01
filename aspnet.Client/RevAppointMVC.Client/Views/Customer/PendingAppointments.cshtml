@@ -1,12 +1,12 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
-<header>Pending Appointment</header>
-<p>Hello @Model.CustomerUsername</p>
+<h2>Pending Appointments</h2>
+<h4>Hello @Model.CustomerUsername</h4>
 <br>
 <table style="width:100%">
   <tr>
     <td><u>Job</u></td>
-    <td><u>Name</u></td> @*Override toString method here?*@
+    <td><u>Name</u></td> 
     <td><u>Start Time</u></td>
     <td><u>Estimated End Time</u></td>
     <td><u>Status</u></td>
@@ -46,5 +46,5 @@
 
 @using (@Html.BeginForm("Home", "Customer", new {username = @Model.CustomerUsername},FormMethod.Get))
 {
-  <input type="submit" value="Home"/>
+  <input class = "customButton" type="submit" value="Home"/>
 }

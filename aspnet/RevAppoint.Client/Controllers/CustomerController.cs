@@ -50,7 +50,7 @@ namespace RevAppoint.Client.Controllers
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
             var customer = JsonConvert.DeserializeObject<Customer>(body);
-
+            streamReader.Close();
             if (ModelState.IsValid)
             {
                 _repo.Insert<Customer>(customer);
@@ -69,7 +69,7 @@ namespace RevAppoint.Client.Controllers
             StreamReader streamReader = new StreamReader(Request.Body);
             string body = await streamReader.ReadToEndAsync();
             var customer = JsonConvert.DeserializeObject<Customer>(body);
-
+            streamReader.Close();
             if (ModelState.IsValid)
             {
                 _repo.Update<Customer>(customer);
