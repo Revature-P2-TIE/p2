@@ -12,7 +12,7 @@ namespace RevAppoint.Client.Controllers
     [Route("[controller]")]
     public class ProfessionalController : Controller
     {
-        private string apiUrl = "http://localhost:7000/";
+        private string apiUrl = "https://tiemetothemoon.azurewebsites.net/";
         private string apiProfessionalController = "Professional";
         private string apiAppointmentController = "Appointment";
 

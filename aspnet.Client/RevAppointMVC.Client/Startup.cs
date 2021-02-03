@@ -9,7 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-
+using Okta.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace RevAppoint.Client
 {
@@ -25,7 +26,21 @@ namespace RevAppoint.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();            
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = OktaDefaults.MvcAuthenticationScheme;
+                })
+                .AddCookie()
+                .AddOktaMvc(new OktaMvcOptions
+                {
+                    // Replace these values with your Okta configuration
+                    OktaDomain = "https://dev-08857242.okta.com",
+                    ClientId = "0oa4ymxczHOJFduIw5d6",
+                    ClientSecret = "eqUvBphKKXvsterW4DO4BVA7Hu0tUQm_mDYXAExa"
+                });
+            services.AddControllersWithViews();
         }
         
 
@@ -39,13 +54,15 @@ namespace RevAppoint.Client
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                // // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

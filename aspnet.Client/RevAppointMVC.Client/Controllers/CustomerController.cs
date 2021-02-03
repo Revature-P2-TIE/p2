@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RevAppoint.Client.Models;
@@ -15,12 +16,13 @@ namespace RevAppoint.Client.Controllers
     [Route("[controller]")]
     public class CustomerController : Controller
     {
-        private string apiUrl = "http://localhost:7000/";
+        private string apiUrl = "https://tiemetothemoon.azurewebsites.net/";
         private string loginController = "Login";
         private string apiCustomerController = "Customer";
         private string apiProfessionalController = "Professional";
         private string apiAppointmentController = "Appointment";
 
+        [Authorize]
         [HttpGet("/Login")]
         public IActionResult GetUser()
         {
@@ -29,7 +31,6 @@ namespace RevAppoint.Client.Controllers
             return View("FormLogin", model);
         }
 
-        
         [HttpPost("/Login")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
