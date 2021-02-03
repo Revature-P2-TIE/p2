@@ -1,12 +1,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 as base
 
 WORKDIR /workspace
-COPY aspnet .
+COPY . .
 RUN dotnet build
-RUN dotnet publish -c Release -o out RevAppoint.Client/RevAppoint.Client.csproj
+RUN dotnet publish -c Release -o out RevAppointMVC.Client/RevAppointMVC.Client.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 
 WORKDIR /publish
 COPY --from=base workspace/out .
-CMD ["dotnet", "RevAppoint.Client.dll"]
+CMD ["dotnet", "RevAppointMVC.Client.dll"]

@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-      - run: docker image build -f ../Dockerfile -t latest ..
+      - run: docker image build -f Dockerfile -t latest ..
       - run: docker tag latest $DOCKER_USER/revature-p2
       - run: docker image push $DOCKER_USER/revature-p2:latest
       - run: docker logout
