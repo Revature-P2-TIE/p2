@@ -33,14 +33,25 @@ namespace RevAppoint.Client.Controllers
             return View("FormLogin", model);
         }
 
-        [Authorize]
+        // [Authorize]
+        // [HttpGet("/Signin")]
+        // [HttpPost("/Signin")]
+        // public IActionResult GetUser1()
+        // {
+        //     LoginViewModel model = new LoginViewModel();
+        //     model.Error = "";
+        //     return View("NEWHOME");
+        // }
+        
         [HttpGet("/Signin")]
-        [HttpPost("/Signin")]
-        public IActionResult GetUser1()
+        public IActionResult SignIn()
         {
-            LoginViewModel model = new LoginViewModel();
-            model.Error = "";
-            return View("NEWHOME");
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return Challenge(OktaDefaults.MvcAuthenticationScheme);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
         
         // [HttpGet("/Signin")]
@@ -106,6 +117,7 @@ namespace RevAppoint.Client.Controllers
         {
                 return View("UserHome", customer);
         }
+
         [Route("")]
         [HttpGet("/SearchForProfessionals/{id}")]
         public async Task<IActionResult> SearchForProfessionals(string id)
