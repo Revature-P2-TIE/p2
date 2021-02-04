@@ -1,58 +1,58 @@
-defaults:
-  run:
-    working-directory: aspnet
+# defaults:
+#   run:
+#     working-directory: aspnet
 
-jobs:
-  build:
-    name: building
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - run: dotnet restore
-      - run: dotnet build
+# jobs:
+#   build:
+#     name: building
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: dotnet restore
+#       - run: dotnet build
 
-  test:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - run: dotnet test
+#   test:
+#     needs: build
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: dotnet test
 
-  analyze:
-    needs: [build, test]
-    runs-on: ubuntu-20.04
-    env:
-      SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: dotnet tool install --global dotnet-sonarscanner
-      - run: |
-          dotnet sonarscanner begin /k:'Saixah_p2' /o:'saixah' /d:sonar.host.url='https://sonarcloud.io/' /d:sonar.login=$SONARCLOUD_TOKEN 
-          dotnet build
-          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger=trx
-          dotnet sonarscanner end /d:sonar.login=$SONARCLOUD_TOKEN
-  pack:
-    needs:
-      - build
-      - test
-      - analyze
-    runs-on: ubuntu-20.04
-    env:
-      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
-      - run: docker image build -f ../DockerfileAPI -t latest ..
-      - run: docker tag latest $DOCKER_USER/revature-p2
-      - run: docker image push $DOCKER_USER/revature-p2:latest
-      - run: docker logout
+#   analyze:
+#     needs: [build, test]
+#     runs-on: ubuntu-20.04
+#     env:
+#       SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: dotnet tool install --global dotnet-sonarscanner
+#       - run: |
+#           dotnet sonarscanner begin /k:'Saixah_p2' /o:'saixah' /d:sonar.host.url='https://sonarcloud.io/' /d:sonar.login=$SONARCLOUD_TOKEN 
+#           dotnet build
+#           dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger=trx
+#           dotnet sonarscanner end /d:sonar.login=$SONARCLOUD_TOKEN
+#   pack:
+#     needs:
+#       - build
+#       - test
+#       - analyze
+#     runs-on: ubuntu-20.04
+#     env:
+#       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+#       DOCKER_USER: ${{ secrets.DOCKER_USER }}
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: echo $DOCKER_TOKEN | docker login -u $DOCKER_USER --password-stdin
+#       - run: docker image build -f ../DockerfileAPI -t latest ..
+#       - run: docker tag latest $DOCKER_USER/revature-p2
+#       - run: docker image push $DOCKER_USER/revature-p2:latest
+#       - run: docker logout
 
-on: 
-  push: 
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+# on: 
+#   push: 
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main

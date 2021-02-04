@@ -50,7 +50,14 @@ namespace RevAppoint.Client.Controllers
             {
                 return Challenge(OktaDefaults.MvcAuthenticationScheme);
             }
+            var userClaims = HttpContext.User.Claims;
 
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet("/authorization-code/callback")]
+        public IActionResult breakme()
+        {
             return RedirectToAction("Index", "Home");
         }
         
