@@ -33,6 +33,7 @@ namespace RevAppoint.Client.Controllers
             return View("FormLogin", model);
         }
         
+         [HttpGet("/Signin")]
         public IActionResult SignIn()
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
