@@ -12,7 +12,8 @@ using Newtonsoft.Json;
 using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
-{
+{   
+    [Route("")]
     [Route("[controller]")]
     public class CustomerController : Controller
     {
@@ -23,6 +24,7 @@ namespace RevAppoint.Client.Controllers
         private string apiAppointmentController = "Appointment";
 
         [Authorize]
+        [Route("")]
         [HttpGet("/Login")]
         public IActionResult GetUser()
         {
