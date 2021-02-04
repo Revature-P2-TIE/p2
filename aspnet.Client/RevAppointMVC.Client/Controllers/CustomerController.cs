@@ -113,11 +113,11 @@ namespace RevAppoint.Client.Controllers
             return View("FormLogin", modelLogin);
         }
 
-        [HttpPost("/")]
-        public IActionResult FindUser(UserModel customer)
-        {
-                return View("UserHome", customer);
-        }
+        // [HttpPost("/")]
+        // public IActionResult FindUser(UserModel customer)
+        // {
+        //         return View("UserHome", customer);
+        // }
 
         [HttpPost("/UserHome")]
         public IActionResult SelectUser(UserModel customer)
@@ -125,7 +125,6 @@ namespace RevAppoint.Client.Controllers
                 return View("UserHome", customer);
         }
 
-        [Route("")]
         [HttpGet("/SearchForProfessionals/{id}")]
         public async Task<IActionResult> SearchForProfessionals(string id)
         {
