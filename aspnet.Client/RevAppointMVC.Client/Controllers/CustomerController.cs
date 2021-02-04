@@ -24,7 +24,6 @@ namespace RevAppoint.Client.Controllers
         private string apiAppointmentController = "Appointment";
 
         [Authorize]
-        [Route("")]
         [HttpGet("/Login")]
         public IActionResult GetUser()
         {
@@ -81,7 +80,7 @@ namespace RevAppoint.Client.Controllers
         {
                 return View("UserHome", customer);
         }
-
+        [Route("")]
         [HttpGet("/SearchForProfessionals/{id}")]
         public async Task<IActionResult> SearchForProfessionals(string id)
         {
