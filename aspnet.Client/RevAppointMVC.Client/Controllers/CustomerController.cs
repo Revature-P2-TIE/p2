@@ -55,7 +55,7 @@ namespace RevAppoint.Client.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet("/authorization-code/callback")]
+        [HttpPost("/authorization-code/callback")]
         public IActionResult breakme()
         {
             return RedirectToAction("Index", "Home");
