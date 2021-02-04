@@ -32,17 +32,26 @@ namespace RevAppoint.Client.Controllers
             model.Error = "";
             return View("FormLogin", model);
         }
+
+        [Authorize]
+        [HttpPost("/FormLogin")]
+        public IActionResult GetUser1()
+        {
+            LoginViewModel model = new LoginViewModel();
+            model.Error = "";
+            return View("UserHome", model);
+        }
         
-         [HttpGet("/Signin")]
+        [HttpGet("/Signin")]
         public IActionResult SignIn()
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
                 return Challenge(OktaDefaults.MvcAuthenticationScheme);
             }
-            return RedirectToAction("GetUser", "Customer");
+            return RedirectToAction("GetUser1", "Customer");
         }
-
+        
         [HttpPost("/Login")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
@@ -70,7 +79,7 @@ namespace RevAppoint.Client.Controllers
         //If the username/password combo is in the API's database, we will have a binded model
         if(user.Username != null)
         {
-            if(user.Type == "Customer"){
+            if(user.Type.Equals("Customer")){
                 return View("UserHome", user);
             }
             else{
@@ -80,10 +89,15 @@ namespace RevAppoint.Client.Controllers
           
         //This will happen if the username/password combo provided is not in the system
      
-        LoginViewModel modelLogin = new LoginViewModel();
-        modelLogin.Error = "Invalid login attempt.";
-        return View("FormLogin", modelLogin);
+            LoginViewModel modelLogin = new LoginViewModel();
+            modelLogin.Error = "Invalid login attempt.";
+            return View("FormLogin", modelLogin);
+        }
 
+        [HttpPost("/")]
+        public IActionResult FindUser(UserModel customer)
+        {
+                return View("UserHome", customer);
         }
 
         [HttpPost("/UserHome")]
