@@ -1,0 +1,21 @@
+™
+*RevAppoint.Client.Models.ProfessionalModel"RevAppoint.Client.Models.UserModel$RevAppoint.Client.Models.EntityModelobjectU
+ProfessionalModel()>RevAppoint.Client.Models.ProfessionalModel.ProfessionalModel()A
+	Title.get4RevAppoint.Client.Models.ProfessionalModel.Title.getA
+	Title.set4RevAppoint.Client.Models.ProfessionalModel.Title.setG
+Location.get7RevAppoint.Client.Models.ProfessionalModel.Location.getG
+Location.set7RevAppoint.Client.Models.ProfessionalModel.Location.setQ
+AvailableTime.get<RevAppoint.Client.Models.ProfessionalModel.AvailableTime.getQ
+AvailableTime.set<RevAppoint.Client.Models.ProfessionalModel.AvailableTime.setg
+AppointmentLengthInHours.getGRevAppoint.Client.Models.ProfessionalModel.AppointmentLengthInHours.getg
+AppointmentLengthInHours.setGRevAppoint.Client.Models.ProfessionalModel.AppointmentLengthInHours.setK
+HourlyRate.get9RevAppoint.Client.Models.ProfessionalModel.HourlyRate.getK
+HourlyRate.set9RevAppoint.Client.Models.ProfessionalModel.HourlyRate.setG
+Language.get7RevAppoint.Client.Models.ProfessionalModel.Language.getG
+Language.set7RevAppoint.Client.Models.ProfessionalModel.Language.set=
+Bio.get2RevAppoint.Client.Models.ProfessionalModel.Bio.get=
+Bio.set2RevAppoint.Client.Models.ProfessionalModel.Bio.setC
+
+Rating.get5RevAppoint.Client.Models.ProfessionalModel.Rating.getC
+
+Rating.set5RevAppoint.Client.Models.ProfessionalModel.Rating.set

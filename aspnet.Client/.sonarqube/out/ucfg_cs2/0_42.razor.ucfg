@@ -1,0 +1,260 @@
+
+)revappointmvc.client/views/shared/_layoutm
+e/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Views/Shared/_Layout.cshtml ("0*É
+0ç
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.csR ï(Eü
+ú
+m
+e/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Views/Shared/_Layout.cshtmlS S(I
+%0CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager";AspNetCore.Views_Shared__Layout.__tagHelperScopeManager.get*#!
+AspNetCore.Views_Shared__LayoutÜ
+É
+m
+e/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Views/Shared/_Layout.cshtmlS S(
+%1"__id*
+""˚
+¯
+m
+e/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Views/Shared/_Layout.cshtmlS S(
+
+%2void"0revappointmvc.client/views/shared/_layout!head82*
+
+%3*
+
+Modeldynamic*
+
+ViewBagDataAllobject*
+
+ViewBagDataHtmlobject*
+
+TempDataAllobject*
+
+TempDataHtmlobject*
+
+HttpContextItemsAllobject* 
+
+HttpContextItemsHtmlobjectî
+ë
+m
+e/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Views/Shared/_Layout.cshtmlS S(ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*
+
+
+%2void¿
+Ω=
+%47Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper"JMicrosoft.AspNetCore.Mvc.Razor.RazorPageBase.CreateTagHelper<TTagHelper>()*0.
+,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseÊ
+„ô!
+AspNetCore.Views_Shared__Layout"t
+9__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper7Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper"__id*?
+=
+%47Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelperÈ
+ÊM
+%5GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÁ
+‰=
+%67Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper"__id*ú*ô!
+AspNetCore.Views_Shared__Layout"t
+9__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper7Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper†
+ù
+
+%7void"}Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Add(Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper)*O
+M
+%5GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext*?
+=
+%67Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper…
+∆C
+%8=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner"__id*y*w!
+AspNetCore.Views_Shared__Layout"R
+__tagHelperRunner=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunnerÈ
+ÊM
+%9GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext—
+Œ"
+%10System.Threading.Tasks.Task"èMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext)*E
+C
+%8=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner*O
+M
+%9GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÍ
+ÁN
+%11GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÁ
+‰<
+%125Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput"RMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Output.get*P
+N
+%11GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextù
+ö
+%13bool"KMicrosoft.AspNetCore.Razor.TagHelpers.TagHelperOutput.IsContentModified.get*>
+<
+%125Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput*
+1
+2*„
+1é
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.csó ó(IÍ
+ÁN
+%14GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext⁄
+◊"
+%15System.Threading.Tasks.Task"_Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()*P
+N
+%14GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext*
+2*õ$
+2é
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.csô ›(EÍ
+ÁN
+%16GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÁ
+‰<
+%175Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput"RMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Output.get*P
+N
+%16GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext\
+Z
+%18void"!razor_sink*>
+<
+%175Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput±
+ÆJ
+%19CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager";AspNetCore.Views_Shared__Layout.__tagHelperScopeManager.get*#!
+AspNetCore.Views_Shared__LayoutÏ
+ÈN
+%20GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"IMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager.End()*L
+J
+%19CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManagerÈ
+Êã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*P
+N
+%20GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext±
+ÆJ
+%21CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager";AspNetCore.Views_Shared__Layout.__tagHelperScopeManager.get*#!
+AspNetCore.Views_Shared__Layout
+
+%22"__id*
+""è
+å
+%23void"1revappointmvc.client/views/shared/_layout!body155*
+
+%24*
+
+Modeldynamic*
+
+ViewBagDataAllobject*
+
+ViewBagDataHtmlobject*
+
+TempDataAllobject*
+
+TempDataHtmlobject*
+
+HttpContextItemsAllobject* 
+
+HttpContextItemsHtmlobject¶
+£ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*
+
+%23void¡
+æ>
+%257Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper"JMicrosoft.AspNetCore.Mvc.Razor.RazorPageBase.CreateTagHelper<TTagHelper>()*0.
+,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseÁ
+‰ô!
+AspNetCore.Views_Shared__Layout"t
+9__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper7Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper"__id*@
+>
+%257Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelperÍ
+ÁN
+%26GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextË
+Â>
+%277Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper"__id*ú*ô!
+AspNetCore.Views_Shared__Layout"t
+9__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper7Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper£
+†
+%28void"}Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Add(Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper)*P
+N
+%26GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext*@
+>
+%277Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper 
+«D
+%29=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner"__id*y*w!
+AspNetCore.Views_Shared__Layout"R
+__tagHelperRunner=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunnerÍ
+ÁN
+%30GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext”
+–"
+%31System.Threading.Tasks.Task"èMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.RunAsync(Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext)*F
+D
+%29=Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner*P
+N
+%30GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÍ
+ÁN
+%32GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÁ
+‰<
+%335Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput"RMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Output.get*P
+N
+%32GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextù
+ö
+%34bool"KMicrosoft.AspNetCore.Razor.TagHelpers.TagHelperOutput.IsContentModified.get*>
+<
+%335Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput*
+3
+4*„
+3é
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.csﬂ ﬂ(IÍ
+ÁN
+%35GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext⁄
+◊"
+%36System.Threading.Tasks.Task"_Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()*P
+N
+%35GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext*
+4*›
+
+4é
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs· „(&Í
+ÁN
+%37GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*é*ã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContextÁ
+‰<
+%385Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput"RMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.Output.get*P
+N
+%37GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext\
+Z
+%39void"!razor_sink*>
+<
+%385Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput±
+ÆJ
+%40CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager";AspNetCore.Views_Shared__Layout.__tagHelperScopeManager.get*#!
+AspNetCore.Views_Shared__LayoutÏ
+ÈN
+%41GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"IMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager.End()*L
+J
+%40CMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManagerÈ
+Êã!
+AspNetCore.Views_Shared__Layout"f
+__tagHelperExecutionContextGMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext"__id*P
+N
+%41GMicrosoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext*
+5*´
+5é
+Å/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs‰	 ‰(	"
+implicit return:
+Modeldynamic:
+ViewBagDataAllobject:
+ViewBagDataHtmlobject:
+TempDataAllobject:
+TempDataHtmlobject:
+HttpContextItemsAllobject:
+HttpContextItemsHtmlobjectB 

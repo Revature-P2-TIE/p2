@@ -1,0 +1,405 @@
+
+ÅRevAppoint.Client.Controllers.ProfessionalController.EditAccountInfoAsync(string, RevAppoint.Client.Models.ProfessionalViewModel)y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csE) E(="2*Øl
+0y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csG" ](;‰·
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csG- G(H4
+%0.RevAppoint.Client.Models.ProfessionalViewModel".RevAppoint.Client.Models.ProfessionalViewModelä
+á
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csG1 G(F
+
+%1void"FRevAppoint.Client.Models.ProfessionalViewModel.ProfessionalViewModel()*6
+4
+%0.RevAppoint.Client.Models.ProfessionalViewModel¯
+ı
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csG" G(H:
+newModel.RevAppoint.Client.Models.ProfessionalViewModel"__id*6
+4
+%0.RevAppoint.Client.Models.ProfessionalViewModel‹Ÿ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csH( H(?0
+%2*RevAppoint.Client.Models.ProfessionalModel"*RevAppoint.Client.Models.ProfessionalModel˛
+˚
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csH, H(=
+
+%3void">RevAppoint.Client.Models.ProfessionalModel.ProfessionalModel()*2
+0
+%2*RevAppoint.Client.Models.ProfessionalModelÔ
+Ï
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csH H(?5
+newProf*RevAppoint.Client.Models.ProfessionalModel"__id*2
+0
+%2*RevAppoint.Client.Models.ProfessionalModel¨
+©
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csI I(.0
+%4*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModelˆ
+Û
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csI I(4
+%5string"4RevAppoint.Client.Models.ProfessionalModel.Title.get*2
+0
+%4*RevAppoint.Client.Models.ProfessionalModelã
+à
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csI I(4
+%6string"4RevAppoint.Client.Models.ProfessionalModel.Title.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+%5string¨
+©
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csJ J(10
+%7*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModel˘
+ˆ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csJ J(:
+%8string"7RevAppoint.Client.Models.ProfessionalModel.Location.get*2
+0
+%7*RevAppoint.Client.Models.ProfessionalModelé
+ã
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csJ J(:
+%9string"7RevAppoint.Client.Models.ProfessionalModel.Location.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+%8string≠
+™
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csK/ K(A1
+%10*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModelà
+Ö
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csK/ K(Z
+
+%11int"GRevAppoint.Client.Models.ProfessionalModel.AppointmentLengthInHours.get*3
+1
+%10*RevAppoint.Client.Models.ProfessionalModelö
+ó
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csK K(Z
+
+%12int"GRevAppoint.Client.Models.ProfessionalModel.AppointmentLengthInHours.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+
+%11int≠
+™
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csL! L(31
+%13*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModel˛
+˚
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csL! L(>
+%14decimal"9RevAppoint.Client.Models.ProfessionalModel.HourlyRate.get*3
+1
+%13*RevAppoint.Client.Models.ProfessionalModelî
+ë
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csL L(>
+%15decimal"9RevAppoint.Client.Models.ProfessionalModel.HourlyRate.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+%14decimal≠
+™
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csM M(11
+%16*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModel˚
+¯
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csM M(:
+%17string"7RevAppoint.Client.Models.ProfessionalModel.Language.get*3
+1
+%16*RevAppoint.Client.Models.ProfessionalModelê
+ç
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csM M(:
+%18string"7RevAppoint.Client.Models.ProfessionalModel.Language.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+%17string≠
+™
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csN N(,1
+%19*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModelˆ
+Û
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csN N(0
+%20string"2RevAppoint.Client.Models.ProfessionalModel.Bio.get*3
+1
+%19*RevAppoint.Client.Models.ProfessionalModelã
+à
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csN N(0
+%21string"2RevAppoint.Client.Models.ProfessionalModel.Bio.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+%20stringá
+Ñ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csO O(!
+%22string"/RevAppoint.Client.Models.UserModel.Username.set*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel*
+
+idstringÈ
+Ê
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csQ Q(+1
+%23*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.set*<
+:
+newModel.RevAppoint.Client.Models.ProfessionalViewModel*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel∞
+≠
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csR R(!1
+%24*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*<
+:
+newModel.RevAppoint.Client.Models.ProfessionalViewModel≠
+™
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csR+ R(=1
+%25*RevAppoint.Client.Models.ProfessionalModel"?RevAppoint.Client.Models.ProfessionalViewModel.Professional.get*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModel˘
+ˆ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csR+ R(D
+%26double"5RevAppoint.Client.Models.ProfessionalModel.Rating.get*3
+1
+%25*RevAppoint.Client.Models.ProfessionalModelä
+á
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csR R(D
+%27double"5RevAppoint.Client.Models.ProfessionalModel.Rating.set*3
+1
+%24*RevAppoint.Client.Models.ProfessionalModel*
+
+%26doubleò
+ï
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csS S("
+%28string";RevAppoint.Client.Models.ProfessionalViewModel.Username.set*<
+:
+newModel.RevAppoint.Client.Models.ProfessionalViewModel*
+
+idstringÀ»
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csU. U(E(
+%29!System.Net.Http.HttpClientHandler"!System.Net.Http.HttpClientHandlerÓ
+Î
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csU2 U(C
+%30void"5System.Net.Http.HttpClientHandler.HttpClientHandler()**
+(
+%29!System.Net.Http.HttpClientHandler‰
+·
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csU U(E2
+clientHandler!System.Net.Http.HttpClientHandler"__id**
+(
+%29!System.Net.Http.HttpClientHandlerú
+ô
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csV V(;
+%31string"3Newtonsoft.Json.JsonConvert.SerializeObject(object)*"
+Newtonsoft.Json.JsonConvert*7
+5
+newProf*RevAppoint.Client.Models.ProfessionalModel•
+¢
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csV V(;
+jsonstring"__id*
+
+%31string≤
+Ø
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csW6 W(E
+%32string"string.ToString()*
+
+jsonstring√¿
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csW$ W(F$
+%33System.Net.Http.StringContent"System.Net.Http.StringContent˘
+ˆ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csW( W(5
+%34void"3System.Net.Http.StringContent.StringContent(string)*&
+$
+%33System.Net.Http.StringContent*
+
+%32string÷
+”
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csW W(F(
+contentSystem.Net.Http.StringContent"__id*&
+$
+%33System.Net.Http.StringContent‘
+—
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csX X(#
+%35void"!System.Console.WriteLine(string?)*"
+System.Console*
+
+jsonstringª
+∏
+z
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csY Y(Ä+
+%36$System.Func<T1, T2, T3, T4, TResult>"OSystem.Net.Http.HttpClientHandler.ServerCertificateCustomValidationCallback.set*4
+2
+clientHandler!System.Net.Http.HttpClientHandler*
+""Ω∫
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csZ  Z(=!
+%37System.Net.Http.HttpClient"System.Net.Http.HttpClient±
+Æ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csZ$ Z(.
+%38void"ISystem.Net.Http.HttpClient.HttpClient(System.Net.Http.HttpMessageHandler)*#
+!
+%37System.Net.Http.HttpClient*4
+2
+clientHandler!System.Net.Http.HttpClientHandlerœ
+Ã
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csZ Z(=$
+clientSystem.Net.Http.HttpClient"__id*#
+!
+%37System.Net.Http.HttpClient·
+ﬁ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[1 [(7
+%39string"__id*L*J6
+4RevAppoint.Client.Controllers.ProfessionalController"
+apiUrlstringÙ
+Ò
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[8 [(Q
+%40string"__id*_*]6
+4RevAppoint.Client.Controllers.ProfessionalController"#
+apiProfessionalControllerstringπ
+∂
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[1 [(Q
+%41string"__concat*
+
+%39string*
+
+%40string¡
+æ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[1 [(g
+%42string"__concat*
+
+%41string*
+/UpdateProfessional€
+ÿ
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[! [(p+
+%43$System.Threading.Tasks.Task<TResult>"ISystem.Net.Http.HttpClient.PutAsync(string?, System.Net.Http.HttpContent)*&
+$
+clientSystem.Net.Http.HttpClient*
+
+%42string**
+(
+contentSystem.Net.Http.StringContentΩ
+∫
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs[ [(p/
+response#System.Net.Http.HttpResponseMessage"__id*
+""»
+≈
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs] ](<
+%44void"?revappointmvc.client/views/professional/professionalaccountview*
+
+%45*<
+:
+newModel.RevAppoint.Client.Models.ProfessionalViewModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"ä
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs] ](=
+
+%44void*ë
+1y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs^	 ^(	"ê
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.cs^ ^(	
+implicit return*‚	
+2y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csEe E(eﬁ
+€
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csE) E(=
+%46"__entrypoint*
+
+idstring*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModelÎ
+Ë
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csD	 D(@
+%47"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*
+
+idstring£
+†
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csE> E(G
+idstring"__annotation*
+
+%47ñ
+ì
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csD	 D(@
+%48"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*9
+7
+model.RevAppoint.Client.Models.ProfessionalViewModelŒ
+À
+y
+o/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/ProfessionalController.csEI E(d7
+model.RevAppoint.Client.Models.ProfessionalViewModel"__annotation*
+
+%48*
+0:
+idstring:7
+model.RevAppoint.Client.Models.ProfessionalViewModelB86
+4RevAppoint.Client.Controllers.ProfessionalController

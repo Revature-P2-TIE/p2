@@ -1,0 +1,19 @@
+‡
+0RevAppoint.Client.Controllers.CustomerController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectG
+	GetUser():RevAppoint.Client.Controllers.CustomerController.GetUser()™
+2FormLogin(RevAppoint.Client.Models.LoginViewModel)cRevAppoint.Client.Controllers.CustomerController.FormLogin(RevAppoint.Client.Models.LoginViewModel)‘
+.SelectUser(RevAppoint.Client.Models.UserModel)_RevAppoint.Client.Controllers.CustomerController.SelectUser(RevAppoint.Client.Models.UserModel)q
+SearchForProfessionals(string)ORevAppoint.Client.Controllers.CustomerController.SearchForProfessionals(string)i
+AppointmentHistory(string)KRevAppoint.Client.Controllers.CustomerController.AppointmentHistory(string)k
+CurrentAppointments(string)LRevAppoint.Client.Controllers.CustomerController.CurrentAppointments(string)k
+PendingAppointments(string)LRevAppoint.Client.Controllers.CustomerController.PendingAppointments(string)M
+Home(string)=RevAppoint.Client.Controllers.CustomerController.Home(string)µ
+@DisplayProfessionals(RevAppoint.Client.Models.CustomerViewModel)qRevAppoint.Client.Controllers.CustomerController.DisplayProfessionals(RevAppoint.Client.Models.CustomerViewModel)¯
+=SetAppointment(RevAppoint.Client.Models.AppointmentViewModel)nRevAppoint.Client.Controllers.CustomerController.SetAppointment(RevAppoint.Client.Models.AppointmentViewModel)­
+<ViewProfessional(RevAppoint.Client.Models.CustomerViewModel)mRevAppoint.Client.Controllers.CustomerController.ViewProfessional(RevAppoint.Client.Models.CustomerViewModel)¯
+=CreateAppointment(RevAppoint.Client.Models.CustomerViewModel)nRevAppoint.Client.Controllers.CustomerController.CreateAppointment(RevAppoint.Client.Models.CustomerViewModel)g
+AccountCreationCustomer()JRevAppoint.Client.Controllers.CustomerController.AccountCreationCustomer()o
+AccountCreationProfessional()NRevAppoint.Client.Controllers.CustomerController.AccountCreationProfessional()µ
+@CreateAccount(RevAppoint.Client.Models.AccountCreationViewModel)qRevAppoint.Client.Controllers.CustomerController.CreateAccount(RevAppoint.Client.Models.AccountCreationViewModel)¿
+ECreateAccountProfessional(RevAppoint.Client.Models.ProfessionalModel)vRevAppoint.Client.Controllers.CustomerController.CreateAccountProfessional(RevAppoint.Client.Models.ProfessionalModel)]
+CustomerController()ERevAppoint.Client.Controllers.CustomerController.CustomerController()

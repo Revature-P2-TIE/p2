@@ -1,0 +1,131 @@
+
+nRevAppoint.Client.Controllers.CustomerController.CreateAppointment(RevAppoint.Client.Models.CustomerViewModel)w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csğ ğ(."2*ğ
+0w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csò! ÷(=àİ
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csò3 ò(M3
+%0-RevAppoint.Client.Models.AppointmentViewModel"-RevAppoint.Client.Models.AppointmentViewModel…
+‚
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csò7 ò(K
+
+%1void"DRevAppoint.Client.Models.AppointmentViewModel.AppointmentViewModel()*5
+3
+%0-RevAppoint.Client.Models.AppointmentViewModelü
+ù
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csò! ò(MA
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel"__id*5
+3
+%0-RevAppoint.Client.Models.AppointmentViewModel
+Œ
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csó4 ó(W
+%2string"LRevAppoint.Client.Models.CustomerViewModel.SearchedProfessionalsUsername.get*5
+3
+model*RevAppoint.Client.Models.CustomerViewModel§
+¤
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csó ó(W
+%3string"FRevAppoint.Client.Models.AppointmentViewModel.ProfessionalUsername.set*C
+A
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel*
+
+%2stringú
+÷
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csô0 ô(>
+%4string"7RevAppoint.Client.Models.CustomerViewModel.Username.get*5
+3
+model*RevAppoint.Client.Models.CustomerViewModel£
+ 
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csô ô(>
+%5string"BRevAppoint.Client.Models.AppointmentViewModel.CustomerUsername.set*C
+A
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel*
+
+%4stringŠ
+‡
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csõ8 õ(V
+%6string"GRevAppoint.Client.Models.CustomerViewModel.AppointmentLengthInHours.get*5
+3
+model*RevAppoint.Client.Models.CustomerViewModel«
+¨
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csõ õ(V
+%7string"JRevAppoint.Client.Models.AppointmentViewModel.AppointmentLengthInHours.set*C
+A
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel*
+
+%6stringü
+ù
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csö* ö(:
+%8string"9RevAppoint.Client.Models.CustomerViewModel.HourlyRate.get*5
+3
+model*RevAppoint.Client.Models.CustomerViewModel
+š
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csö ö(:
+%9string"<RevAppoint.Client.Models.AppointmentViewModel.HourlyRate.set*C
+A
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel*
+
+%8stringÃ
+À
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cs÷ ÷(>
+%10void"5revappointmvc.client/views/customer/createappointment*
+
+%11*C
+A
+appointmentModel-RevAppoint.Client.Models.AppointmentViewModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"ˆ
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cs÷ ÷(?
+
+%10void*
+1w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csø	 ø(	"
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csø ø(	
+implicit return*¨
+2w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csğG ğ(GÈ
+Å
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csğ ğ(.
+%12"__entrypoint*5
+3
+model*RevAppoint.Client.Models.CustomerViewModel
+‹
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csï	 ï(7
+%13"
+__annotate*FD
+BMicrosoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute(string)*5
+3
+model*RevAppoint.Client.Models.CustomerViewModelÈ
+Å
+w
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csğ/ ğ(F3
+model*RevAppoint.Client.Models.CustomerViewModel"__annotation*
+
+%13*
+0:3
+model*RevAppoint.Client.Models.CustomerViewModelB42
+0RevAppoint.Client.Controllers.CustomerController

@@ -1,0 +1,1 @@
+/home/elmer/revature/group-projects/p2/aspnet.Client/.sonarqube/out/0

@@ -1,0 +1,9 @@
+—
+'RevAppoint.Client.Models.LoginViewModelobjectL
+LoginViewModel()8RevAppoint.Client.Models.LoginViewModel.LoginViewModel()D
+Username.get4RevAppoint.Client.Models.LoginViewModel.Username.getD
+Username.set4RevAppoint.Client.Models.LoginViewModel.Username.setD
+Password.get4RevAppoint.Client.Models.LoginViewModel.Password.getD
+Password.set4RevAppoint.Client.Models.LoginViewModel.Password.set>
+	Error.get1RevAppoint.Client.Models.LoginViewModel.Error.get>
+	Error.set1RevAppoint.Client.Models.LoginViewModel.Error.set

@@ -13,7 +13,8 @@ using Okta.AspNetCore;
 using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
-{
+{   
+    [Route("")]
     [Route("[controller]")]
     public class CustomerController : Controller
     {
@@ -89,7 +90,7 @@ namespace RevAppoint.Client.Controllers
         {
                 return View("UserHome", customer);
         }
-
+        [Route("")]
         [HttpGet("/SearchForProfessionals/{id}")]
         public async Task<IActionResult> SearchForProfessionals(string id)
         {

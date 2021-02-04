@@ -1,0 +1,6 @@
+ƒ
+,RevAppoint.Client.Controllers.HomeController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectˆ
+bHomeController(Microsoft.Extensions.Logging.ILogger<RevAppoint.Client.Controllers.HomeController>)èRevAppoint.Client.Controllers.HomeController.HomeController(Microsoft.Extensions.Logging.ILogger<RevAppoint.Client.Controllers.HomeController>)?
+Index()4RevAppoint.Client.Controllers.HomeController.Index()C
+	Privacy()6RevAppoint.Client.Controllers.HomeController.Privacy()?
+Error()4RevAppoint.Client.Controllers.HomeController.Error()

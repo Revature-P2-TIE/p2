@@ -1,0 +1,7 @@
+õ
+RevAppoint.Client.Startupobject’
+:Startup(Microsoft.Extensions.Configuration.IConfiguration)TRevAppoint.Client.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration)º
+NConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)hRevAppoint.Client.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)ù
+mConfigure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)‡RevAppoint.Client.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IWebHostEnvironment)@
+Configuration.get+RevAppoint.Client.Startup.Configuration.get@
+Configuration.set+RevAppoint.Client.Startup.Configuration.set

@@ -1,0 +1,33 @@
+
+(RevAppoint.Client.Program.Main(string[])^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs ("0*²
+0^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs ("þ
+û
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs (#/
+%0)Microsoft.Extensions.Hosting.IHostBuilder"5RevAppoint.Client.Program.CreateHostBuilder(string[])*"
+RevAppoint.Client.Program*
+
+argsstring[]üù
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs (+(
+%1"Microsoft.Extensions.Hosting.IHost"1Microsoft.Extensions.Hosting.IHostBuilder.Build()*1
+/
+%0)Microsoft.Extensions.Hosting.IHostBuilder2Build()Ç
+Ä
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs (1
+
+%2void"fMicrosoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(Microsoft.Extensions.Hosting.IHost)*B"@
+>Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions**
+(
+%1"Microsoft.Extensions.Hosting.IHost*
+1*Ú
+1^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs	 (	"u
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Program.cs (	
+implicit return:
+argsstring[]B"
+RevAppoint.Client.Program

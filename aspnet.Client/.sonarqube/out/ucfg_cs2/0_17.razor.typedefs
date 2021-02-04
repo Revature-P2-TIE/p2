@@ -1,0 +1,14 @@
+ì
+"AspNetCore.Views_Customer_UserHome0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobjectC
+ExecuteAsync()1AspNetCore.Views_Customer_UserHome.ExecuteAsync()Y
+Views_Customer_UserHome()<AspNetCore.Views_Customer_UserHome.Views_Customer_UserHome()]
+ModelExpressionProvider.get>AspNetCore.Views_Customer_UserHome.ModelExpressionProvider.get]
+ModelExpressionProvider.set>AspNetCore.Views_Customer_UserHome.ModelExpressionProvider.set5
+Url.get*AspNetCore.Views_Customer_UserHome.Url.get5
+Url.set*AspNetCore.Views_Customer_UserHome.Url.setA
+Component.get0AspNetCore.Views_Customer_UserHome.Component.getA
+Component.set0AspNetCore.Views_Customer_UserHome.Component.set7
+Json.get+AspNetCore.Views_Customer_UserHome.Json.get7
+Json.set+AspNetCore.Views_Customer_UserHome.Json.set7
+Html.get+AspNetCore.Views_Customer_UserHome.Html.get7
+Html.set+AspNetCore.Views_Customer_UserHome.Html.set

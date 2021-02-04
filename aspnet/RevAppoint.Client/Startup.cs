@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RevAppoint.Repo.Repositories;
 using RevAppoint.Storage;
+using Okta.AspNetCore;
 
 namespace RevAppoint.Client
 {
@@ -30,7 +31,18 @@ namespace RevAppoint.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
+            })
+            .AddOktaWebApi(new OktaWebApiOptions()
+            {
+                OktaDomain = Configuration["Okta:OktaDomain"],
+            });
 
+            services.AddAuthorization();
             services.AddControllers();
             services.AddDbContext<RevAppointContext>(options =>
             {
@@ -39,10 +51,7 @@ namespace RevAppoint.Client
                     opts.EnableRetryOnFailure(2);
                 });
             });
-            // services.AddSwaggerGen(c =>
-            // {
-            //     c.SwaggerDoc("v1", new OpenApiInfo { Title = "RevAppoint.Client", Version = "v1" });
-            // });
+
             services.AddScoped<UnitOfWork>();
         }
 
@@ -52,13 +61,13 @@ namespace RevAppoint.Client
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                // app.UseSwagger();
-                // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RevAppoint.Client v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -1,0 +1,12 @@
+ü
+4RevAppoint.Client.Controllers.ProfessionalController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobjectπ
+@ProfessionalHome(RevAppoint.Client.Models.ProfessionalViewModel)uRevAppoint.Client.Controllers.ProfessionalController.ProfessionalHome(RevAppoint.Client.Models.ProfessionalViewModel)g
+SetAvailability(string)LRevAppoint.Client.Controllers.ProfessionalController.SetAvailability(string)_
+ViewProfile(string)HRevAppoint.Client.Controllers.ProfessionalController.ViewProfile(string)m
+AppointmentHistory(string)ORevAppoint.Client.Controllers.ProfessionalController.AppointmentHistory(string)“
+LEditAccountInfoAsync(string, RevAppoint.Client.Models.ProfessionalViewModel)ÅRevAppoint.Client.Controllers.ProfessionalController.EditAccountInfoAsync(string, RevAppoint.Client.Models.ProfessionalViewModel)o
+PendingAppointments(string)PRevAppoint.Client.Controllers.ProfessionalController.PendingAppointments(string)o
+CurrentAppointments(string)PRevAppoint.Client.Controllers.ProfessionalController.CurrentAppointments(string)Ω
+BCompleteAppointment(RevAppoint.Client.Models.AppointmentViewModel)wRevAppoint.Client.Controllers.ProfessionalController.CompleteAppointment(RevAppoint.Client.Models.AppointmentViewModel)π
+@AcceptAppointment(RevAppoint.Client.Models.AppointmentViewModel)uRevAppoint.Client.Controllers.ProfessionalController.AcceptAppointment(RevAppoint.Client.Models.AppointmentViewModel)i
+ProfessionalController()MRevAppoint.Client.Controllers.ProfessionalController.ProfessionalController()

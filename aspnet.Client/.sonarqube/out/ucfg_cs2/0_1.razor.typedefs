@@ -1,0 +1,14 @@
+™
+%AspNetCore.Views_Customer_UserHistory0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobjectF
+ExecuteAsync()4AspNetCore.Views_Customer_UserHistory.ExecuteAsync()b
+Views_Customer_UserHistory()BAspNetCore.Views_Customer_UserHistory.Views_Customer_UserHistory()`
+ModelExpressionProvider.getAAspNetCore.Views_Customer_UserHistory.ModelExpressionProvider.get`
+ModelExpressionProvider.setAAspNetCore.Views_Customer_UserHistory.ModelExpressionProvider.set8
+Url.get-AspNetCore.Views_Customer_UserHistory.Url.get8
+Url.set-AspNetCore.Views_Customer_UserHistory.Url.setD
+Component.get3AspNetCore.Views_Customer_UserHistory.Component.getD
+Component.set3AspNetCore.Views_Customer_UserHistory.Component.set:
+Json.get.AspNetCore.Views_Customer_UserHistory.Json.get:
+Json.set.AspNetCore.Views_Customer_UserHistory.Json.set:
+Html.get.AspNetCore.Views_Customer_UserHistory.Html.get:
+Html.set.AspNetCore.Views_Customer_UserHistory.Html.set
