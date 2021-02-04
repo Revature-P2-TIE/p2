@@ -34,7 +34,7 @@ namespace RevAppoint.Client.Controllers
         }
 
         [Authorize]
-        [HttpPost("/FormLogin")]
+        [HttpPost("/Signin")]
         public IActionResult GetUser1()
         {
             LoginViewModel model = new LoginViewModel();
@@ -42,16 +42,16 @@ namespace RevAppoint.Client.Controllers
             return View("UserHome", model);
         }
         
-        [HttpGet("/Signin")]
-        public IActionResult SignIn()
-        {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-            {
-                return Challenge(OktaDefaults.MvcAuthenticationScheme);
-            }
-            return RedirectToAction("GetUser1", "Customer");
-        }
-        
+        // [HttpGet("/Signin")]
+        // public IActionResult SignIn()
+        // {
+        //     if (!HttpContext.User.Identity.IsAuthenticated)
+        //     {
+        //         return Challenge(OktaDefaults.MvcAuthenticationScheme);
+        //     }
+        //     return RedirectToAction("GetUser1", "Customer");
+        // }
+
         [HttpPost("/Login")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
