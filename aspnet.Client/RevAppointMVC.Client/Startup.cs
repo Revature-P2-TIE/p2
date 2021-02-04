@@ -36,9 +36,9 @@ namespace RevAppoint.Client
                 .AddOktaMvc(new OktaMvcOptions
                 {
                     // Replace these values with your Okta configuration
-                    OktaDomain = "https://dev-08857242.okta.com",
-                    ClientId = "0oa4ymxczHOJFduIw5d6",
-                    ClientSecret = "eqUvBphKKXvsterW4DO4BVA7Hu0tUQm_mDYXAExa"
+                    OktaDomain = Configuration["oktaDomain"],
+                    ClientId = Configuration["oktaClient"],
+                    ClientSecret = Configuration["oktaSecret"]
                 });
             services.AddControllersWithViews();
         }
