@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Okta.AspNetCore;
 using RevAppoint.Client.Models;
 
 namespace RevAppoint.Client.Controllers
@@ -29,6 +30,15 @@ namespace RevAppoint.Client.Controllers
             LoginViewModel model = new LoginViewModel();
             model.Error = "";
             return View("FormLogin", model);
+        }
+        
+        public IActionResult SignIn()
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return Challenge(OktaDefaults.MvcAuthenticationScheme);
+            }
+            return RedirectToAction("GetUser", "Customer");
         }
 
         [HttpPost("/Login")]
@@ -99,6 +109,12 @@ namespace RevAppoint.Client.Controllers
            return View("SearchForProfessional", customer);
         }
 
+        [HttpGet("/NEWHOME")]
+        public IActionResult SearchForProfessionals()
+        {
+           return View("TestView");
+        }
+
         [HttpGet("/History/{id}")]
         public async Task<IActionResult> AppointmentHistory(string id)
         {
@@ -140,7 +156,6 @@ namespace RevAppoint.Client.Controllers
             appointment.CustomerUsername = id;
             return View("PendingAppointments", appointment);
         }
-
         
         [HttpGet("/Home/{username}")]
         public IActionResult Home(string username)
@@ -149,7 +164,6 @@ namespace RevAppoint.Client.Controllers
             CustomerViewModel.Username = username;
             return View("UserHome", CustomerViewModel);    
         }
-
 
         [HttpPost("/Display")]
         public async Task<IActionResult> DisplayProfessionals(CustomerViewModel model)
