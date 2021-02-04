@@ -1,0 +1,15 @@
+…
+)RevAppoint.Client.Models.AppointmentModel$RevAppoint.Client.Models.EntityModelobjectR
+AppointmentModel()<RevAppoint.Client.Models.AppointmentModel.AppointmentModel()>
+Time.get2RevAppoint.Client.Models.AppointmentModel.Time.get>
+Time.set2RevAppoint.Client.Models.AppointmentModel.Time.setN
+Professional.get:RevAppoint.Client.Models.AppointmentModel.Professional.getN
+Professional.set:RevAppoint.Client.Models.AppointmentModel.Professional.setB
+
+Client.get4RevAppoint.Client.Models.AppointmentModel.Client.getB
+
+Client.set4RevAppoint.Client.Models.AppointmentModel.Client.setJ
+IsAccepted.get8RevAppoint.Client.Models.AppointmentModel.IsAccepted.getJ
+IsAccepted.set8RevAppoint.Client.Models.AppointmentModel.IsAccepted.setJ
+IsFufilled.get8RevAppoint.Client.Models.AppointmentModel.IsFufilled.getJ
+IsFufilled.set8RevAppoint.Client.Models.AppointmentModel.IsFufilled.set

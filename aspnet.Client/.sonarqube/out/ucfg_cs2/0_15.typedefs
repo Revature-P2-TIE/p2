@@ -1,0 +1,7 @@
+õ
+"RevAppoint.Client.Models.TimeModel$RevAppoint.Client.Models.EntityModelobject=
+TimeModel().RevAppoint.Client.Models.TimeModel.TimeModel()9
+	Start.get,RevAppoint.Client.Models.TimeModel.Start.get9
+	Start.set,RevAppoint.Client.Models.TimeModel.Start.set5
+End.get*RevAppoint.Client.Models.TimeModel.End.get5
+End.set*RevAppoint.Client.Models.TimeModel.End.set

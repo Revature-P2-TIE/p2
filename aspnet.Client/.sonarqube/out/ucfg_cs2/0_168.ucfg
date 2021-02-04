@@ -1,0 +1,108 @@
+
+4RevAppoint.Client.Controllers.HomeController.Error()q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs   (""6*•
+0q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(IŒÀ
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(n-
+%0'RevAppoint.Client.Models.ErrorViewModel"'RevAppoint.Client.Models.ErrorViewModelÌ
+Í
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(*
+
+%1void"8RevAppoint.Client.Models.ErrorViewModel.ErrorViewModel()*/
+-
+%0'RevAppoint.Client.Models.ErrorViewModel„
+‡
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"9 "(I!
+%2System.Diagnostics.Activity"'System.Diagnostics.Activity.Current.get*"
+System.Diagnostics.Activity*
+1
+2*À
+2q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"J "(MÕ
+ 
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"K "(M
+%3string""System.Diagnostics.Activity.Id.get*#
+!
+%2System.Diagnostics.Activity*
+1*~
+1q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs#	 #(	*
+3
+4*≤
+3q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"Q "(lâ
+Ü
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"Q "(\+
+%7%Microsoft.AspNetCore.Http.HttpContext"7Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext.get*+)
+'Microsoft.AspNetCore.Mvc.ControllerBaseÓ
+Î
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"Q "(l
+%8string"9Microsoft.AspNetCore.Http.HttpContext.TraceIdentifier.get*-
++
+%7%Microsoft.AspNetCore.Http.HttpContextö
+ó
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"Q "(l
+%6string"__id*
+
+%8stringö
+ó
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"Q "(l
+%4string"__id*
+
+%6string*
+4*ò
+4q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(l¸
+˘
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs"- "(l
+%9string"5RevAppoint.Client.Models.ErrorViewModel.RequestId.set*/
+-
+%0'RevAppoint.Client.Models.ErrorViewModel*
+
+%4stringõ
+ò
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(o
+%10void"'revappointmvc.client/views/shared/error*
+
+%11*/
+-
+%0'RevAppoint.Client.Models.ErrorViewModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"Ç
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs" "(p
+
+%10void*Å
+5q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs#	 #(	"à
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs# #(	
+implicit return*â
+6q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs $  ($ã
+à
+q
+g/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/HomeController.cs   ("
+%12"__entrypoint*
+0B0.
+,RevAppoint.Client.Controllers.HomeController

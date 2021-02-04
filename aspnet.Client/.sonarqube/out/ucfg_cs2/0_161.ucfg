@@ -1,0 +1,20 @@
+
+hRevAppoint.Client.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Startup.cs (%"0*Á
+0^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Startup.cs (.Ö
+Ó
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Startup.cs (.:
+%04Microsoft.Extensions.DependencyInjection.IMvcBuilder"œMicrosoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddControllersWithViews(Microsoft.Extensions.DependencyInjection.IServiceCollection)*K"I
+GMicrosoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions*I
+G
+services;Microsoft.Extensions.DependencyInjection.IServiceCollection*
+1*Ú
+1^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Startup.cs	 (	"u
+^
+T/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Startup.cs (	
+implicit return:G
+services;Microsoft.Extensions.DependencyInjection.IServiceCollectionB
+RevAppoint.Client.Startup

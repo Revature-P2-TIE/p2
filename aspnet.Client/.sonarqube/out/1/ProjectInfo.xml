@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>RevAppointMVC.Testing</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>7cc13912-8dab-4ff3-ae3b-862f9ae796ec</ProjectGuid>
+  <FullPath>/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Testing/RevAppointMVC.Testing.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="/home/elmer/revature/group-projects/p2/aspnet.Client/.sonarqube/out/1/FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Testing/bin/Debug/net5.0/RevAppointMVC.Testing.dll.RoslynCA.json|/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Testing/bin/Debug/net5.0/RevAppointMVC.Testing.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">/home/elmer/revature/group-projects/p2/aspnet.Client/.sonarqube/out/1</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net5.0</TargetFramework>
+</ProjectInfo>

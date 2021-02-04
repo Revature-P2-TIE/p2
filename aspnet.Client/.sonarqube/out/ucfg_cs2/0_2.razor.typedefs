@@ -1,0 +1,14 @@
+‚	
+,AspNetCore.Views_Customer_CurrentAppointment0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobjectM
+ExecuteAsync();AspNetCore.Views_Customer_CurrentAppointment.ExecuteAsync()w
+#Views_Customer_CurrentAppointment()PAspNetCore.Views_Customer_CurrentAppointment.Views_Customer_CurrentAppointment()g
+ModelExpressionProvider.getHAspNetCore.Views_Customer_CurrentAppointment.ModelExpressionProvider.getg
+ModelExpressionProvider.setHAspNetCore.Views_Customer_CurrentAppointment.ModelExpressionProvider.set?
+Url.get4AspNetCore.Views_Customer_CurrentAppointment.Url.get?
+Url.set4AspNetCore.Views_Customer_CurrentAppointment.Url.setK
+Component.get:AspNetCore.Views_Customer_CurrentAppointment.Component.getK
+Component.set:AspNetCore.Views_Customer_CurrentAppointment.Component.setA
+Json.get5AspNetCore.Views_Customer_CurrentAppointment.Json.getA
+Json.set5AspNetCore.Views_Customer_CurrentAppointment.Json.setA
+Html.get5AspNetCore.Views_Customer_CurrentAppointment.Html.getA
+Html.set5AspNetCore.Views_Customer_CurrentAppointment.Html.set

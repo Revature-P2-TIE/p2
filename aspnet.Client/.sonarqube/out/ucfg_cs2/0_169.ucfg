@@ -1,0 +1,82 @@
+
+_RevAppoint.Client.Controllers.CustomerController.SelectUser(RevAppoint.Client.Models.UserModel)u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csL L('"2*À
+0u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csN N(0£
+†
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csN N(1
+
+%0void",revappointmvc.client/views/customer/userhome*
+
+%1*0
+.
+customer"RevAppoint.Client.Models.UserModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject†
+ù
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csN N(1
+
+%2void")revappointmvc.client/views/shared/_layout*
+
+%3*0
+.
+customer"RevAppoint.Client.Models.UserModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"Ö
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csN N(2
+
+
+%2void*â
+1u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csO	 O(	"å
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csO O(	
+implicit return*ê
+2u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csL; L(;¿
+Ω
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csL L('
+%4"__entrypoint*0
+.
+customer"RevAppoint.Client.Models.UserModelà
+Ö
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csK	 K(
+%5"
+__annotate*HF
+DMicrosoft.AspNetCore.Mvc.HttpPostAttribute.HttpPostAttribute(string)*0
+.
+customer"RevAppoint.Client.Models.UserModel¿
+Ω
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csL( L(:.
+customer"RevAppoint.Client.Models.UserModel"__annotation*
+
+%5*
+0:.
+customer"RevAppoint.Client.Models.UserModelB42
+0RevAppoint.Client.Controllers.CustomerController

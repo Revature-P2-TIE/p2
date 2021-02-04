@@ -1,0 +1,203 @@
+
+KRevAppoint.Client.Controllers.CustomerController.AppointmentHistory(string)u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cse) e(;"2*Ÿ0
+0u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csg o(1∆√
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csg. g(E'
+%0!System.Net.Http.HttpClientHandler"!System.Net.Http.HttpClientHandlerË
+Â
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csg2 g(C
+
+%1void"5System.Net.Http.HttpClientHandler.HttpClientHandler()*)
+'
+%0!System.Net.Http.HttpClientHandlerﬂ
+‹
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csg g(E2
+clientHandler!System.Net.Http.HttpClientHandler"__id*)
+'
+%0!System.Net.Http.HttpClientHandler∂
+≥
+v
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csh h(Ä*
+%2$System.Func<T1, T2, T3, T4, TResult>"OSystem.Net.Http.HttpClientHandler.ServerCertificateCustomValidationCallback.set*4
+2
+clientHandler!System.Net.Http.HttpClientHandler*
+""∏µ
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csi  i(= 
+%3System.Net.Http.HttpClient"System.Net.Http.HttpClient´
+®
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csi$ i(.
+
+%4void"ISystem.Net.Http.HttpClient.HttpClient(System.Net.Http.HttpMessageHandler)*"
+ 
+%3System.Net.Http.HttpClient*4
+2
+clientHandler!System.Net.Http.HttpClientHandler 
+«
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csi i(=$
+clientSystem.Net.Http.HttpClient"__id*"
+ 
+%3System.Net.Http.HttpClientÿ
+’
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj1 j(7
+%5string"__id*H*F2
+0RevAppoint.Client.Controllers.CustomerController"
+apiUrlstringÍ
+Á
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj8 j(P
+%6string"__id*Z*X2
+0RevAppoint.Client.Controllers.CustomerController""
+apiAppointmentControllerstring≤
+Ø
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj1 j(P
+%7string"__concat*
+
+%5string*
+
+%6stringø
+º
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj1 j(j
+%8string"__concat*
+
+%7string*
+/GetByUsernameFufilled/≤
+Ø
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj1 j(m
+%9string"__concat*
+
+%8string*
+
+idstringç
+ä
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj! j(n+
+%10$System.Threading.Tasks.Task<TResult>",System.Net.Http.HttpClient.GetAsync(string?)*&
+$
+clientSystem.Net.Http.HttpClient*
+
+%9stringπ
+∂
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csj j(n/
+response#System.Net.Http.HttpResponseMessage"__id*
+""Ç
+ˇ
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csk[ k(k"
+%11System.Net.Http.HttpContent"/System.Net.Http.HttpResponseMessage.Content.get*1
+/
+response#System.Net.Http.HttpResponseMessage˛
+˚
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csk[ k(+
+%12$System.Threading.Tasks.Task<TResult>"/System.Net.Http.HttpContent.ReadAsStringAsync()*$
+"
+%11System.Net.Http.HttpContentâ
+Ü
+v
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csk k(Ä)
+%13"System.Collections.Generic.List<T>"8Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string)*"
+Newtonsoft.Json.JsonConvert*
+""‚
+ﬂ
+v
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csk k(Ä2
+appointments"System.Collections.Generic.List<T>"__id*+
+)
+%13"System.Collections.Generic.List<T>ﬂ‹
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csl/ l(I4
+%14-RevAppoint.Client.Models.AppointmentViewModel"-RevAppoint.Client.Models.AppointmentViewModelÖ
+Ç
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csl3 l(G
+%15void"DRevAppoint.Client.Models.AppointmentViewModel.AppointmentViewModel()*6
+4
+%14-RevAppoint.Client.Models.AppointmentViewModelˆ
+Û
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csl! l(I<
+appointment-RevAppoint.Client.Models.AppointmentViewModel"__id*6
+4
+%14-RevAppoint.Client.Models.AppointmentViewModel€
+ÿ
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csm m(3)
+%16"System.Collections.Generic.List<T>">RevAppoint.Client.Models.AppointmentViewModel.Appointments.set*>
+<
+appointment-RevAppoint.Client.Models.AppointmentViewModel*4
+2
+appointments"System.Collections.Generic.List<T>ù
+ö
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csn n(-
+%17string"BRevAppoint.Client.Models.AppointmentViewModel.CustomerUsername.set*>
+<
+appointment-RevAppoint.Client.Models.AppointmentViewModel*
+
+idstring∂
+≥
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cso o(2
+%18void"/revappointmvc.client/views/customer/userhistory*
+
+%19*>
+<
+appointment-RevAppoint.Client.Models.AppointmentViewModel*
+
+%ViewBagDataAllobject*
+
+%ViewBagDataHtmlobject*
+
+%TempDataAllobject*
+
+%TempDataHtmlobject* 
+
+%HttpContextItemsAllobject*!
+
+%HttpContextItemsHtmlobject"Ü
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cso o(3
+
+%18void*â
+1u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csp	 p(	"å
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csp p(	
+implicit return*´
+2u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cseF e(Fü
+ú
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cse) e(;
+%20"__entrypoint*
+
+idstringÂ
+‚
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.csd	 d(!
+%21"
+__annotate*FD
+BMicrosoft.AspNetCore.Mvc.HttpGetAttribute.HttpGetAttribute(string)*
+
+idstringü
+ú
+u
+k/home/elmer/revature/group-projects/p2/aspnet.Client/RevAppointMVC.Client/Controllers/CustomerController.cse< e(E
+idstring"__annotation*
+
+%21*
+0:
+idstringB42
+0RevAppoint.Client.Controllers.CustomerController

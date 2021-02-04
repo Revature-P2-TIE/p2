@@ -1,0 +1,14 @@
+ó
++AspNetCore.Views_Customer_CreateAppointment0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobjectL
+ExecuteAsync():AspNetCore.Views_Customer_CreateAppointment.ExecuteAsync()t
+"Views_Customer_CreateAppointment()NAspNetCore.Views_Customer_CreateAppointment.Views_Customer_CreateAppointment()f
+ModelExpressionProvider.getGAspNetCore.Views_Customer_CreateAppointment.ModelExpressionProvider.getf
+ModelExpressionProvider.setGAspNetCore.Views_Customer_CreateAppointment.ModelExpressionProvider.set>
+Url.get3AspNetCore.Views_Customer_CreateAppointment.Url.get>
+Url.set3AspNetCore.Views_Customer_CreateAppointment.Url.setJ
+Component.get9AspNetCore.Views_Customer_CreateAppointment.Component.getJ
+Component.set9AspNetCore.Views_Customer_CreateAppointment.Component.set@
+Json.get4AspNetCore.Views_Customer_CreateAppointment.Json.get@
+Json.set4AspNetCore.Views_Customer_CreateAppointment.Json.set@
+Html.get4AspNetCore.Views_Customer_CreateAppointment.Html.get@
+Html.set4AspNetCore.Views_Customer_CreateAppointment.Html.set
