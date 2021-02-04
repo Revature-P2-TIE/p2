@@ -39,7 +39,7 @@ namespace RevAppoint.Client.Controllers
         {
             LoginViewModel model = new LoginViewModel();
             model.Error = "";
-            return View("UserHome", model);
+            return View("NEWHOME");
         }
         
         // [HttpGet("/Signin")]
