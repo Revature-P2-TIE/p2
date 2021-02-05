@@ -44,22 +44,52 @@ namespace RevAppoint.Client.Controllers
         //     return View("NEWHOME");
         // }
         
+        [Authorize]
         [HttpGet("/Signin")]
-        public IActionResult SignIn()
+        public async Task<IActionResult> Signin()
         {
-    
-        //     if (!HttpContext.User.Identity.IsAuthenticated)
-        //     {
-        //         return Challenge(OktaDefaults.MvcAuthenticationScheme);
-        //     }
 
-            
+        //Code to get username goes here
+
+        string username = "";
+
+        foreach(var claim in ((ClaimsIdentity)User.Identity).Claims)
+        {
+            if(claim.Type == "preferred_username")
+            {
+                username = claim.Value;
+            }
+        }
+
+        UserModel model = new UserModel();
+        model.Username = username;
+
+        var json = JsonConvert.SerializeObject(model);
+        StringContent content = new StringContent(json.ToString());
+
+        HttpClientHandler clientHandler = new HttpClientHandler();
+        clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+        //creating httpclient that uses the handler
+        HttpClient client = new HttpClient(clientHandler);
+ 
+        //Passing the serialized object to the API
+        var response = await client.GetAsync(apiUrl+apiProfessionalController+"/GetOneUserByUsername/" + username);
+        /*
+        Getting an object back from the api,
+        The api is going to search its database for a user with the credentials that we sent
+        and send us back a user based on its search
+        */
+        UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
 
 
-            
+            if(user.Type =="Customer")
+            {
+                return View("UserHome", model);
+            }
+ 
+           return View("~/Views/Shared/ProfessionalHome.cshtml", model);
 
-            
-            return RedirectToAction("Index", "Home");
         }
         
         // [HttpGet("/Signin")]
@@ -72,48 +102,48 @@ namespace RevAppoint.Client.Controllers
         //     return RedirectToAction("GetUser1", "Customer");
         // }
 
-        [HttpPost("/Login")]
-        public async Task<IActionResult> FormLogin(LoginViewModel model)
-        {
-            ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
+        // [HttpPost("/Login")]
+        // public async Task<IActionResult> FormLogin(LoginViewModel model)
+        // {
+        //     ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
   
-        //Serializing the model and converting it into a string
-        var json = JsonConvert.SerializeObject(model);
-        StringContent content = new StringContent(json.ToString());
+        // //Serializing the model and converting it into a string
+        // var json = JsonConvert.SerializeObject(model);
+        // StringContent content = new StringContent(json.ToString());
 
-        //Creating a HTTP handler to bypass SSL cert checks
-        HttpClientHandler clientHandler = new HttpClientHandler();
-        clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+        // //Creating a HTTP handler to bypass SSL cert checks
+        // HttpClientHandler clientHandler = new HttpClientHandler();
+        // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
         
-        //creating httpclient that uses the handler
-        HttpClient client = new HttpClient(clientHandler);
+        // //creating httpclient that uses the handler
+        // HttpClient client = new HttpClient(clientHandler);
  
-        //Passing the serialized object to the API
-        var response = await client.PostAsync(apiUrl+loginController+"/Post", content);
-        /*
-        Getting an object back from the api,
-        The api is going to search its database for a user with the credentials that we sent
-        and send us back a user based on its search
-        */
-        UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+        // //Passing the serialized object to the API
+        // var response = await client.PostAsync(apiUrl+loginController+"/Post", content);
+        // /*
+        // Getting an object back from the api,
+        // The api is going to search its database for a user with the credentials that we sent
+        // and send us back a user based on its search
+        // */
+        // UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
        
-        //If the username/password combo is in the API's database, we will have a binded model
-        if(user.Username != null)
-        {
-            if(user.Type.Equals("Customer")){
-                return View("UserHome", user);
-            }
-            else{
-                return View("~/Views/Shared/ProfessionalHome.cshtml", user);
-            }
-        }
+        // //If the username/password combo is in the API's database, we will have a binded model
+        // if(user.Username != null)
+        // {
+        //     if(user.Type.Equals("Customer")){
+        //         return View("UserHome", user);
+        //     }
+        //     else{
+        //         return View("~/Views/Shared/ProfessionalHome.cshtml", user);
+        //     }
+        // }
           
-        //This will happen if the username/password combo provided is not in the system
+        // //This will happen if the username/password combo provided is not in the system
      
-            LoginViewModel modelLogin = new LoginViewModel();
-            modelLogin.Error = "Invalid login attempt.";
-            return View("FormLogin", modelLogin);
-        }
+        //     LoginViewModel modelLogin = new LoginViewModel();
+        //     modelLogin.Error = "Invalid login attempt.";
+        //     return View("FormLogin", modelLogin);
+        // }
 
         // [HttpPost("/")]
         // public IActionResult FindUser(UserModel customer)

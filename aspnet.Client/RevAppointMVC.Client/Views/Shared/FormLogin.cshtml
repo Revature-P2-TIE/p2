@@ -1,28 +1,5 @@
 @model RevAppoint.Client.Models.LoginViewModel;
 
-@{
-    ViewData["Title"] = "FormLogin";
-}
-
-<h2>Login</h2>
-@if(Model.Error != ""){ 
-<h2>
-  @Model.Error
-</h2>
-}
-@using System.Security.Claims;
-//...
-@foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
-{
-    <dt title="@claim.Type">@claim.Type</dt>
-    <dd>@claim.Value</dd>
-}
-
-@ViewBag.TESTINGUSER
-
-
-<p>Use this page to detail your site's privacy policy.</p>
-
 <hr />
 <div class="row">
     <div class="col-md-4">
