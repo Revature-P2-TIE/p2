@@ -1,6 +1,6 @@
 # Tie Together
 
-## Tie Together Proposal (Taylor Isaiah Elmer)
+## Tie Together Proposal (Taylor Isaiah Elmer Nick)
 Tech stack: C#, ASP.NET Core MVC, .NET core, Entity framework, Azure SQL server, html, css, bootstrap, Docker, GitHub Actions, SonarCloud, xUnit.
 
 Tie Together is a web application that allows for seamless transactions
