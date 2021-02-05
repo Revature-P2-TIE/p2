@@ -76,10 +76,11 @@ body {
 }
 
 #logoMain{
-width:200px;
-height: 100px;
-float:left;
-position: relative;
+  width:200px;
+  height: 100px;
+  float:left;
+  position: relative;
+  padding: 25px 0px 0px 0px;
 }
 
 #logoMain > img{

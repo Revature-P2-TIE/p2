@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -5,11 +6,12 @@ using Okta.AspNetCore;
 public class AccountController : Controller
 {
 
+
     [HttpPost]
-    public IActionResult SignOut()
+    public async Task<IActionResult> SignOutAsync()
     {
-        return new SignOutResult(new[] { 
-        OktaDefaults.MvcAuthenticationScheme, 
-        CookieAuthenticationDefaults.AuthenticationScheme });
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        return RedirectToAction("SignIn", "Customer");
     }
 }
