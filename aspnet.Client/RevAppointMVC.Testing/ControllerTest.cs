@@ -11,15 +11,14 @@ namespace RevAppointMVC.Testing
      {
         //CustomerControllerTest
         [Fact]
-        public void SelectUser_ReturnsAViewResult()
+        public async Task SelectUser_ReturnsAViewResult()
         {
             var controller = new CustomerController();
             var user = new UserModel();
             
-            var result = controller.SelectUser(user);
+            var result = await controller.SelectUser(user);
 
             var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<UserModel>(viewResult.ViewData.Model);
         }
 
         //CustomerControllerTest

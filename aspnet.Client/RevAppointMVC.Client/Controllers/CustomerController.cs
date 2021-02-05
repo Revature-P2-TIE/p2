@@ -33,16 +33,6 @@ namespace RevAppoint.Client.Controllers
             model.Error = "";
             return View("FormLogin", model);
         }
-
-        // [Authorize]
-        // [HttpGet("/Signin")]
-        // [HttpPost("/Signin")]
-        // public IActionResult GetUser1()
-        // {
-        //     LoginViewModel model = new LoginViewModel();
-        //     model.Error = "";
-        //     return View("NEWHOME");
-        // }
         
         [Authorize]
         [HttpGet("/Signin")]
@@ -91,65 +81,6 @@ namespace RevAppoint.Client.Controllers
            return View("~/Views/Shared/ProfessionalHome.cshtml", model);
 
         }
-        
-        // [HttpGet("/Signin")]
-        // public IActionResult SignIn()
-        // {
-        //     if (!HttpContext.User.Identity.IsAuthenticated)
-        //     {
-        //         return Challenge(OktaDefaults.MvcAuthenticationScheme);
-        //     }
-        //     return RedirectToAction("GetUser1", "Customer");
-        // }
-
-        // [HttpPost("/Login")]
-        // public async Task<IActionResult> FormLogin(LoginViewModel model)
-        // {
-        //     ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
-  
-        // //Serializing the model and converting it into a string
-        // var json = JsonConvert.SerializeObject(model);
-        // StringContent content = new StringContent(json.ToString());
-
-        // //Creating a HTTP handler to bypass SSL cert checks
-        // HttpClientHandler clientHandler = new HttpClientHandler();
-        // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-        
-        // //creating httpclient that uses the handler
-        // HttpClient client = new HttpClient(clientHandler);
- 
-        // //Passing the serialized object to the API
-        // var response = await client.PostAsync(apiUrl+loginController+"/Post", content);
-        // /*
-        // Getting an object back from the api,
-        // The api is going to search its database for a user with the credentials that we sent
-        // and send us back a user based on its search
-        // */
-        // UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
-       
-        // //If the username/password combo is in the API's database, we will have a binded model
-        // if(user.Username != null)
-        // {
-        //     if(user.Type.Equals("Customer")){
-        //         return View("UserHome", user);
-        //     }
-        //     else{
-        //         return View("~/Views/Shared/ProfessionalHome.cshtml", user);
-        //     }
-        // }
-          
-        // //This will happen if the username/password combo provided is not in the system
-     
-        //     LoginViewModel modelLogin = new LoginViewModel();
-        //     modelLogin.Error = "Invalid login attempt.";
-        //     return View("FormLogin", modelLogin);
-        // }
-
-        // [HttpPost("/")]
-        // public IActionResult FindUser(UserModel customer)
-        // {
-        //         return View("UserHome", customer);
-        // }
 
         [HttpPost("/UserHome")]
         public async Task<IActionResult> SelectUser(UserModel customer)
