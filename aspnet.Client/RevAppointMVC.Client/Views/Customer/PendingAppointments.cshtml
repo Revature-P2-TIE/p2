@@ -1,15 +1,19 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
-
-<h2>Pending Appointments</h2>
+<link href="~/css/grid.css" rel="stylesheet">
+<h2><u>Pending Appointments</u></h2>
+@using (@Html.BeginForm("Home", "Customer", new {username = @Model.CustomerUsername},FormMethod.Get))
+{
+  <input class = "customButton" type="submit" value="Home"/>
+}
 <br>
-<table style="width:100%">
+<table id = "appointment" style="width:100%">
   <tr>
-    <td><u>Job</u></td>
-    <td><u>Name</u></td> 
-    <td><u>Start Time</u></td>
-    <td><u>Estimated End Time</u></td>
-    <td><u>Status</u></td>
-    <td><u>Completed</u></td>
+    <td>Job</td>
+    <td>Name</td> 
+    <td>Start Time</td>
+    <td>Estimated End Time</td>
+    <td>Status</td>
+    <td>Completed</td>
   </tr>
   @foreach (var item in Model.Appointments)
   {
@@ -42,8 +46,3 @@
     
 }
 </table>
-
-@using (@Html.BeginForm("Home", "Customer", new {username = @Model.CustomerUsername},FormMethod.Get))
-{
-  <input class = "customButton" type="submit" value="Home"/>
-}

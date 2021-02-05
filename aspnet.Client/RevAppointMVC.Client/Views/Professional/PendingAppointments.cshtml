@@ -1,18 +1,23 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
-
+<link href="~/css/grid.css" rel="stylesheet">
 <p>Current Appointment Page</p>
-
+@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
+{
+  <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
+  <input class = "customButton" type="submit" value="Home"/>
+}
 <br>
-<table style="width:100%">
+<table id = "appointment" style="width:100%">
+  
   <tr>
-    <td><u>Appointment ID</u></td>
+    <td>Appointment ID</td>
     @*<td><u>Professional Name</u></td>*@ @*Override toString method here?*@
-    <td><u>Is Fufilled</u></td>
-    <td><u>Start Time</u></td>
-    <td><u>End Time</u></td>
-    <td><u>Accept</u></td>
+    <td>Is Fufilled</td>
+    <td>Start Time</td>
+    <td>End Time</td>
+    <td>Accept</td>
     @* <td><u>View Client</u></td> *@
-    <td><u>Completed</u></td>
+    <td>Completed</td>
   </tr>
   @foreach (var item in Model.Appointments)
   {
@@ -49,9 +54,3 @@
     </tr>
 }
 </table>
-
-@using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
-{
-  <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
-  <input class = "customButton" type="submit" value="Home"/>
-}

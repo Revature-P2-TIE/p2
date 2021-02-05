@@ -1,16 +1,15 @@
 @model RevAppoint.Client.Models.CustomerViewModel;
+<link href="~/css/grid.css" rel="stylesheet">
 
-
-<h2>Choose a Professional</h2>
-
+<h2><u>Choose a Professional</u></h2>
 <br>
-<table style="width:100%">
+<table id = "appointment" style="width:100%">
   <tr>
-    <td><u>Title</u></td>
-    <td><u>First Name</u></td>
-    <td><u>Last Name</u></td>
-    <td><u>Location</u></td>
-    <td><u></u></td>
+    <td>Title</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Location</td>
+    <td>Make a Choice</td>
   </tr>
   @foreach (var item in Model.ListOfProfessionals)
   {
