@@ -181,7 +181,7 @@ namespace RevAppoint.Client.Controllers
         {
            return View("NEWHOME");
         }
-
+      
         [HttpGet("/History/{id}")]
         public async Task<IActionResult> AppointmentHistory(string id)
         {

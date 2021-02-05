@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Okta.AspNetCore;
 public class AccountController : Controller
 {
-    public IActionResult SignIn()
+
+    [HttpPost]
+    public IActionResult SignOut()
     {
-        if (!HttpContext.User.Identity.IsAuthenticated)
-        {
-            return Challenge(OktaDefaults.MvcAuthenticationScheme);
-        }
-        return RedirectToAction("Index", "Home");
+        return new SignOutResult(new[] { 
+        OktaDefaults.MvcAuthenticationScheme, 
+        CookieAuthenticationDefaults.AuthenticationScheme });
     }
 }

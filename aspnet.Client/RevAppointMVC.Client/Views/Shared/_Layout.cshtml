@@ -21,34 +21,24 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Customer" asp-action="GetUser">
+                <a class="navbar-brand" asp-area = "" asp-controller="Account" asp-action="SignOut">Sign out</a>
                    <div id = "logoMain">
                      <div class = "logo">tie</div>
                      <img src="~/images/tieIcon.png" alt="spartan pizza logo" height="38" width="38" id = "spartanlogo">
                      <div class = "logo2">together</div>
                     </div>
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="GetUser">Login</a>
+                            <a class="nav-link text-dark" asp-area = "" asp-controller="Account" asp-action="SignOut">Sign out</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="AccountCreationCustomer">New Customer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="AccountCreationProfessional">New Professional</a>
-                        </li>
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li> *@
                     </ul>
                 </div>
             </div>
