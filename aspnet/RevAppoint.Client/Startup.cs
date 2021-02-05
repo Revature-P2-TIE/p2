@@ -31,18 +31,7 @@ namespace RevAppoint.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
-                options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
-                options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
-            })
-            .AddOktaWebApi(new OktaWebApiOptions()
-            {
-                OktaDomain = Configuration["Okta:OktaDomain"],
-            });
 
-            services.AddAuthorization();
             services.AddControllers();
             services.AddDbContext<RevAppointContext>(options =>
             {
@@ -68,8 +57,6 @@ namespace RevAppoint.Client
             app.UseRouting();
 
             app.UseAuthentication();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
