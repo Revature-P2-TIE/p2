@@ -60,7 +60,7 @@ namespace RevAppoint.Client.Controllers
                 username = claim.Value;
             }
         }
-
+        
         UserModel model = new UserModel();
         model.Username = username;
 
@@ -81,7 +81,7 @@ namespace RevAppoint.Client.Controllers
         and send us back a user based on its search
         */
         UserModel user = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
-
+        model.FirstName = user.FirstName;
 
             if(user.Type =="Customer")
             {
