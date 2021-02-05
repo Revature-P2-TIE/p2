@@ -85,7 +85,6 @@ namespace RevAppoint.Client.Controllers
             HttpClientHandler clientHandler = new HttpClientHandler();
             var json = JsonConvert.SerializeObject(newProf);
             StringContent content = new StringContent(json.ToString());
-            Console.WriteLine(json);
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
             var response = await client.PutAsync(apiUrl+apiProfessionalController+"/UpdateProfessional",content);

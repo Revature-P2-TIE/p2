@@ -1,6 +1,11 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 
-@* <p>Hello @Model.Customer.FirstName</p> *@
+@{
+    if(ViewBag.Error != null)
+    {
+      <p>@ViewBag.Error</p>
+    }
+}
 
 @using (Html.BeginForm("SetAppointment", "Customer",FormMethod.Post))
 {

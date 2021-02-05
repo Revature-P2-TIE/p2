@@ -152,9 +152,17 @@ namespace RevAppoint.Client.Controllers
         // }
 
         [HttpPost("/UserHome")]
-        public IActionResult SelectUser(UserModel customer)
+        public async Task<IActionResult> SelectUser(UserModel customer)
         {
-                return View("UserHome", customer);
+            if(customer.FirstName == null)
+            {
+                HttpClientHandler clientHandler = new HttpClientHandler();
+                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+                HttpClient client = new HttpClient(clientHandler);
+                var response = await client.GetAsync(apiUrl+apiCustomerController+"/GetOneByUsername/"+customer.Username);
+                customer = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+            }
+            return View("UserHome", customer);
         }
 
         [HttpGet("/SearchForProfessionals/{id}")]
@@ -225,10 +233,18 @@ namespace RevAppoint.Client.Controllers
         }
         
         [HttpGet("/Home/{username}")]
-        public IActionResult Home(string username)
+        public async Task<IActionResult> Home(string username)
         {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient client = new HttpClient(clientHandler);
+
+            var response = await client.GetAsync(apiUrl+apiCustomerController+"/GetOneByUsername/"+username);
+            var customer = JsonConvert.DeserializeObject<UserModel>(await response.Content.ReadAsStringAsync());
+
             var CustomerViewModel = new UserModel();
-            CustomerViewModel.Username = username;
+            CustomerViewModel.Username = customer.Username;
+            CustomerViewModel.FirstName = customer.FirstName;
             return View("UserHome", CustomerViewModel);    
         }
 
@@ -253,7 +269,6 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/SetAppointment")]
         public async Task<IActionResult> SetAppointment(AppointmentViewModel model)
         {
-            Console.WriteLine("Customer User Name"+model.CustomerUsername);
             //Find the professional
             HttpClientHandler professionalclientHandler = new HttpClientHandler();
             professionalclientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -267,10 +282,21 @@ namespace RevAppoint.Client.Controllers
             CultureInfo provider = CultureInfo.InvariantCulture;
             try 
             {
+                if(model.StartTime == null)
+                {
+                    ViewBag.Error = ("Appointment Time Must not be Empty");
+                    return View("CreateAppointment", model);
+                }
                 DateTime startTime = DateTime.ParseExact(model.StartTime.Trim(), format, provider);
+                if(startTime < DateTime.Now)
+                {
+                   ViewBag.Error=("Appointment Time Cannot be in the past");
+                    return View("CreateAppointment", model);
+                }
                 appointment.Time = new TimeModel();
                 appointment.Time.Start = startTime;
                 appointment.Time.End = startTime.AddHours(professional.AppointmentLengthInHours);
+                
             }
             catch (FormatException) 
             {
@@ -302,7 +328,6 @@ namespace RevAppoint.Client.Controllers
             appointmentModel.CustomerUsername = model.CustomerUsername;
 
             //Return to success page
-
             return View("AppointmentCompletion",appointmentModel);
         }
         
