@@ -2,10 +2,6 @@
 
 @* <p>Hello @Model.Customer.FirstName</p> *@
 
-<h3>Professional Username: @Model.ProfessionalUsername</h3>
-<h3>Appointment Length: @Model.AppointmentLengthInHours hours</h3>
-<h3>Appointment Cost: @Model.HourlyRate per hour</h3>
-
 @using (Html.BeginForm("SetAppointment", "Customer",FormMethod.Post))
 {
    <div class="container">
@@ -23,6 +19,11 @@
                         </span>
                      </div>
                   </div>
+               </div>
+               <div class = "col">
+                  <p><b>Chosen Professional:</b> @Model.ProfessionalUsername</p>
+                  <p><b>Appointment Length:</b> @Model.AppointmentLengthInHours hours</p>
+                  <p><b>Appointment Cost:</b> $@Model.HourlyRate per hour</p>
                </div>
             </div>
             <input type="submit" class="btn btn-primary" value="Submit">

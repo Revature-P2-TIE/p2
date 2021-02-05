@@ -7,13 +7,20 @@
 @using (@Html.BeginForm("CreateAppointment", "Customer", FormMethod.Get))
 {
   var prof = @Model.Professional;
-  <div class="card">
-    <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image cap">
-    <div class="card-body">
-      <h4 class="card-title">@prof.FirstName @prof.LastName</h4>
-      <label>Bio:</label>
-      <p class="card-text">@prof.Bio </p>
-    </div>
+          <div class="card-body">
+            <div class = "row">
+                <div class="col">
+                    <h4 class="card-title">@prof.FirstName @prof.LastName</h4>
+                    <label class="card-text">Bio:</label>
+                    <p class="card-text">@prof.Bio </p>
+                </div>
+
+                <figure class="row figure card-image rounded float:right">
+                    <img class="figure-img img-fluid" src="https://placeimg.com/320/240/nature" alt="Card image cap">
+                </figure>
+            </div>
+        </div>
+<div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <label>Username:</label>
