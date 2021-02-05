@@ -1,8 +1,5 @@
 @model RevAppoint.Client.Models.CustomerModel;
 
-<h4>Hello @Model.FirstName</h4>
-<h4>Username: @Model.Username</h4>
-
 @using (@Html.BeginForm("DisplayProfessionals", "Customer", FormMethod.Post))
 {
     <label for="cars">Choose a search parameter:</label>
