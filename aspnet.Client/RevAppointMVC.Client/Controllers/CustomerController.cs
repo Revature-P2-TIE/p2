@@ -56,7 +56,7 @@ namespace RevAppoint.Client.Controllers
             
 
 
-            ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
+            
 
             
             return RedirectToAction("Index", "Home");
@@ -75,6 +75,7 @@ namespace RevAppoint.Client.Controllers
         [HttpPost("/Login")]
         public async Task<IActionResult> FormLogin(LoginViewModel model)
         {
+            ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
   
         //Serializing the model and converting it into a string
         var json = JsonConvert.SerializeObject(model);
