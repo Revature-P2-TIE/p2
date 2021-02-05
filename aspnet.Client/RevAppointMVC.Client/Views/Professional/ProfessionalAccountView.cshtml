@@ -1,7 +1,13 @@
 @model RevAppoint.Client.Models.ProfessionalViewModel;
 
-<h2>Account Infomation</h2>
-
+<h2><u>Account Infomation</u></h2>
+<section class="col">
+    @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
+    {
+    <input name ="Username" value = @Model.Username hidden = "true">
+    <input class = "customButton" type="submit" value="Home"/>
+    }
+</section>
 <section id="AccountInfo" class="col">
     <div class="card">
         <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image cap">
@@ -51,54 +57,66 @@
                 @Html.HiddenFor(m=>m.Professional.MemberSince);
                 @Html.HiddenFor(m=>m.Professional.Rating);
                 <div class="form-row">
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.Title" class="card-text">Title:</label>
-                        <input type="text" asp-for="@Model.Professional.Title" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.Title" class="card-text">Title:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.Title" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.Location" class="card-text">Locaton:</label>
-                        <input type="text" asp-for="@Model.Professional.Location" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.Location" class="card-text">Locaton:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.Location" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.AppointmentLengthInHours" class="card-text">Appointment Length:</label>
-                        <input type="text" asp-for="@Model.Professional.AppointmentLengthInHours" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.AppointmentLengthInHours" class="card-text">Appointment Length:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.AppointmentLengthInHours" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.HourlyRate" class="card-text">HourlyRate:</label>
-                        <input type="text" asp-for="@Model.Professional.HourlyRate" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.HourlyRate" class="card-text">HourlyRate:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.HourlyRate" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.Language" class="card-text">Language:</label>
-                        <input type="text" asp-for="@Model.Professional.Language" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.Language" class="card-text">Language:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.Language" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label for="@Model.Professional.Bio" class="card-text">Bio:</label>
-                        <input type="text" asp-for="@Model.Professional.Bio" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+
+                    <div class = "col-md-12">
+                        <div class="form-group">
+                            <label for="@Model.Professional.Bio" class="card-text">Bio:</label>
+                            <input class = "form-control" type="text" asp-for="@Model.Professional.Bio" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <input class = "customButton" type="submit" value="Edit"/>
+
+                    <div class="col text-center">
+                        <input class = "customButton .vertical-center" type="submit" value="Edit"/>
                     </div>
                 </div>
             }
         </div>
     </div>
-</section>
-<section class="col">
-    @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.Username}, FormMethod.Get))
-    {
-    <input name ="Username" value = @Model.Username hidden = "true">
-    <input class = "customButton" type="submit" value="Home"/>
-    }
 </section>
