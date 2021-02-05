@@ -59,6 +59,7 @@ namespace RevAppoint.Client.Controllers
             HttpClient client = new HttpClient(clientHandler);
             var response = await client.GetAsync(apiUrl+apiAppointmentController+"/GetByProUsernameFufilled/"+id);
             var appointments = JsonConvert.DeserializeObject<List<AppointmentModel>>(await response.Content.ReadAsStringAsync());
+            Console.WriteLine(appointments.Count);
             AppointmentViewModel appointment = new AppointmentViewModel();
             appointment.Appointments = appointments;
             appointment.ProfessionalUsername = id;
