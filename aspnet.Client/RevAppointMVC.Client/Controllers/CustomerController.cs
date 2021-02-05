@@ -56,9 +56,9 @@ namespace RevAppoint.Client.Controllers
             
 
 
-            var username = HttpContext.User.FindFirstValue("preferred_username");
-            Console.WriteLine(username);
+            ViewBag.TESTINGUSER = HttpContext.User.FindFirstValue("preferred_username");
 
+            
             return RedirectToAction("Index", "Home");
         }
         
