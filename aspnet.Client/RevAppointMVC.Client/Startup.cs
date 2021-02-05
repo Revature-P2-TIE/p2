@@ -39,9 +39,9 @@ namespace RevAppoint.Client
                     // OktaDomain = Configuration["oktaDomain"],
                     // ClientId = Configuration["oktaClient"],
                     // ClientSecret = Configuration["oktaSecret"]
-                     OktaDomain = "https://dev-08857242.okta.com",
-                        ClientId = "0oa4ymxczHOJFduIw5d6",
-                        ClientSecret = "eqUvBphKKXvsterW4DO4BVA7Hu0tUQm_mDYXAExa"
+                    OktaDomain = "https://dev-08857242.okta.com",
+                    ClientId = "0oa4ymxczHOJFduIw5d6",
+                    ClientSecret = "eqUvBphKKXvsterW4DO4BVA7Hu0tUQm_mDYXAExa"
                 });
             services.AddControllersWithViews();
         }
