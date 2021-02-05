@@ -1,6 +1,6 @@
 @model RevAppoint.Client.Models.AppointmentViewModel;
 <link href="~/css/grid.css" rel="stylesheet">
-<p>Current Appointment Page</p>
+<h2><u>Pending Appointment Page</u></h2>
 @using (@Html.BeginForm("ProfessionalHome", "Professional",new {id = @Model.ProfessionalUsername}, FormMethod.Get))
 {
   <input name ="Username" value = @Model.ProfessionalUsername hidden = "true">
@@ -17,7 +17,7 @@
     <td>End Time</td>
     <td>Accept</td>
     @* <td><u>View Client</u></td> *@
-    <td>Completed</td>
+    <td>Decline</td>
   </tr>
   @foreach (var item in Model.Appointments)
   {
@@ -48,7 +48,7 @@
     {
       <input name ="ProfessionalUsername" value = @Model.ProfessionalUsername hidden = "true">
       <input name ="AppointmentID" value = @item.EntityID hidden = "true">
-      <input class = "customButton" type="submit" value="Completed"/>
+      <input class = "customButton" type="submit" value="Decline"/>
     }
     </td>
     </tr>

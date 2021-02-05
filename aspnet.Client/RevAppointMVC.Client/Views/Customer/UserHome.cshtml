@@ -26,7 +26,7 @@
           <p class="card-text">View the pass appointments that have been completed</p>
           @using (@Html.BeginForm("AppointmentHistory", "Customer",new {id = @Model.Username}, FormMethod.Get))
           {
-            <input class = "customButton" type="submit" value="View History"/>
+            <input class = "customButton" type="submit" value="History"/>
 
           }
         </div>
@@ -37,7 +37,7 @@
           <p class="card-text">View active appointments that have been accepted by a professional</p>
           @using (@Html.BeginForm("CurrentAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
           {
-            <input class = "customButton" type="submit" value="View Appointments"/>
+            <input class = "customButton" type="submit" value="Accepted"/>
           }
         </div>
       </div>
@@ -47,7 +47,7 @@
           <p class="card-text">View the appointments that are waiting for a professional to accept</p>
           @using (@Html.BeginForm("PendingAppointments", "Customer",new {id = @Model.Username}, FormMethod.Get))
           {
-            <input class = "customButton" type="submit" value="View Appointments"/>
+            <input class = "customButton" type="submit" value="Pending"/>
           }
         </div>
       </div>

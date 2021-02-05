@@ -11,7 +11,7 @@
   <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">View My Profile</h5>
+        <h4 class="card-title">View My Profile</h4>
         <p class="card-text">View and Edit your information</p>
         @using (@Html.BeginForm("ViewProfile", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
@@ -23,56 +23,35 @@
   <div class="col-md-6">
         <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Current Appointments</h5>
-        <p class="card-text">View Current Appointments</p>
+        <h4 class="card-title">Current Appointments</h4>
+        <p class="card-text">View active appointments that have been accepted by you</p>
         @using (@Html.BeginForm("CurrentAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input class = "customButton" type="submit" value="View Appointments"/>
+          <input class = "customButton" type="submit" value="Accepted"/>
         }
       </div>
     </div>
         <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Pending Appointments</h5>
-        <p class="card-text">View Pending Appointments</p>
+        <h4 class="card-title">Pending Appointments</h4>
+        <p class="card-text">View active appointments and decide to decline or accept</p>
         @using (@Html.BeginForm("PendingAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input class = "customButton" type="submit" value="View Appointments"/>
+          <input class = "customButton" type="submit" value="Pending"/>
         }
       </div>
     </div>
         <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Appointment History</h5>
-        <p class="card-text">View Your Old Appointments</p>
+        <h4 class="card-title">Appointment History</h4>
+        <p class="card-text">View the pass appointments that have been completed</p>
         @using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))
         {
-          <input class = "customButton" type="submit" value="View History"/>
+          <input class = "customButton" type="submit" value="History"/>
         }
       </div>
     </div>
   </div>
 </div>
 
-@* 
-@using (@Html.BeginForm("ViewProfile", "Professional",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View My Profile"/>
-} *@
-@* 
-@using (@Html.BeginForm("AppointmentHistory", "Professional",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View History"/>
-
-} *@
-
-@* @using (@Html.BeginForm("CurrentAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View Current Appointments"/>
-} *@
-@* 
-@using (@Html.BeginForm("PendingAppointments", "Professional",new {id = @Model.Username}, FormMethod.Get))
-{
-  <input type="submit" value="View Pending Appointments"/>
-} *@
 
