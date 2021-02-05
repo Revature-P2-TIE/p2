@@ -36,14 +36,16 @@ namespace RevAppoint.Client
                 .AddOktaMvc(new OktaMvcOptions
                 {
                     // Replace these values with your Okta configuration
-                    OktaDomain = Configuration["oktaDomain"],
-                    ClientId = Configuration["oktaClient"],
-                    ClientSecret = Configuration["oktaSecret"]
+                    // OktaDomain = Configuration["oktaDomain"],
+                    // ClientId = Configuration["oktaClient"],
+                    // ClientSecret = Configuration["oktaSecret"]
+                     OktaDomain = "https://dev-08857242.okta.com",
+                        ClientId = "0oa4ymxczHOJFduIw5d6",
+                        ClientSecret = "eqUvBphKKXvsterW4DO4BVA7Hu0tUQm_mDYXAExa"
                 });
             services.AddControllersWithViews();
         }
         
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

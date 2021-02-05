@@ -10,6 +10,19 @@
   @Model.Error
 </h2>
 }
+@using System.Security.Claims;
+//...
+@foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
+{
+    <dt title="@claim.Type">@claim.Type</dt>
+    <dd>@claim.Value</dd>
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@User.Identity
+
+<p>Use this page to detail your site's privacy policy.</p>
 
 <hr />
 <div class="row">
