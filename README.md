@@ -49,5 +49,5 @@ Taylor Stoltzfus, Isaiah Soto, Elmer Tsai, Nicholas Hall
 
 ## License
 
-This project uses the following license: [MIT License](./license.md).
+This project uses the following license: [MIT License](./LICENSE.md).
 
